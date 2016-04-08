@@ -1,0 +1,322 @@
+%Template for Master students of the Holzinger Group, Approved: 02.04.2016 ah
+
+\documentclass[12pt]{book}
+
+\usepackage[          % set page and margin sizes
+  a4paper,
+  top=30mm,
+  bottom=30mm,
+  inner=30mm,
+  outer=30mm,
+  % head=10mm,
+  % foot=10mm,
+  % headsep=15mm,
+  % footskip=15mm,
+%  includeheadfoot,
+]{geometry}
+
+% \usepackage[          % set page and margin sizes
+%   a4paper,
+%   top=10mm,
+%   bottom=10mm,
+%   inner=20mm,
+%   outer=20mm,
+%   bindingoffset=10mm,
+%   head=10mm,
+%   foot=10mm,
+%   headsep=15mm,
+%   footskip=15mm,
+%   includeheadfoot,
+% ]{geometry}
+
+\usepackage{times}                   % use PostScript fonts
+\usepackage{relsize}                 % relative font sizes \smaller \larger
+
+%\usepackage[iso-8859-1]{inputenx}    % so can use Umlaut chars  ä, ü
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage{lmodern}
+
+
+\usepackage{textcomp}                % symbols such as \texttimes and \texteuro
+
+\usepackage{titlesec}								 % chapter and section style
+
+\usepackage{amssymb} %maths
+\usepackage{amsmath} %maths
+
+\usepackage[
+  position=bottom,
+  margin=1cm,
+  font=small,
+  labelfont={bf,sf},
+  format=hang,
+  indention=0mm,
+]{caption,subfig}
+
+\captionsetup[subfigure]{
+  margin=0pt,
+  parskip=0pt,
+  hangindent=0pt,
+  indention=0pt,
+  singlelinecheck=true,
+}
+
+% fancyhdr to make nice headers and footers
+% and deal with long names
+
+\usepackage{fancyhdr}         % headers and footers
+\pagestyle{fancy}             % must call to set defaults before redefining
+
+\renewcommand{\chaptermark}[1]{%
+  \markboth{\thechapter.\ #1}{}
+}
+\renewcommand{\sectionmark}[1]{%
+  \markright{\thesection.\ #1}
+}
+\renewcommand{\headrulewidth}{0mm}
+\renewcommand{\footrulewidth}{0mm}
+\newcommand{\headlook}{\sffamily}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[LO]{
+  \parbox[t]{0.8\textwidth}{\headlook\nouppercase{\rightmark}}
+}
+\fancyhead[RE]{
+  \parbox[t]{0.8\textwidth}{\raggedleft\headlook\nouppercase{\leftmark}}
+}
+
+
+\fancypagestyle{plain}{%   redefine plain style, but does not work
+  \fancyhf{}    % clear all header and footer fields
+  \fancyfoot[C]{\headlook\thepage} % except the center
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+
+\usepackage{tabularx}                 % for better tables
+
+\usepackage{listings}                 % for listings of source code
+
+
+\usepackage[austrian,english]{babel}  % load babel *before* natbib or jurabib
+\addto{\captionsenglish}{%
+	\renewcommand{\bibname}{References}
+	\renewcommand\contentsname{Table of Contents}
+}
+
+\usepackage[round, authoryear]{natbib}
+\bibpunct{(}{)}{;}{a}{,}{,}
+
+\usepackage{url}
+
+\renewcommand{\baselinestretch}{1.50}\normalsize
+
+\usepackage{latexsym}
+
+\usepackage{color}
+\definecolor{darkgreen}{rgb}{0,0.2,0}
+\definecolor{darkblue}{rgb}{0,0,0.2}
+\definecolor{darkred}{rgb}{0.2,0,0}
+\definecolor{lightgrey}{rgb}{0.8,0.8,0.8}
+
+\usepackage{setspace}
+\setstretch{1,4} % CHG was 1,3
+
+\usepackage{ifpdf}
+\usepackage{glossary}
+% add to your build script! makeindex.exe thesis.glo -s thesis.ist -o thesis.gls
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\newcommand{\theHalgorithm}{\arabic{algorithm}} % fix "undefined control sequence" error when using hyperref and referencing an algorithm
+\algsetup{
+  linenosize=\small,
+  linenodelimiter=,
+}
+\usepackage[plainpages=false, pdfpagelabels]{hyperref}
+
+
+%begin{latexonly}
+\ifpdf
+  % pdflatex
+  \usepackage[pdftex]{graphicx}
+  \DeclareGraphicsExtensions{.pdf,.jpg,.png}
+  %\pdfcompresslevel=9
+  \pdfpageheight=297mm
+  \pdfpagewidth=210mm
+  %\usepackage[         % hyperref should be last package loaded
+   % pdftex,
+    %pdftitle={Master's Thesis PDF title},
+    %pdfsubject={Master's Thesis},
+    %pdfauthor={Author Name},
+    %pdfkeywords={Master's Thesis keywords},
+    %bookmarks,
+    %bookmarksnumbered,
+    %linktocpage,
+    %pagebackref,
+    %colorlinks,
+    %linkcolor=darkred,
+    %anchorcolor=red,
+    %citecolor=darkgreen,
+    %urlcolor=darkblue,
+   % pdfview={FitH},
+    %pdfstartview={Fit},
+    %pdfpagemode=UseOutlines,       % open bookmarks in Acrobat
+    %plainpages=false,              % avoids duplicate page number problem
+    %pdfpagelabels,                 % avoids duplicate page number problem
+% ]{hyperref}
+
+ % \renewcommand*{\backref}[1]{}
+ % \renewcommand*{\backrefalt}[4]{%
+ % \ifcase #1 %
+ % (Not cited.)%
+ % \or
+ % (Cited on page~#2.)%
+ % \else
+ % (Cited on pages~#2.)%
+ % \fi
+ % }
+
+%  \renewcommand*{\backrefsep}{, }
+%  \renewcommand*{\backreftwosep}{ and~}
+%  \renewcommand*{\backreflastsep}{ and~}
+
+%\else
+  % latex
+%  \usepackage{graphicx}
+%  \DeclareGraphicsExtensions{.eps}
+%\fi
+%end{latexonly}
+
+
+% \includeonly{intro,biblio}   % selective inclusion
+
+
+
+\newcommand{\halfh}{9.5cm}        % height of figures for 2 per page
+\newcommand{\thirdh}{6cm}         % height of figures for 3 per page
+
+
+\setlength{\parskip}{3pt plus 1pt minus 0pt}  % vert. space before a paragraph
+
+
+% \tolerance is set by LaTeX to 200
+% \sloppy sets \tolerance = 9999
+% which allows LaTeX more tolerance in adding word spacing
+
+% \sloppy
+ %\fussy
+ %\tolerance = 1000
+
+
+\setcounter{tocdepth}{2}        % lowest section level entered in ToC
+\setcounter{secnumdepth}{2}     % lowest section level still numbered
+
+\begin{document}
+
+\titleformat{\chapter}[hang]
+{\LARGE\bfseries}{\thechapter.}{20pt}{\LARGE}
+\titlespacing*{\chapter} {0pt}{50pt}{50pt} % abstand links, oben, unten
+
+\lstset{               % set parameters for listings
+  language=,
+  basicstyle=\small\ttfamily,
+  tabsize=4,
+  % frame=shadowbox,
+  frame=lines,
+  %frame=tb,
+  xleftmargin=15pt,
+  framexleftmargin=20pt,
+  %xrightmargin=2mm,
+  float=tbp,
+  rulesepcolor=\color{lightgrey},
+  numbers=left,
+  numberstyle=\small,
+  numbersep=5pt,
+  breaklines=true,
+  breakautoindent=true,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false,
+  keywordstyle=\bfseries,
+  identifierstyle=,
+  commentstyle=\itshape\color{lightgrey},
+  stringstyle=\itshape,
+  captionpos=b,
+  extendedchars=true,
+  mathescape=false,
+  abovecaptionskip=\abovecaptionskip,
+  belowcaptionskip=\belowcaptionskip,
+  aboveskip=\floatsep,
+}
+\lstloadlanguages{
+ C,
+ C++,
+ XML,
+ HTML,
+}
+
+%------------------------------------------------------
+\frontmatter
+\normalsize
+\pagestyle{empty}            % for title pages
+
+
+\include{thesis-00-title}       % Title Pages, Abstracts, Keywords, Pledge, %Abbreviations
+
+
+%------------------------------------------------------
+
+\tableofcontents
+\newpage
+%------------------------------------------------------
+
+\mainmatter
+
+\pagestyle{headings}         % for main pages
+\pagestyle{fancy}            % for main pages
+\pagenumbering{arabic}       % for main pages
+\setcounter{page}{15} % adjust this number if introduction becomes shorter or longer
+
+
+\include{thesis-01-intro}       % Introduction and Motivation for Research
+\include{thesis-02-relat}       % Theoretical Background and Related Work
+\include{thesis-03-mat}         % Materials and Methods
+\include{thesis-04-result}      % Results
+\include{thesis-05-disc}        % Discussions
+\include{thesis-06-concl}       % Conclusion
+\include{thesis-07-outlook}     % Future Work
+
+\appendix
+% \noappendicestocpagenum
+% \addappheadtotoc
+\include{thesis-08-append}      % Appendix A
+
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+
+% \cleardoublepage
+% \phantomsection
+% \addcontentsline{toc}{chapter}{Glossary}
+% \printglossary
+
+% \cleardoublepage
+% \include{thesis-09-abbrev}      % Abbreviations
+
+\cleardoublepage
+\phantomsection
+\include{thesis-10-biblio}      % Bibliography
+
+
+\end{document}
+

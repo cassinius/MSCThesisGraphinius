@@ -1,0 +1,92 @@
+%%%
+%%% Bibliographieübersetzungen:
+%%%   english
+%%%   german
+%%%   ngerman
+%%%
+\newcommand *\englishbibnames {%
+  \newcommand *\bbland        {and}%
+  \newcommand *\bblapr        {april}%
+  \newcommand *\bblaug        {august}%
+  \newcommand *\bblchap       {chapter}% kandrews
+  \newcommand *\bblchapter    {chapter}%
+  \newcommand *\bbldec        {december}%
+  \newcommand *\bbledition    {Edition}%
+  \newcommand *\bbledn        {Edition}%
+  \newcommand *\bbleditor     {editor}%
+  \newcommand *\bbleditors    {editors}%
+  \newcommand *\bbled         {editor}%  kandrews
+  \newcommand *\bbleds        {editors}%  kandrews
+  \newcommand *\bblet         {et}% kandrews
+  \newcommand *\bbletal       {et al.}% kandrews
+  \newcommand *\bblfeb        {february}%
+  \newcommand *\bblin         {in}%
+  \newcommand *\bbljan        {january}%
+  \newcommand *\bbljul        {july}%
+  \newcommand *\bbljun        {june}%
+  \newcommand *\bblmar        {march}%
+  \newcommand *\bblmay        {may}%
+  \newcommand *\bblmthesis    {Master's Thesis}%  kandrews
+  \newcommand *\bblphdthesis  {PhD Thesis}%   kandrews
+  \newcommand *\bblnov        {november}%
+  \newcommand *\bblno         {\textnumero }%
+  \newcommand *\bblnumber     {number}%
+  \newcommand *\bbloct        {october}%
+  \newcommand *\bblof         {of}%
+  \newcommand *\bblpage       {page}%
+  \newcommand *\bblpages      {pages}%
+  \newcommand *\bblp          {page}%  kandrews
+  \newcommand *\bblpp         {pages}%  kandrews
+  \newcommand *\bblsep        {september}%
+  \newcommand *\bbltechreport {Technical Report}%
+  \newcommand *\bblvol        {volume}% kandrews
+  \newcommand *\bblvolume     {volume}%
+  }%
+\newcommand *\germanbibnames {%
+  \newcommand *\bbland        {und}%
+  \newcommand *\bblapr        {April}%
+  \newcommand *\bblaug        {August}%
+  \newcommand *\bblchap       {Kapitel}% kandrews
+  \newcommand *\bblchapter    {Kapitel}%
+  \newcommand *\bbldec        {Dezember}%
+  \newcommand *\bbledition    {Auflage}%
+  \newcommand *\bbledn        {Auflage}%
+  \newcommand *\bbleditor     {Herausgeber}%
+  \newcommand *\bbleditors    {Herausgeber}%
+  \newcommand *\bbled         {Herausgeber}%  kandrews
+  \newcommand *\bbleds        {Herausgeber}%  kandrews
+  \newcommand *\bblet         {et}% kandrews
+  \newcommand *\bbletal       {et al.}% kandrews
+  \newcommand *\bblfeb        {Februar}%
+  \newcommand *\bblin         {in}%
+  \newcommand *\bbljan        {Januar}%
+  \newcommand *\bbljul        {Juli}%
+  \newcommand *\bbljun        {Juni}%
+  \newcommand *\bblmar        {März}%
+  \newcommand *\bblmay        {Mai}%
+  \newcommand *\bblmthesis    {Diplomarbeit}%  kandrews
+  \newcommand *\bblphdthesis  {Dissertation}%  kandrews
+  \newcommand *\bblnov        {November}%
+  \newcommand *\bblno         {Nr.}%
+  \newcommand *\bblnumber     {Nummer}%
+  \newcommand *\bbloct        {Oktober}%
+  \newcommand *\bblof         {von}%
+  \newcommand *\bblpage       {Seite}%
+  \newcommand *\bblpages      {Seiten}%
+  \newcommand *\bblp          {Seite}%  kandrews
+  \newcommand *\bblpp         {Seiten}%  kandrews
+  \newcommand *\bblsep        {September}%
+  \newcommand *\bbltechreport {Technischer Bericht}%
+  \newcommand *\bblvol        {Band}% kandrews
+  \newcommand *\bblvolume     {Band}%
+  }%
+\let \ngermanbibfixes = \relax
+\iflanguage {english}{%
+  \englishbibnames
+  }{\iflanguage {german}{%
+    \germanbibnames
+    }{\iflanguage {ngerman}{%
+      \germanbibnames
+      \ngermanbibfixes
+      }{%
+      \message {^^JSprache undefiniert in babelbst.tex für Befehl \string#1.^^J}}}}%
