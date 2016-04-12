@@ -3,28 +3,28 @@
 \chapter*{Introduction and Motivation for Research}
 \label{chap:intro}
 
-This is just some input test text to check out the Tex-file and is taken from \cite{Holzinger:2016:iML}:
+This is just some input test text to check out the Tex-file and is taken from \citep{Holzinger:2016:iML}:
 
-Originally the term ``machine learning" was defined as \textit{``... artificial generation of knowledge from experience"}, and the first studies have been performed with games, i.e., with the game of checkers \cite{Samuel:1959:machineLearningCheckers}.
+Originally the term ``machine learning" was defined as \textit{``... artificial generation of knowledge from experience"}, and the first studies have been performed with games, i.e., with the game of checkers \citep{Samuel:1959:machineLearningCheckers}.
 
-Today, machine learning (ML) is the fastest growing technical field, at the intersection of informatics and statistics, tightly connected with data science and knowledge discovery, and health is amongst the greatest challenges \cite{JordanMitchell:2015:MLtrendsScience}, \cite{LeCunBengioHinton:2015:DeepLearningNature}.
+Today, machine learning (ML) is the fastest growing technical field, at the intersection of informatics and statistics, tightly connected with data science and knowledge discovery, and health is amongst the greatest challenges \citep{JordanMitchell:2015:MLtrendsScience}, \citep{LeCunBengioHinton:2015:DeepLearningNature}.
 
-Particularly, probabilistic ML is extremely useful for health informatics, where most problems involve dealing with uncertainty. The theoretical basis for the probabilistic ML was laid by Thomas Bayes (1701--1761),\cite{1763:BayesOriginal}, \cite{Barnard:1958:OnBayes}. Probabilistic inference vastly influenced artificial intelligence and statistical learning and the inverse probability allows to infer unknowns, learn from data and make predictions \cite{HastieTibshiraniFriedman:2009:ElementsOfstatisticalLearning},\cite{Murphy:2012:MLbook}.
+Particularly, probabilistic ML is extremely useful for health informatics, where most problems involve dealing with uncertainty. The theoretical basis for the probabilistic ML was laid by Thomas Bayes (1701--1761),\citep{1763:BayesOriginal}, \citep{Barnard:1958:OnBayes}. Probabilistic inference vastly influenced artificial intelligence and statistical learning and the inverse probability allows to infer unknowns, learn from data and make predictions \citep{HastieTibshiraniFriedman:2009:ElementsOfstatisticalLearning},\citep{Murphy:2012:MLbook}.
 
-The application of ML methods in biomedicine and health can, for instance, lead to more evidence-based decision-making and helping to go towards \textit{personalized medicine }\cite{Holzinger:2014:trends}.
+The application of ML methods in biomedicine and health can, for instance, lead to more evidence-based decision-making and helping to go towards \textit{personalized medicine }\citep{Holzinger:2014:trends}.
 
-According to Tom Mitchell \cite{Mitchell:1997:MachineLearningBook}, a scientific field is best defined by the questions it studies: ML seeks to answer the question \textit{``How can we build algorithms that automatically improve through experience, and what are the fundamental laws that govern all learning processes?"}
+According to Tom Mitchell \citep{Mitchell:1997:MachineLearningBook}, a scientific field is best defined by the questions it studies: ML seeks to answer the question \textit{``How can we build algorithms that automatically improve through experience, and what are the fundamental laws that govern all learning processes?"}
 
 %The study of machine learning is important both for addressing these fundamental scientific and engineering questions and for the highly practical computer software it has produced and fielded across many applications
 
 ML is very broad and deals with the problem of extracting features from data to solve predictive tasks, including decision support, forecasting, ranking, classifying (e.g., in cancer diagnosis), detecting anomalies (e.g., virus mutations) or sentiment analysis %\citet{PetzEtAl:2015:Sentiment}. 
-The challenge is to discover relevant \emph{structural} patterns and/or \emph{temporal} patterns (``knowledge") in such data, which are often hidden and not accessible to the human expert. The problem is that a majority of the data sets in the biomedical domain are weakly-structured and non-standardized \cite{HolzingerEtAl:2014:KDDBio}, and most data is in dimensions much higher than $3$, and despite human experts are excellent in pattern recognition for dimensions $\leq 3$, such data make manual analysis often impossible.
+The challenge is to discover relevant \emph{structural} patterns and/or \emph{temporal} patterns (``knowledge") in such data, which are often hidden and not accessible to the human expert. The problem is that a majority of the data sets in the biomedical domain are weakly-structured and non-standardized \citep{HolzingerEtAl:2014:KDDBio}, and most data is in dimensions much higher than $3$, and despite human experts are excellent in pattern recognition for dimensions $\leq 3$, such data make manual analysis often impossible.
 
 Most colleagues from the ML community are concentrating on \textit{automatic} machine learning (aML), with the grand goal of bringing humans-out-of-the-loop, and a best practice real-world example can be found in autonomous vehicles.
 
-However, biomedical data sets are full of uncertainty, incompleteness etc. \cite{Holzinger:2014:SpringerTextbook}, they can contain missing data, noisy data, dirty data, unwanted data, and most of all, some problems in the medical domain are hard, which makes the application of fully automated approaches difficult or even impossible, or at least the quality of results from automatic approaches might be questionable. Moreover, the complexity of sophisticated machine learning algorithms has detained non-experts from the application of such solutions.
+However, biomedical data sets are full of uncertainty, incompleteness etc. \citep{Holzinger:2014:SpringerTextbook}, they can contain missing data, noisy data, dirty data, unwanted data, and most of all, some problems in the medical domain are hard, which makes the application of fully automated approaches difficult or even impossible, or at least the quality of results from automatic approaches might be questionable. Moreover, the complexity of sophisticated machine learning algorithms has detained non-experts from the application of such solutions.
 Consequently, the integration of the knowledge of a domain expert can sometimes be indispensable and the interaction of a domain expert with the data would greatly enhance the knowledge discovery process pipeline.
-Hence, \textit{interactive} machine learning (iML) puts the ``human-in-the-loop" to enable what neither a human nor a computer could do on their own. This idea is supported by a synergistic combination of methodologies of two areas that offer ideal conditions towards unraveling such problems: Human-Computer Interaction (HCI) and Knowledge Discovery/Data Mining (KDD), with the goal of supporting human intelligence with machine intelligence to discover novel, previously unknown insights into data (HCI-KDD approach \cite{Holzinger:2013:HCI-KDD}).
+Hence, \textit{interactive} machine learning (iML) puts the ``human-in-the-loop" to enable what neither a human nor a computer could do on their own. This idea is supported by a synergistic combination of methodologies of two areas that offer ideal conditions towards unraveling such problems: Human-Computer Interaction (HCI) and Knowledge Discovery/Data Mining (KDD), with the goal of supporting human intelligence with machine intelligence to discover novel, previously unknown insights into data (HCI-KDD approach \citep{Holzinger:2013:HCI-KDD}).
 
 \textbf{We define iML-approaches as algorithms that can interact with \textit{both computational agents and human agents} *) and can optimize their learning behaviour through these interactions.}
 
@@ -37,8 +37,5 @@ The first question we have to answer is: \textit{``What is the difference betwee
 Generally, ML can be categorized into two large subfields: unsupervised learning and supervised learning. The goal in supervised learning (aka predictive learning) is to learn a mapping (prediction) from input data $\textbf{x}$ to output data $y$, given a (human) labeled set of input-output pairs $\mathcal{D}=\{(\textbf{x}_{i},y_i)\}$, where $\mathcal{D}$ is the training set containing a number of training samples, e.g. $\textbf{x}_{i}$ can be a \textit{D}-dimensional vector, called \textit{feature vector}, but it can also be a complex data object (image, graph, time series, etc.). Basically, in supervised learning the value of the outcome data is based on the number of input data.
 In unsupervised learning (aka descriptive learning), there is no outcome data, and the goal is to describe the associations and patterns among a set of input data, i.e. we have only given inputs $\mathcal{D}=\{\textbf{x}_{i}\}$, and the goal is to discover patterns (aka knowledge) in the data. This is a much more difficult problem.\\
 
-
-
-V
 
 

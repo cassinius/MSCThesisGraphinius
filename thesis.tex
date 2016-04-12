@@ -34,7 +34,9 @@
 
 %\usepackage[iso-8859-1]{inputenx}    % so can use Umlaut chars  ä, ü
 \usepackage[T1]{fontenc}
-\usepackage[utf8x]{inputenc}
+
+% UTF8 instead of UTF8x
+\usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 
 
@@ -106,10 +108,22 @@
 	\renewcommand\contentsname{Table of Contents}
 }
 
-\usepackage[round, authoryear]{natbib}
-\bibpunct{(}{)}{;}{a}{,}{,}
+%\usepackage[round, authoryear]{natbib}
+%\bibpunct{(}{)}{;}{a}{,}{,}
 
+%% BIBLIOGRAPH RELEVANT PACKAGES
+\usepackage[style=authoryear,backend=bibtex,natbib=true,dashed=false]{biblatex}
+\usepackage[plainpages=false, pdfpagelabels]{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+	colorlinks,
+	linkcolor={blue!50!black},
+	citecolor={blue!50!black},
+	urlcolor={blue!80!black}
+}
 \usepackage{url}
+\usepackage{doi}
+\addbibresource{thesis-references.bib}
 
 \renewcommand{\baselinestretch}{1.50}\normalsize
 
@@ -130,14 +144,11 @@
 
 \usepackage{algorithm}
 \usepackage{algorithmic}
-\newcommand{\theHalgorithm}{\arabic{algorithm}} % fix "undefined control sequence" error when using hyperref and referencing an algorithm
+% \newcommand{\theHalgorithm}{\arabic{algorithm}} % fix "undefined control sequence" error when using hyperref and referencing an algorithm
 \algsetup{
   linenosize=\small,
   linenodelimiter=,
 }
-
-\usepackage[plainpages=false, pdfpagelabels, hidelinks]{hyperref}
-\usepackage{doi}
 
 
 %begin{latexonly}
