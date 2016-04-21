@@ -1,0 +1,105 @@
+\chapter{GRAPHINIUS as a platform}
+\label{ch:graphinius_platform}
+
+
+\section{General Properties}
+\label{sect:general_properties}
+	
+	\subsection{Automatic real-time visualization (switchable)}
+	\label{ssect:realtime_vis}
+	
+	\subsection{Online documentation}
+	\label{ssect:online_doc}
+	
+	\subsection{Example graph datastructures}
+	\label{ssect:pre_settings}
+	
+	\subsection{User profiles}
+	\label{ssect:user_profiles}
+	
+	\subsection{Save and fork experiments}
+	\label{ssect:save_fork}
+	
+	\subsection{Distributable via URL (like e.g. Codepen)}
+	\label{ssect:distribute_url}
+	
+	\subsection{Can write own algorithm and use on given graphs}
+	\label{ssect:define_algos}
+
+
+
+\section{Graph Properties}
+\label{sect:graph_properties}
+
+	\subsection{Mixed mode graph}
+	\label{ssect:mixedmode}
+	A mixed mode graph - at least in Gephi vocabulary - is a graph that may contain directed as well as undirected edges at the same time. While many algorithms are defined on just undirected (e.g. Minimum spanning tree) or directed (e.g. percolation) edges exclusively, for many real world applications it is required to consider a combination of both - imagine traffic simulations with one-way streets or social networks in which people can be friends (undirected) and / or follow each other (directed). As Graphinius should be able to cover such applications, its core needs to be designed as a mixed-mode graph; the problem with this is that many algorithms have no standard implementation for a mix of both edge types, and so here and there it was necessary to come up with a logical and pragmatic solution, even if it could not be verified by any textbook.
+	
+	\subsection{Node and edge types}
+	\label{ssect:node_types}	
+	A mixed-mode graph alone however, is not enough for more complex scenarios, even in every day's situations. Assuming a social network again, we would first think of humans as participating entities. Depending on the particular use case of the network however, other nodes might be resources such as books (author network), movies (Netflix), or any type of commodity (online shopping). Moreover, edges in such a network cannot only differ in mode of direction, but might represent a specific type as well (following someone vs. movie recommendation). From this emerges the need for graph filtering - or graph views - which expose only a specified subgraph to an executing algorithm, suitable to the particular situation. To stay with our example, if we need to find all users within three hops of friendship connections, we do not want to traverse all the edges representing recommendations (or messages, as there might be orders of magnitudes more of those present). In this case, we would execute a Breath-first-search against a view of the graph, which would present the BFS's logic with only the connections it is required to 'see'.
+	
+	% TODO INSERT GRAPHIC
+	
+	\subsection{Object oriented}
+	\label{ssect:oo}
+	One design decision in writing any new (graph) library - as far as the author can judge from his personal research - lies in speed and memory vs usability. This concerns not so much the handling of nodes and edges themselves (many libraries have very good wrapper functions for dealing with basic primitives), but requirements like additional payload - e.g. the k-gram vector of a node representing a text document - or node \& edge types themselves. In order to speed up execution of graph algorithms, advanced libraries use specialized data types like sparse matrices or fixed-length arrays; this on the other hand forces a programmer to hold additional data structures at hand for whenever more complex computations are needed. A good example for this would be computing the 'distance' of two nodes when defined not as the length of the shortest path between them, but as the cosine distance between their feature vectors. \\
+	
+	Taking into account the special language properties of Javascript, with its great emphasis on first-order functions and closures which makes for a natural callback-driven algorithmic approach (see fig. [insert figure]), the author believes that an object oriented approach is the suitable one for Graphinius, which is backed by 3 different properties of the language:
+	
+	\begin{itemize}
+		\item Despite not being 'traditionally' object oriented like Java or C++ for its absence of constructs like classes etc., Javascript is firmly OO - in fact, everything except primitives is always an object, including and especially functions.
+		\item Accessing objects instead of flat memory should not incur too much runtime overhead anymore, since modern JSVMs have abandoned the flat model in favor of an object memory model themselves.
+		\item As Graphinius is intended to be part of a learning, teaching and research platform, and not designed to handle large graphs of millions of nodes and upwards, the OO approach seems a natural fit since it allows implementing algorithms in a very intuitive way [comparison].
+	\end{itemize}
+
+
+\section{Online Editor}
+\label{sect:online_editor}
+
+	\subsection{Build \& edit}
+	\label{ssect: build_edit}
+	
+	\subsection{fork \& extend}
+	\label{ssect: fork_extend}
+	
+	\subsection{publish via simple URL}
+	\label{ssect: publish_url}
+
+
+
+\section{Real world suitability}
+\label{sect:realworld_suitability}
+
+	\subsection{Collaborative platform (research teams...)}
+	\label{ssect:collaborative_platform}
+
+	\subsection{Reproducibility}
+	\label{ssect:reproducibility}
+
+	\subsection{Corroborate research results}
+	\label{ssect: corroborate_results}
+		
+	\subsection{Prototyping}
+	\label{ssect: prototyping}
+	
+	\subsection{Build trust}
+	\label{ssect: build_trust}
+
+
+
+\section{Algorithm Marketplace}
+\label{sect:algo_marketplace}
+
+\subsection{extendable algorithm database}
+\label{ssect:algo_db}
+
+\subsection{personal algorithms}
+\label{ssect:algo_personal}
+
+\subsection{publishable}
+\label{ssect:publishable}
+
+\subsection{community database} Later...
+\label{ssect:community_db}
+	

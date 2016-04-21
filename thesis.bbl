@@ -16,596 +16,278 @@
   {}
 \endgroup
 
-\entry{Barnard:1958:OnBayes}{article}{}
-  \name{author}{2}{}{%
+\entry{StanfordNLP}{online}{}
+  \name{author}{1}{}{%
     {{}%
-     {Barnard}{B.}%
-     {George~A}{G.~A.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Bayes}{B.}%
-     {Thomas}{T.}%
+     {Group}{G.}%
+     {Stanford~NLP}{S.~N.}%
      {}{}%
      {}{}}%
   }
-  \strng{namehash}{BGABT1}
-  \strng{fullhash}{BGABT1}
-  \field{labelyear}{1958}
-  \field{sortinit}{B}
-  \verb{doi}
-  \verb 10.2307/2333180
-  \endverb
-  \field{number}{3/4}
-  \field{pages}{293\bibrangedash 315}
-  \field{title}{Studies in the history of probability and statistics: IX.
-  Thomas Bayes's essay towards solving a problem in the doctrine of chances}
+  \list{organization}{1}{%
+    {Stanford University}%
+  }
+  \strng{namehash}{GSN1}
+  \strng{fullhash}{GSN1}
+  \field{sortinit}{G}
+  \field{title}{The Stanford Natural Language Processing Group}
   \verb{url}
-  \verb http://www.jstor.org/stable/2333180
+  \verb http://nlp.stanford.edu/
   \endverb
-  \field{volume}{45}
-  \field{journaltitle}{Biometrika}
-  \field{year}{1958}
 \endentry
 
-\entry{1763:BayesOriginal}{article}{}
-  \name{author}{1}{}{%
-    {{}%
-     {Bayes}{B.}%
-     {Thomas}{T.}%
-     {}{}%
-     {}{}}%
-  }
-  \strng{namehash}{BT1}
-  \strng{fullhash}{BT1}
-  \field{labelyear}{1763}
-  \field{sortinit}{B}
-  \field{pages}{370\bibrangedash 418}
-  \field{title}{An Essay towards solving a Problem in the Doctrine of Chances
-  (Posthumous communicated by Richard Price)}
-  \field{volume}{53}
-  \field{journaltitle}{Philosophical Transactions}
-  \field{year}{1763}
-\endentry
-
-\entry{HastieTibshiraniFriedman:2009:ElementsOfstatisticalLearning}{book}{}
+\entry{GraphExtractPaper}{article}{}
   \name{author}{3}{}{%
-    {{}%
-     {Hastie}{H.}%
-     {Trevor}{T.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Tibshirani}{T.}%
-     {Robert}{R.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Friedman}{F.}%
-     {Jerome}{J.}%
-     {}{}%
-     {}{}}%
-  }
-  \list{publisher}{1}{%
-    {Springer}%
-  }
-  \keyw{Machine learning}
-  \strng{namehash}{HTTRFJ1}
-  \strng{fullhash}{HTTRFJ1}
-  \field{labelyear}{2009}
-  \field{sortinit}{H}
-  \field{abstract}{%
-  The field of Statistics is constantly challenged by the problems that science
-  and industry brings to its door. In the early days, these problems often came
-  from agricultural and industrial experiments and were relatively small in
-  scope. With the advent of computers and the information age, statistical
-  problems have exploded both in size and complexity. Challenges in the areas
-  of data storage, organization and searching have led to the new field of
-  “data mining”; statistical and computational problems in biology and
-  medicine have created “bioinformatics.” Vast amounts of data are being
-  generated in many fields, and the statistician’s job is to make sense of it
-  all: to extract important patterns and trends, and understand “what the
-  data says.” We call this learning from data. The challenges in learning
-  from data have led to a revolution in the statistical sciences. Since
-  computation plays such a key role, it is not surprising that much of this new
-  development has been done by researchers in other fields such as computer
-  science and engineering. The learning problems that we consider can be
-  roughly categorized as either supervised or unsupervised. In supervised
-  learning, the goal is to predict the value of an outcome measure based on a
-  number of input measures; in unsupervised learning, there is no outcome
-  measure, and the goal is to describe the associations and patterns among a
-  set of input measures.%
-  }
-  \verb{doi}
-  \verb 10.1007/978-0-387-84858-7
-  \endverb
-  \field{title}{The Elements of Statistical Learning: Data Mining, Inference,
-  and Prediction. Second Edition}
-  \list{location}{1}{%
-    {New York}%
-  }
-  \field{year}{2009}
-\endentry
-
-\entry{Holzinger:2013:HCI-KDD}{incollection}{}
-  \name{author}{1}{}{%
     {{}%
      {Holzinger}{H.}%
      {Andreas}{A.}%
      {}{}%
      {}{}}%
-  }
-  \name{editor}{5}{}{%
     {{}%
-     {Cuzzocrea}{C.}%
-     {Alfredo}{A.}%
+     {Malle}{M.}%
+     {Bernd}{B.}%
      {}{}%
      {}{}}%
     {{}%
-     {Kittl}{K.}%
-     {Christian}{C.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Simos}{S.}%
-     {Dimitris~E.}{D.~E.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Weippl}{W.}%
-     {Edgar}{E.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Xu}{X.}%
-     {Lida}{L.}%
+     {Giuliani}{G.}%
+     {Nicola}{N.}%
      {}{}%
      {}{}}%
   }
-  \list{publisher}{1}{%
-    {Springer}%
-  }
-  \keyw{Human-Computer Interaction (HCI), Knowledge Discovery in Data (KDD),
-  HCI-KDD, E-Science, Interdisciplinary, Intersection science}
-  \strng{namehash}{HA1}
-  \strng{fullhash}{HA1}
-  \field{labelyear}{2013}
+  \keyw{data mining,data preprocessing,graph extraction,graph- based
+  algorithms,graphs,image analysis,image content analytics,image
+  segmentation,knowledge discovery}
+  \strng{namehash}{HAMBGN1}
+  \strng{fullhash}{HAMBGN1}
+  \field{labelyear}{2014}
   \field{sortinit}{H}
-  \field{abstract}{%
-  A major challenge in our networked world is the increasing amount of data,
-  which require efficient and user-friendly solutions. A timely example is the
-  biomedical domain: the trend towards personalized medicine has resulted in a
-  sheer mass of the generated (-omics) data. In the life sciences domain, most
-  data models are characterized by complexity, which makes manual analysis very
-  time-consuming and frequently practically impossible. Computational methods
-  may help; however, we must acknowledge that the problem-solving knowledge is
-  located in the human mind and – not in machines. A strategic aim to find
-  solutions for data intensive problems could lay in the combination of two
-  areas, which bring ideal pre-conditions: Human–Computer Interaction (HCI)
-  and Knowledge Discovery (KDD). HCI deals with questions of human perception,
-  cognition, intelligence, decision-making and interactive techniques of
-  visualization, so it centers mainly on supervised methods. KDD deals mainly
-  with questions of machine intelligence and data mining, in particular with
-  the development of scalable algorithms for finding previously unknown
-  relationships in data, thus centers on automatic computational methods. A
-  proverb attributed perhaps incorrectly to Albert Einstein illustrates this
-  perfectly: “Computers are incredibly fast, accurate, but stupid. Humans are
-  incredibly slow, inaccurate, but brilliant. Together they may be powerful
-  beyond imagination”. Consequently, a novel approach is to combine HCI & KDD
-  in order to enhance human intelligence by computational intelligence.%
-  }
-  \field{booktitle}{Multidisciplinary Research and Practice for Information
-  Systems, Springer Lecture Notes in Computer Science LNCS 8127}
-  \field{pages}{319\bibrangedash 328}
-  \field{title}{Human-–Computer Interaction and Knowledge Discovery
-  ({HCI-KDD}): What is the benefit of bringing those two fields to work
-  together?}
-  \verb{url}
-  \verb https://online.tugraz.at/tug_online/voe_main2.getVollText?pDocumentNr=3
-  \verb 82991&pCurrPk=72064
+  \verb{doi}
+  \verb 10.1007/978-3-319-09891-3\_50
   \endverb
-  \list{location}{1}{%
-    {Heidelberg, Berlin, New York}%
+  \field{isbn}{9783319098906}
+  \field{issn}{16113349}
+  \field{pages}{552\bibrangedash 563}
+  \field{title}{{On graph extraction from image data}}
+  \field{volume}{8609 LNAI}
+  \verb{file}
+  \verb :home/bernd/Dropbox/0.topde/FWF.2014/1.PAPERS.2014/2.WIC.2014/1.PAPER/1
+  \verb v2\_GraphExtractFromImages\_FINAL\_20140525ah.pdf:pdf
+  \endverb
+  \field{journaltitle}{Lecture Notes in Computer Science (including subseries
+  Lecture Notes in Artificial Intelligence and Lecture Notes in
+  Bioinformatics)}
+  \field{year}{2014}
+\endentry
+
+\entry{Make2013}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Jones}{J.}%
+     {Zachary~M.}{Z.~M.}%
+     {}{}%
+     {}{}}%
   }
+  \list{organization}{1}{%
+    {Pennsylvania State University}%
+  }
+  \strng{namehash}{JZM1}
+  \strng{fullhash}{JZM1}
+  \field{labelyear}{2013}
+  \field{sortinit}{J}
+  \field{title}{GNU Make for Reproducible Data Analysis}
+  \verb{url}
+  \verb http://zmjones.com/make/
+  \endverb
   \field{year}{2013}
 \endentry
 
-\entry{Holzinger:2014:SpringerTextbook}{book}{}
+\entry{DataAnalysisDSWorkflow}{online}{}
   \name{author}{1}{}{%
     {{}%
-     {Holzinger}{H.}%
-     {Andreas}{A.}%
+     {Lorica}{L.}%
+     {Ben}{B.}%
      {}{}%
      {}{}}%
   }
-  \list{publisher}{1}{%
-    {Springer}%
+  \list{organization}{1}{%
+    {O’Reilly Media, Inc.}%
   }
-  \strng{namehash}{HA1}
-  \strng{fullhash}{HA1}
-  \field{labelyear}{2014}
+  \strng{namehash}{LB1}
+  \strng{fullhash}{LB1}
+  \field{labelyear}{2013}
   \field{extrayear}{1}
-  \field{sortinit}{H}
-  \field{abstract}{%
-  This book provides a broad overview of the topic Bioinformatics (medical
-  informatics + biological information) with a focus on data, information and
-  knowledge. From data acquisition and storage to visualization, privacy,
-  regulatory, and other practical and theoretical topics, the author touches on
-  several fundamental aspects of the innovative interface between the medical
-  and computational domains that form biomedical informatics. Each chapter
-  starts by providing a useful inventory of definitions and commonly used
-  acronyms for each topic, and throughout the text, the reader finds several
-  real-world examples, methodologies, and ideas that complement the technical
-  and theoretical background. Also at the beginning of each chapter a new
-  section called key problems, has been added, where the author discusses
-  possible traps and unsolvable or major problems. This new edition includes
-  new sections at the end of each chapter, called future outlook and research
-  avenues, providing pointers to future challenges.%
-  }
-  \verb{doi}
-  \verb 10.1007/978-3-319-04528-3
-  \endverb
-  \field{title}{Biomedical Informatics: Discovering Knowledge in Big Data}
+  \field{sortinit}{L}
+  \field{title}{Data Analysis: Just one component of the Data Science workflow}
   \verb{url}
-  \verb http://dx.doi.org/10.1007/978-3-319-04528-3
+  \verb http://radar.oreilly.com/2013/09/data-analysis-just-one-component-of-th
+  \verb e-data-science-workflow.html
   \endverb
-  \list{location}{1}{%
-    {New York}%
-  }
-  \field{year}{2014}
+  \field{year}{2013}
 \endentry
 
-\entry{Holzinger:2014:trends}{article}{}
+\entry{AnalOneComponent2013}{online}{}
   \name{author}{1}{}{%
     {{}%
-     {Holzinger}{H.}%
-     {Andreas}{A.}%
+     {Lorica}{L.}%
+     {Ben}{B.}%
      {}{}%
      {}{}}%
   }
-  \strng{namehash}{HA1}
-  \strng{fullhash}{HA1}
-  \field{labelyear}{2014}
+  \list{organization}{1}{%
+    {O’Reilly Media, Inc.}%
+  }
+  \strng{namehash}{LB1}
+  \strng{fullhash}{LB1}
+  \field{labelyear}{2013}
   \field{extrayear}{2}
-  \field{sortinit}{H}
-  \field{abstract}{%
-  A grand goal of future medicine is in modelling the complexity of patients to
-  tailor medical decisions, health practices and therapies to the individual
-  patient. This trend towards personalized medicine produces unprecedented
-  amounts of data, and even though the fact that human experts are excellent at
-  pattern recognition in dimensions of smaller than three, the problem is that
-  most biomedical data is in dimensions much higher than three, making manual
-  analysis difficult and often impossible. Experts in daily medical routine are
-  decreasingly capable of dealing with the complexity of such data. Moreover,
-  they are not interested the data, they need knowledge and insight in order to
-  support their work. Consequently, a big trend in computer science is to
-  provide efficient, useable and useful computational methods, algorithms and
-  tools to discover knowledge and to interactively gain insight into
-  high-dimensional data. A synergistic combination of methodologies of two
-  areas may be of great help here: Human–Computer Interaction (HCI) and
-  Knowledge Discovery/Data Mining (KDD), with the goal of supporting human
-  intelligence with machine learning. A trend in both disciplines is the
-  acquisition and adaptation of representations that support efficient
-  learning. Mapping higher dimensional data into lower dimensions is a major
-  task in HCI, and a concerted effort of computational methods including recent
-  advances from graphtheory and algebraic topology may contribute to finding
-  solutions. Moreover, much biomedical data is sparse, noisy and timedependent,
-  hence entropy is also amongst promising topics. This paper provides a rough
-  overview of the HCI-KDD approach and focuses on three future trends:
-  graph-based mining, topological data mining and entropy-based data
-  mining.[interactive machine learning]%
-  }
-  \field{number}{1}
-  \field{pages}{6\bibrangedash 14}
-  \field{title}{Trends in Interactive Knowledge Discovery for Personalized
-  Medicine: Cognitive Science meets Machine Learning}
+  \field{sortinit}{L}
+  \field{title}{Data Analysis: Just one component of the Data Science workflow}
   \verb{url}
-  \verb http://www.comp.hkbu.edu.hk/~cib/2014/Dec/article2/iib_vol15no1_article
-  \verb 2.pdf
+  \verb http://radar.oreilly.com/2013/09/data-analysis-just-one-component-of-th
+  \verb e-data-science-workflow.html
   \endverb
-  \field{volume}{15}
-  \field{journaltitle}{IEEE Intelligent Informatics Bulletin}
-  \field{year}{2014}
+  \field{year}{2013}
 \endentry
 
-\entry{Holzinger:2016:iML}{article}{}
+\entry{DataScienceTools2013}{online}{}
   \name{author}{1}{}{%
     {{}%
-     {Holzinger}{H.}%
-     {Andreas}{A.}%
+     {Lorica}{L.}%
+     {Ben}{B.}%
      {}{}%
      {}{}}%
   }
-  \keyw{interactive Machine learning, health informatics}
-  \strng{namehash}{HA1}
-  \strng{fullhash}{HA1}
-  \field{labelyear}{2016}
-  \field{sortinit}{H}
-  \field{abstract}{%
-  Machine learning (ML) is the fastest growing field in computer science, and
-  health informatics is amongst the greatest challenges. The goal of ML is to
-  develop algorithms which can learn and improve over time and can be used for
-  predictions. Most ML researchers concentrate on automatic Machine Learning
-  (aML), where great advances have been made, for example, in speech
-  recognition, recommender systems, or autonomous vehicles. Automatic
-  approaches greatly benefit from big data with many training sets. However, in
-  the health domain, sometimes we are confronted with a small number of data
-  sets or rare events, where aML-approaches suffer of insufficient training
-  samples. Here interactive Machine Learning (iML) may be of help, having its
-  roots in Reinforcement Learning (RL), Preference Learning (PL) and Active
-  Learning (AL). The term iML is not yet well used, so we define it as
-  algorithms that can interact with agents and can optimize their learning
-  behaviour through these interactions, where the agents can also be human.
-  This human-in-the-loop can be beneficial in solving computationally hard
-  problems, e.g., subspace clustering, protein folding, or k-anonymization of
-  health data, where human expertise can help to reduce an exponential search
-  space through heuristic selection of samples. Therefore, what would otherwise
-  be an NP-hard problem, reduces greatly in complexity through the input and
-  the assistance of a human agent involved in the learning phase.%
+  \list{organization}{1}{%
+    {O’Reilly Media, Inc.}%
   }
-  \verb{doi}
-  \verb 10.1007/s40708-016-0042-6
-  \endverb
-  \field{pages}{1\bibrangedash 13}
-  \field{title}{Interactive Machine Learning for Health Informatics: When do we
-  need the human-in-the-loop?}
+  \strng{namehash}{LB1}
+  \strng{fullhash}{LB1}
+  \field{labelyear}{2013}
+  \field{extrayear}{3}
+  \field{sortinit}{L}
+  \field{title}{Data Science Tools: Fast, easy to use, and scalable}
   \verb{url}
-  \verb http://dx.doi.org/10.1007/s40708-016-0042-6
+  \verb http://radar.oreilly.com/2013/03/fast-easy-to-use-scalable-data-science
+  \verb -tools.html
   \endverb
-  \field{volume}{3}
-  \field{journaltitle}{Springer Brain Informatics (BRIN)}
-  \field{year}{2016}
+  \field{year}{2013}
 \endentry
 
-\entry{HolzingerEtAl:2014:KDDBio}{article}{}
-  \name{author}{3}{}{%
+\entry{AnalLifecycle}{online}{}
+  \name{author}{1}{}{%
     {{}%
-     {Holzinger}{H.}%
-     {Andreas}{A.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Dehmer}{D.}%
-     {Matthias}{M.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Jurisica}{J.}%
-     {Igor}{I.}%
+     {Lorica}{L.}%
+     {Ben}{B.}%
      {}{}%
      {}{}}%
   }
-  \keyw{Knowledge Discovery, Interactive Data Mining, Bioinformatics,
-  Biomedical Informatics, Data intensive Science}
-  \strng{namehash}{HADMJI1}
-  \strng{fullhash}{HADMJI1}
-  \field{labelyear}{2014}
-  \field{sortinit}{H}
-  \field{abstract}{%
-  The life sciences, biomedicine and health care are increasingly turning into
-  a data intensive science. Particularly in bioinformatics and computational
-  biology we face not only increased volume and a diversity of highly complex,
-  multi-dimensional and often weakly-structured and noisy data, but also the
-  growing need for integrative analysis and modeling. Due to the increasing
-  trend towards personalized and precision medicine (P4 medicine: Predictive,
-  Preventive, Participatory, Personalized), biomedical data today results from
-  various sources in different structural dimensions, ranging from the
-  microscopic world, and in particular from the omics world (e.g., from
-  genomics, proteomics, metabolomics, lipidomics, transcriptomics, epigenetics,
-  microbiomics, fluxomics, phenomics, etc.) to the macroscopic world (e.g.,
-  disease spreading data of populations in public health informatics). The
-  challenge is not only to extract meaningful information from this data, but
-  to gain knowledge, to discover previously unknown insight, look for patterns,
-  and to make sense of the data.%
+  \list{organization}{1}{%
+    {O’Reilly Media, Inc.}%
   }
-  \verb{doi}
-  \verb doi:10.1186/1471-2105-15-S6-I1
-  \endverb
-  \field{number}{S6}
-  \field{pages}{I1}
-  \field{title}{Knowledge Discovery and interactive Data Mining in
-  Bioinformatics - State-of-the-Art, future challenges and research directions}
+  \strng{namehash}{LB1}
+  \strng{fullhash}{LB1}
+  \field{labelyear}{2013}
+  \field{extrayear}{4}
+  \field{sortinit}{L}
+  \field{title}{Data scientists tackle the analytic lifecycle}
   \verb{url}
-  \verb http://www.biomedcentral.com/1471-2105/15/S6/I1
+  \verb http://radar.oreilly.com/2013/07/data-scientists-and-the-analytic-lifec
+  \verb ycle.html
   \endverb
-  \field{volume}{15}
-  \field{journaltitle}{BMC Bioinformatics}
-  \field{year}{2014}
+  \field{year}{2013}
 \endentry
 
-\entry{JordanMitchell:2015:MLtrendsScience}{article}{}
-  \name{author}{2}{}{%
+\entry{LargeScaleMLPipelines}{online}{}
+  \name{author}{1}{}{%
     {{}%
-     {Jordan}{J.}%
-     {M.~I.}{M.~I.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Mitchell}{M.}%
-     {T.~M.}{T.~M.}%
+     {Lorica}{L.}%
+     {Ben}{B.}%
      {}{}%
      {}{}}%
   }
-  \strng{namehash}{JMIMTM1}
-  \strng{fullhash}{JMIMTM1}
-  \field{labelyear}{2015}
-  \field{sortinit}{J}
-  \field{abstract}{%
-  Machine learning addresses the question of how to build computers that
-  improve automatically through experience. It is one of today’s most rapidly
-  growing technical fields, lying at the intersection of computer science and
-  statistics, and at the core of artificial intelligence and data science.
-  Recent progress in machine learning has been driven both by the development
-  of new learning algorithms and theory and by the ongoing explosion in the
-  availability of online data and low-cost computation. The adoption of
-  data-intensive machine-learning methods can be found throughout science,
-  technology and commerce, leading to more evidence-based decision-making
-  across many walks of life, including health care, manufacturing, education,
-  financial modeling, policing, and marketing.%
+  \list{organization}{1}{%
+    {O’Reilly Media, Inc.}%
   }
-  \verb{doi}
-  \verb 10.1126/science.aaa8415
-  \endverb
-  \field{number}{6245}
-  \field{pages}{255\bibrangedash 260}
-  \field{title}{Machine learning: Trends, perspectives, and prospects}
-  \verb{url}
-  \verb http://www.sciencemag.org/content/349/6245/255.abstract
-  \endverb
-  \field{volume}{349}
-  \field{journaltitle}{Science}
-  \field{year}{2015}
-\endentry
-
-\entry{LeCunBengioHinton:2015:DeepLearningNature}{article}{}
-  \name{author}{3}{}{%
-    {{}%
-     {LeCun}{L.}%
-     {Yann}{Y.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Bengio}{B.}%
-     {Yoshua}{Y.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Hinton}{H.}%
-     {Geoffrey}{G.}%
-     {}{}%
-     {}{}}%
-  }
-  \strng{namehash}{LYBYHG1}
-  \strng{fullhash}{LYBYHG1}
+  \strng{namehash}{LB1}
+  \strng{fullhash}{LB1}
   \field{labelyear}{2015}
   \field{sortinit}{L}
-  \field{abstract}{%
-  Deep learning allows computational models that are composed of multiple
-  processing layers to learn representations of data with multiple levels of
-  abstraction. These methods have dramatically improved the state-of-the-art in
-  speech recognition, visual object recognition, object detection and many
-  other domains such as drug discovery and genomics. Deep learning discovers
-  intricate structure in large data sets by using the backpropagation algorithm
-  to indicate how a machine should change its internal parameters that are used
-  to compute the representation in each layer from the representation in the
-  previous layer. Deep convolutional nets have brought about breakthroughs in
-  processing images, video, speech and audio, whereas recurrent nets have shone
-  light on sequential data such as text and speech.%
-  }
-  \verb{doi}
-  \verb 10.1038/nature14539
+  \field{title}{Building and deploying large-scale machine learning pipelines}
+  \verb{url}
+  \verb http://radar.oreilly.com/2015/01/building-and-deploying-large-scale-mac
+  \verb hine-learning-pipelines.html
   \endverb
-  \field{number}{7553}
-  \field{pages}{436\bibrangedash 444}
-  \field{title}{Deep learning}
-  \field{volume}{521}
-  \field{journaltitle}{Nature}
   \field{year}{2015}
 \endentry
 
-\entry{Mitchell:1997:MachineLearningBook}{book}{}
+\entry{MLPipelineMLlib}{online}{}
   \name{author}{1}{}{%
     {{}%
-     {Mitchell}{M.}%
-     {Tom~M}{T.~M.}%
+     {Meng}{M.}%
+     {Xiangrui}{X.}%
      {}{}%
      {}{}}%
   }
-  \list{publisher}{1}{%
-    {McGraw Hill}%
+  \list{organization}{1}{%
+    {Databricks Inc.}%
   }
-  \strng{namehash}{MTM1}
-  \strng{fullhash}{MTM1}
-  \field{labelyear}{1997}
+  \strng{namehash}{MX1}
+  \strng{fullhash}{MX1}
+  \field{labelyear}{2015}
   \field{sortinit}{M}
-  \field{abstract}{%
-  The field of machine learning is concerned with the question of how to
-  construct computer programs that automatically improve with experience. In
-  recent years many successful machine learning applications have been
-  developed, ranging from data-mining programs that learn to detect fraudulent
-  credit card transactions, to information-filtering systems that learn users'
-  reading preferences, to autonomous vehicles that learn to drive on public
-  highways. At the same time, there have been important advances in the theory
-  and algorithms that form the foundations of this field.%
-  }
-  \field{title}{Machine learning}
-  \list{location}{1}{%
-    {New York}%
-  }
-  \field{year}{1997}
-\endentry
-
-\entry{Murphy:2012:MLbook}{book}{}
-  \name{author}{1}{}{%
-    {{}%
-     {Murphy}{M.}%
-     {Kevin~P}{K.~P.}%
-     {}{}%
-     {}{}}%
-  }
-  \list{publisher}{1}{%
-    {MIT press}%
-  }
-  \strng{namehash}{MKP1}
-  \strng{fullhash}{MKP1}
-  \field{labelyear}{2012}
-  \field{sortinit}{M}
-  \field{abstract}{%
-  This books adopts the view that the best way to make machines that can learn
-  from data is to use the tools of probability theory, which has been the
-  mainstay of statistics and engineering for centuries. Probability theory can
-  be applied to any problem involving uncertainty. In machine learning,
-  uncertainty comes in many forms: what is the best prediction (or decision)
-  given some data? what is the best model given some data? what measurement
-  should I perform next? etc. The systematic application of probabilistic
-  reasoning to all inferential problems, including inferring parameters of
-  statistical models, is sometimes called a Bayesian approach. However, this
-  term tends to elicit very strong reactions (either positive or negative,
-  depending on who you ask), so we prefer the more neutral term
-  “probabilistic approach”. Besides, we will often use techniques such as
-  maximum likelihood estimation, which are not Bayesian methods, but certainly
-  fall within the probabilistic paradigm.%
-  }
-  \field{title}{Machine learning: a probabilistic perspective}
+  \field{title}{ML Pipelines: A New High-Level API for MLlib}
   \verb{url}
-  \verb http://www.cs.ubc.ca/~murphyk/MLbook/index.html
+  \verb https://databricks.com/blog/2015/01/07/ml-pipelines-a-new-high-level-ap
+  \verb i-for-mllib.html
   \endverb
-  \list{location}{1}{%
-    {Cambridge (MA)}%
-  }
-  \field{year}{2012}
+  \field{year}{2015}
 \endentry
 
-\entry{Samuel:1959:machineLearningCheckers}{article}{}
-  \name{author}{1}{}{%
+\entry{Myers2004AST}{book}{}
+  \name{author}{2}{}{%
     {{}%
-     {Samuel}{S.}%
-     {Arthur~L}{A.~L.}%
+     {Myers}{M.}%
+     {Glenford~J.}{G.~J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Sandler}{S.}%
+     {Corey}{C.}%
      {}{}%
      {}{}}%
   }
-  \strng{namehash}{SAL1}
-  \strng{fullhash}{SAL1}
-  \field{labelyear}{1959}
-  \field{sortinit}{S}
-  \field{abstract}{%
-  In the 1950s, Arthur Samuel created one of the first board game-playing
-  programs of any kind. More recently, in 2007 scientists at the University of
-  Alberta developed their "Chinook" program to the point where it is
-  unbeatable. A brute force approach that took hundreds of computers working
-  nearly two decades was used to solve the game,[18] showing that a game of
-  draughts will always end in a draw if neither player makes a mistake.[19][20]
-  The solution is for the draughts variation called go-as-you-please (GAYP)
-  checkers and not for the variation called three-move restriction checkers. As
-  of December 2007, this makes English draughts the most complex game ever
-  solved.%
+  \list{publisher}{1}{%
+    {John Wiley \& Sons}%
   }
-  \field{number}{3}
-  \field{pages}{210\bibrangedash 229}
-  \field{title}{Some studies in machine learning using the game of checkers}
-  \field{volume}{3}
-  \field{journaltitle}{IBM Journal of research and development}
-  \field{year}{1959}
+  \strng{namehash}{MGJSC1}
+  \strng{fullhash}{MGJSC1}
+  \field{labelyear}{2004}
+  \field{sortinit}{M}
+  \field{isbn}{0471469122}
+  \field{title}{The Art of Software Testing}
+  \field{year}{2004}
+\endentry
+
+\entry{MLPipelines}{online}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Sparks}{S.}%
+     {Evan}{E.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{organization}{1}{%
+    {UC Berkeley}%
+  }
+  \strng{namehash}{SE1}
+  \strng{fullhash}{SE1}
+  \field{labelyear}{2014}
+  \field{sortinit}{S}
+  \field{title}{ML Pipelines}
+  \verb{url}
+  \verb https://amplab.cs.berkeley.edu/ml-pipelines/
+  \endverb
+  \field{year}{2014}
 \endentry
 
 \lossort

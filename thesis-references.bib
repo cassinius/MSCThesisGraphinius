@@ -1,174 +1,329 @@
-%references for the Holzinger group - checked 02.04.2016
-
-@article{Holzinger:2016:iML,
-   year = {2016},
-   author = {Holzinger, Andreas},
-   title = {Interactive Machine Learning for Health Informatics: When do we need the human-in-the-loop?},
-   journal = {Springer Brain Informatics (BRIN)},
-   volume = {3},
-   pages = {1-13},
-   abstract = {Machine learning (ML) is the fastest growing field in computer science, and health informatics is amongst the greatest challenges. The goal of ML is to develop algorithms which can learn and improve over time and can be used for predictions. Most ML researchers concentrate on automatic Machine Learning (aML), where great advances have been made, for example, in speech recognition, recommender systems, or autonomous vehicles. Automatic approaches greatly benefit from big data with many training sets. However, in the health domain, sometimes we are confronted with a small number of data sets or rare events, where aML-approaches suffer of insufficient training samples. Here interactive Machine Learning (iML) may be of help, having its roots in Reinforcement Learning (RL), Preference Learning (PL) and Active Learning (AL). The term iML is not yet well used, so we define it as algorithms that can interact with agents and can optimize their learning behaviour through these interactions, where the agents can also be human. This human-in-the-loop can be beneficial in solving computationally hard problems, e.g., subspace clustering, protein folding, or k-anonymization of health data, where human expertise can help to reduce an exponential search space through heuristic selection of samples. Therefore, what would otherwise be an NP-hard problem, reduces greatly in complexity through the input and the assistance of a human agent involved in the learning phase.},
-   keywords = {interactive Machine learning, health informatics},
-   doi = {10.1007/s40708-016-0042-6},
-   url = {http://dx.doi.org/10.1007/s40708-016-0042-6}
+@book{Myers2004AST,
+	author = {Myers, Glenford J. and Sandler, Corey},
+	title = {The Art of Software Testing},
+	year = {2004},
+	isbn = {0471469122},
+	publisher = {John Wiley \& Sons},
 }
 
 
 
-@article{Samuel:1959:machineLearningCheckers,
-   year = {1959},
-   author = {Samuel, Arthur L},
-   title = {Some studies in machine learning using the game of checkers},
-   journal = {IBM Journal of research and development},
-   volume = {3},
-   number = {3},
-   pages = {210-229},
-   abstract = {In the 1950s, Arthur Samuel created one of the first board game-playing programs of any kind. More recently, in 2007 scientists at the University of Alberta developed their "Chinook" program to the point where it is unbeatable. A brute force approach that took hundreds of computers working nearly two decades was used to solve the game,[18] showing that a game of draughts will always end in a draw if neither player makes a mistake.[19][20] The solution is for the draughts variation called go-as-you-please (GAYP) checkers and not for the variation called three-move restriction checkers. As of December 2007, this makes English draughts the most complex game ever solved.}
+@article{PointCloudPaper,
+author = {Holzinger, Andreas and Malle, Bernd and Bloice, Marcus and Wiltgen, Marco and Ferri, Massimo and Stanganelli, Ignazio and Hofmann-wellenhof, Rainer},
+file = {:home/bernd/Dropbox/0.topde/FWF.2014/1.PAPERS.2014/1.SOTA.2014/0.TEX/1v7\_OnPointCloudData\_20140418bm.pdf:pdf},
+pages = {1--24},
+title = {{On the Generation of Point Cloud Data Sets: Step One in the Knowledge Discovery Process}}
+}
+@article{GraphExtractPaper,
+author = {Holzinger, Andreas and Malle, Bernd and Giuliani, Nicola},
+doi = {10.1007/978-3-319-09891-3\_50},
+file = {:home/bernd/Dropbox/0.topde/FWF.2014/1.PAPERS.2014/2.WIC.2014/1.PAPER/1v2\_GraphExtractFromImages\_FINAL\_20140525ah.pdf:pdf},
+isbn = {9783319098906},
+issn = {16113349},
+journal = {Lecture Notes in Computer Science (including subseries Lecture Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)},
+keywords = {data mining,data preprocessing,graph extraction,graph- based algorithms,graphs,image analysis,image content analytics,image segmentation,knowledge discovery},
+pages = {552--563},
+title = {{On graph extraction from image data}},
+volume = {8609 LNAI},
+year = {2014}
+}
+@article{Smola2011,
+author = {Smola, Alex},
+doi = {10.1017/CBO9781139042918},
+file = {:home/bernd/develop/MScThesis/1.MY\_PAPERS/BEKKERMAN, Ron et al (2011) Scalable machine learning.pdf:pdf},
+isbn = {9781139042918},
+issn = {9780123814807},
+title = {{Scaling Up Machine Learning}},
+url = {http://ebooks.cambridge.org/ref/id/CBO9781139042918},
+year = {2011}
+}
+@article{Kraska2013,
+author = {Kraska, Tim and Talwalkar, Ameet and Duchi, John and Griffith, Rean and Franklin, Michael J and Jordan, Michael},
+file = {:home/bernd/develop/MScThesis/1.MY\_PAPERS/KRASKA et al (2013) MLbase A Distributed Machine-learning System.pdf:pdf},
+title = {{MLbase : A Distributed Machine-learning System}},
+year = {2013}
+}
+@article{Low2012,
+author = {Low, Yucheng and Bickson, Danny and Gonzalez, Joseph and Guestrin, Carlos and Kyrola, Aapo and Hellerstein, Joseph M.},
+doi = {10.14778/2212351.2212354},
+file = {:home/bernd/develop/MScThesis/1.MY\_PAPERS/LOW, Yucheng et al (2012) Distributed GraphLab - A framework for ML and DM in the Cloud.pdf:pdf},
+issn = {21508097},
+journal = {Proceedings of the VLDB Endowment},
+number = {8},
+pages = {716--727},
+title = {{Distributed GraphLab}},
+url = {http://dl.acm.org/citation.cfm?id=2212351.2212354},
+volume = {5},
+year = {2012}
+}
+@article{Low2010,
+abstract = {Designing and implementing efficient, provably correct parallel machine learning (ML) algorithms is challenging. Existing high-level parallel abstractions like MapReduce are insufficiently expressive while low-level tools like MPI and Pthreads leave ML experts repeatedly solving the same design challenges. By targeting common patterns in ML, we developed GraphLab, which improves upon abstractions like MapReduce by compactly expressing asynchronous iterative algorithms with sparse computational dependencies while ensuring data consistency and achieving a high degree of parallel performance. We demonstrate the expressiveness of the GraphLab framework by designing and implementing parallel versions of belief propagation, Gibbs sampling, Co-EM, Lasso and Compressed Sensing. We show that using GraphLab we can achieve excellent parallel performance on large scale real-world problems.},
+archivePrefix = {arXiv},
+arxivId = {1006.4990},
+author = {Low, Yucheng and Gonzalez, Joseph and Kyrola, Aapo and Bickson, Danny and Guestrin, Carlos and Hellerstein, Joseph M.},
+eprint = {1006.4990},
+file = {:home/bernd/develop/MScThesis/1.MY\_PAPERS/LOW, Yucheng et al (2014) GraphLab - A New Framework For Parallel Machine Learning.pdf:pdf},
+journal = {Conference on Uncertainty in Artificial Intelligence},
+title = {{GraphLab: A New Framework for Parallel Machine Learning}},
+url = {http://arxiv.org/abs/1006.4990},
+year = {2010}
+}
+@article{Pedregosa2012,
+abstract = {Scikit-learn is a Python module integrating a wide range of state-of-the-art machine learning algorithms for medium-scale supervised and unsupervised problems. This package focuses on bringing machine learning to non-specialists using a general-purpose high-level language. Emphasis is put on ease of use, performance, documentation, and API consistency. It has minimal dependencies and is distributed under the simplified BSD license, encouraging its use in both academic and commercial settings. Source code, binaries, and documentation can be downloaded from http://scikit-learn.sourceforge.net.},
+archivePrefix = {arXiv},
+arxivId = {1201.0490},
+author = {Pedregosa, Fabian and Varoquaux, Ga\"{e}l and Gramfort, Alexandre and Michel, Vincent and Thirion, Bertrand and Grisel, Olivier and Blondel, Mathieu and Prettenhofer, Peter and Weiss, Ron and Dubourg, Vincent and Vanderplas, Jake and Passos, Alexandre and Cournapeau, David and Brucher, Matthieu and Perrot, Matthieu and Duchesnay, \'{E}douard},
+eprint = {1201.0490},
+file = {:home/bernd/develop/MScThesis/1.MY\_PAPERS/PEDREGOSA et al (2011) Scikit-Learn Machine Learning in Python.pdf:pdf},
+isbn = {1532-4435},
+issn = {15324435},
+journal = {\ldots of Machine Learning \ldots},
+pages = {2825--2830},
+title = {{Scikit-learn: Machine Learning in Python}},
+url = {http://dl.acm.org/citation.cfm?id=2078195$\backslash$nhttp://arxiv.org/abs/1201.0490},
+volume = {12},
+year = {2012}
+}
+@article{Yui2013,
+author = {Yui, M and Kojima, I},
+file = {:home/bernd/develop/MScThesis/1.MY\_PAPERS/YUI, Makoto and KOJIMA, Isao - Hivemall Hive scalable machine learning library.pdf:pdf},
+journal = {Staff.Aist.Go.Jp},
+number = {2},
+pages = {2013},
+title = {{Hivemall: Hive scalable machine learning library}},
+url = {http://staff.aist.go.jp/m.yui/publications/hivemall.pdf},
+volume = {91},
+year = {2013}
+}
+@article{optalg2014,
+	author = {{Lessard}, L. and {Recht}, B. and {Packard}, A.},
+	title = "{Analysis and Design of Optimization Algorithms via Integral Quadratic Constraints}",
+	journal = {ArXiv e-prints},
+	archivePrefix = "arXiv",
+	eprint = {1408.3595},
+	primaryClass = "math.OC",
+	keywords = {Mathematics - Optimization and Control, Computer Science - Numerical Analysis, Computer Science - Systems and Control},
+	year = 2014,
+	month = aug,
+	adsurl = {http://adsabs.harvard.edu/abs/2014arXiv1408.3595L},
+	adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+@article{velox2015,
+	author    = {Daniel Crankshaw and	Peter Bailis and	Joseph E. Gonzalez and	Haoyuan Li and	Zhao Zhang and	Michael J. Franklin and	Ali Ghodsi and	Michael I. Jordan},
+	title     = {The Missing Piece in Complex Analytics: Low Latency, Scalable Model	Management and Serving with Velox},
+	journal   = {CoRR},
+	volume    = {abs/1409.3809},
+	year      = {2014},
+	url       = {http://arxiv.org/abs/1409.3809},
+	timestamp = {Wed, 01 Oct 2014 15:00:05 +0200},
+	biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/CrankshawBGLZFGJ14},
+	bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+@article{Felzenszwalb2004,
+author = {Felzenszwalb, Pedro F. and Huttenlocher, Daniel P.},
+doi = {10.1023/B:VISI.0000022288.19776.77},
+file = {:home/bernd/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Felzenszwalb, Huttenlocher - 2004 - Efficient Graph-Based Image Segmentation.pdf:pdf},
+issn = {0920-5691},
+journal = {International Journal of Computer Vision},
+keywords = {clustering,graph algorithm,image segmentation,perceptual organization},
+month = sep,
+number = {2},
+pages = {167--181},
+title = {{Efficient Graph-Based Image Segmentation}},
+url = {http://link.springer.com/10.1023/B:VISI.0000022288.19776.77},
+volume = {59},
+year = {2004}
+}
+@article{LeeObjectGraphs2012,
+abstract = {How can knowing about some categories help us to discover new ones in unlabeled images? Unsupervised visual category discovery is useful to mine for recurring objects without human supervision, but existing methods assume no prior information and thus tend to perform poorly for cluttered scenes with multiple objects. We propose to leverage knowledge about previously learned categories to enable more accurate discovery, and address challenges in estimating their familiarity in unsegmented, unlabeled images. We introduce two variants of a novel object-graph descriptor to encode the 2D and 3D spatial layout of object-level co-occurrence patterns relative to an unfamiliar region and show that by using them to model the interaction between an image’s known and unknown objects, we can better detect new visual categories. Rather than mine for all categories from scratch, our method identifies new objects while drawing on useful cues from familiar ones. We evaluate our approach on several benchmark data sets and demonstrate clear improvements in discovery over conventional purely appearance-based baselines.},
+author = {Lee, Yong Jae and Grauman, Kristen},
+doi = {10.1109/TPAMI.2011.122},
+issn = {1939-3539},
+journal = {IEEE transactions on pattern analysis and machine intelligence},
+month = feb,
+number = {2},
+pages = {346--58},
+pmid = {21670480},
+title = {{Object-graphs for context-aware visual category discovery.}},
+url = {http://www.ncbi.nlm.nih.gov/pubmed/21670480},
+volume = {34},
+year = {2012}
+}
+@article{GraphCutSegmentation2013,
+author = {Wang, Xiaofang and Li, Huibin and Bichot, Charles-Edmond and Masnou, Simon and Chen, Liming},
+doi = {10.1109/ICIP.2013.6738828},
+file = {:home/bernd/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Wang et al. - 2013 - A graph-cut approach to image segmentation using an affinity graph based on {$\ell$}inf0inf-sparse representation of fea.pdf:pdf},
+isbn = {978-1-4799-2341-0},
+journal = {2013 IEEE International Conference on Image Processing},
+keywords = {image segmentation,sparse representation},
+month = sep,
+pages = {4019--4023},
+publisher = {Ieee},
+title = {{A graph-cut approach to image segmentation using an affinity graph based on {$\ell$} <inf>0</inf>-sparse representation of features}},
+url = {http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=6738828},
+year = {2013}
+}
+@article{BeliefPropBillionNodes2010,
+author = {Kang, U and Horng, Duen},
+file = {:home/bernd/develop/MScThesis/1.MY\_PAPERS/KANG, CHAU, FALOUTSOS (2010) Belief\_Propagation\_Billion\_Node\_Graphs.pdf:pdf},
+isbn = {9781450302159},
+keywords = {all or part of,belief propagation,gim-v,hadoop,is granted without fee,or hard copies of,permission to make digital,personal or classroom use,provided that copies are,this work for},
+title = {{Inference of beliefs on billion-scale graphs}},
+url = {http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.188.5276},
+year = {2010}
+}
+@article{BeliefPropFraudDetection2007,
+abstract = {Given a large online network of online auction users and their histories of transactions, how can we spot anomalies and auction fraud? This paper describes the design and implementation of NetProbe, a system that we propose for solving this problem. NetProbe models auction users and transactions as a Markov Random Field tuned to detect the suspicious patterns that fraudsters create, and employs a Belief Propagation mechanism to detect likely fraudsters. Our experiments show that NetProbe is both efficient and effective for fraud detection. We report experiments on synthetic graphs with as many as 7,000 nodes and 30,000 edges, where NetProbe was able to spot fraudulent nodes with over 90\% precision and recall, within a matter of seconds. We also report experiments on a real dataset crawled from eBay, with nearly 700,000 transactions between more than 66,000users, where NetProbe was highly effective at unearthing hidden networks of fraudsters, within a realistic response time of about 6 minutes. For scenarios where the underlying data is dynamic in nature, we propose IncrementalNetProbe, which is an approximate, but fast, variant of NetProbe. Our experiments prove that Incremental NetProbe executes nearly doubly fast as compared to NetProbe, while retaining over 99\% of its accuracy.},
+author = {Pandit, Shashank and Chau, DH and Wang, Samuel and Faloutsos, Christos},
+doi = {10.1145/1242572.1242600},
+file = {:home/bernd/develop/MScThesis/1.MY\_PAPERS/PANDIT et al (2007) Net\_Probe\_Fraud\_Detection\_Online\_Auction\_Networks.pdf:pdf},
+isbn = {9781595936547},
+journal = {Proceedings of the 16th \ldots},
+pages = {210, 201},
+title = {{Netprobe: a fast and scalable system for fraud detection in online auction networks}},
+url = {http://dx.doi.org/10.1145/1242572.1242600$\backslash$nhttp://dl.acm.org/citation.cfm?id=1242600},
+volume = {42},
+year = {2007}
+}
+@article{Buyya2005,
+author = {Buyya, Rajkumar and Venugopal, Srikumar},
+file = {:home/bernd/Desktop/GridIntro-CSI2005-gentle.pdf:pdf},
+journal = {Computer Society of India},
+keywords = {and globus,e-science,grid computing,grid middleware,gridbus},
+number = {July},
+pages = {9--19},
+title = {{A Gentle Introduction to Grid Computing and Technologies}},
+year = {2005}
+}
+@article{Joshi2005,
+author = {Joshi, Mahesh},
+file = {:home/bernd/Desktop/grid-computing.pdf:pdf},
+number = {April},
+pages = {1--17},
+title = {{Grid Computing}},
+year = {2005}
+}
+@article{Foster2008,
+abstract = {Cloud Computing has become another buzzword after Web 2.0. However, there are dozens of different definitions for Cloud Computing and there seems to be no consensus on what a Cloud is. On the other hand, Cloud Computing is not a completely new concept; it has intricate connection to the relatively new but thirteen-year established Grid Computing paradigm, and other relevant technologies such as utility computing, cluster computing, and distributed systems in general. This paper strives to compare and contrast Cloud Computing with Grid Computing from various angles and give insights into the essential characteristics of both.},
+archivePrefix = {arXiv},
+arxivId = {0901.0131},
+author = {Foster, Ian and Zhao, Yong and Raicu, Ioan and Lu, Shiyong},
+doi = {10.1109/GCE.2008.4738445},
+eprint = {0901.0131},
+file = {:home/bernd/Desktop/cloud\_computing\_and\_grid\_computing.pdf:pdf},
+isbn = {978-1-4244-2860-1},
+journal = {2008 Grid Computing Environments Workshop},
+pages = {1--10},
+title = {{Cloud Computing and Grid Computing 360-Degree Compared}},
+url = {http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=4738445},
+year = {2008}
+}
+@article{Abramson2002,
+abstract = {Computational grids that couple geographically distributed resources such as PCs, workstations, clusters, and scientific instruments, have emerged as a next generation computing platform for solving large-scale problems in science, engineering, and commerce. However, application development, resource management, and scheduling in these environments continue to be a complex undertaking. In this article, we discuss our efforts in developing a resource management system for scheduling computations on resources distributed across the world with varying quality of service (QoS). Our service-oriented grid computing system called Nimrod-G manages all operations associated with remote execution including resource discovery, trading, scheduling based on economic principles and a user-defined QoS requirement. The Nimrod-G resource broker is implemented by leveraging existing technologies such as Globus, and provides new services that are essential for constructing industrial-strength grids. We present the results of experiments using the Nimrod-G resource broker for scheduling parametric computations on the World Wide Grid (WWG) resources that span five continents. ?? 2002 Elsevier Science B.V. All rights reserved.},
+archivePrefix = {arXiv},
+arxivId = {cs/0111048},
+author = {Abramson, David and Buyya, Rajkumar and Giddy, Jonathan},
+doi = {10.1016/S0167-739X(02)00085-7},
+eprint = {0111048},
+file = {:home/bernd/Desktop/A computational economy for grid computing.pdf:pdf},
+isbn = {0167-739X},
+issn = {0167739X},
+journal = {Future Generation Computer Systems},
+keywords = {Computational economy,Grid computing,Grid scheduling,Nimrod-G broker,Resource management},
+number = {8},
+pages = {1061--1074},
+primaryClass = {cs},
+title = {{A computational economy for grid computing and its implementation in the Nimrod-G resource broker}},
+volume = {18},
+year = {2002}
+}
+@article{Pearce2007,
+abstract = {We consider how to maintain the topological order of a directed acyclic graph (DAG) in the presence of edge insertions and deletions. We present a new algorithm and, although this has marginally inferior time complexity compared with the best previously known result, we find that its simplicity leads to better performance in practice. In addition, we provide an empirical comparison against three alternatives over a large number of random DAG’s. The results show our algorithm is the best for sparse graphs and, surprisingly, that an alternative with poor theoretical complexity performs marginally better on dense graphs},
+author = {Pearce, David J. and Kelly, Paul H. J.},
+doi = {10.1145/1187436.1210590},
+file = {:home/bernd/Desktop/DynamicTopoSortAlg-JEA-07.pdf:pdf},
+issn = {10846654},
+journal = {Journal of Experimental Algorithmics},
+number = {1},
+pages = {1.7},
+title = {{A dynamic topological sort algorithm for directed acyclic graphs}},
+volume = {11},
+year = {2007}
 }
 
-@article{JordanMitchell:2015:MLtrendsScience,
-   year = {2015},
-   author = {Jordan, M. I. and Mitchell, T. M.},
-   title = {Machine learning: Trends, perspectives, and prospects},
-   journal = {Science},
-   volume = {349},
-   number = {6245},
-   pages = {255-260},
-   abstract = {Machine learning addresses the question of how to build computers that improve automatically through experience. It is one of today’s most rapidly growing technical fields, lying at the intersection of computer science and statistics, and at the core of artificial intelligence and data science. Recent progress in machine learning has been driven both by the development of new learning algorithms and theory and by the ongoing explosion in the availability of online data and low-cost computation. The adoption of data-intensive machine-learning methods can be found throughout science, technology and commerce, leading to more evidence-based decision-making across many walks of life, including health care, manufacturing, education, financial modeling, policing, and marketing.},
-   doi = {10.1126/science.aaa8415},
-   url = {http://www.sciencemag.org/content/349/6245/255.abstract}
-} 
 
-@article{LeCunBengioHinton:2015:DeepLearningNature,
-   year = {2015},
-   author = {LeCun, Yann and Bengio, Yoshua and Hinton, Geoffrey},
-   title = {Deep learning},
-   journal = {Nature},
-   volume = {521},
-   number = {7553},
-   pages = {436-444},
-   abstract = {Deep learning allows computational models that are composed of multiple processing layers to learn representations of data with multiple levels of abstraction. These methods have dramatically improved the state-of-the-art in speech recognition, visual object recognition, object detection and many other domains such as drug discovery and genomics. Deep learning discovers intricate structure in large data sets by using the backpropagation algorithm to indicate how a machine should change its internal parameters that are used to compute the representation in each layer from the representation in the previous layer. Deep convolutional nets have brought about breakthroughs in processing images, video, speech and audio, whereas recurrent nets have shone light on sequential data such as text and speech.},
-   doi = {10.1038/nature14539}
+
+
+
+
+
+@ONLINE{LargeScaleMLPipelines,
+  title = {Building and deploying large-scale machine learning pipelines},
+  url = {http://radar.oreilly.com/2015/01/building-and-deploying-large-scale-machine-learning-pipelines.html},
+  author = {Lorica, Ben},
+  year = {2015},
+  organization = {O’Reilly Media, Inc.}
 }
-
-
-@article{1763:BayesOriginal,
-   year = {1763},
-   author = {Bayes, Thomas},
-   title = {An Essay towards solving a Problem in the Doctrine of Chances (Posthumous communicated by Richard Price)},
-   journal = {Philosophical Transactions},
-   volume = {53},
-   pages = {370-418}
+@ONLINE{MLPipelineMLlib,
+  title = {ML Pipelines: A New High-Level API for MLlib},
+  url = {https://databricks.com/blog/2015/01/07/ml-pipelines-a-new-high-level-api-for-mllib.html},
+  author = {Meng, Xiangrui},
+  year = {2015},
+  organization = {Databricks Inc.}
 }
-
-@article{Barnard:1958:OnBayes,
-   year = {1958},
-   author = {Barnard, George A and Bayes, Thomas},
-   title = {Studies in the history of probability and statistics: IX. Thomas Bayes's essay towards solving a problem in the doctrine of chances},
-   journal = {Biometrika},
-   volume = {45},
-   number = {3/4},
-   pages = {293-315},
-   doi = {10.2307/2333180},
-   url = {http://www.jstor.org/stable/2333180}
+@ONLINE{DataAnalysisDSWorkflow,
+  title = {Data Analysis: Just one component of the Data Science workflow},
+  url = {http://radar.oreilly.com/2013/09/data-analysis-just-one-component-of-the-data-science-workflow.html},
+  author = {Lorica, Ben},
+  year = {2013},
+  organization = {O’Reilly Media, Inc.}
 }
-
-@book{HastieTibshiraniFriedman:2009:ElementsOfstatisticalLearning,
-   year = {2009},
-   author = {Hastie, Trevor and Tibshirani, Robert and Friedman, Jerome},
-   title = {The Elements of Statistical Learning: Data Mining, Inference, and Prediction. Second Edition},
-   publisher = {Springer},
-   address = {New York},
-   abstract = {The field of Statistics is constantly challenged by the problems that science and industry brings to its door. In the early days, these problems often came from agricultural and industrial experiments and were relatively small in scope. With the advent of computers and the information age, statistical problems have exploded both in size and complexity. Challenges in the areas of data storage, organization and searching have led to the new field of “data mining”; statistical and computational problems in biology and medicine have created “bioinformatics.” Vast amounts of data are being generated in many fields, and the statistician’s job is to make sense of it all: to extract important patterns and trends, and understand “what the data says.” We call this learning from data. The challenges in learning from data have led to a revolution in the statistical sciences. Since computation plays such a key role, it is not surprising that much of this new development has been done by researchers in other fields such as computer science and engineering. The learning problems that we consider can be roughly categorized as either supervised or unsupervised. In supervised learning, the goal is to predict the value of an outcome measure based on a number of input measures; in unsupervised learning, there is no outcome measure, and the goal is to describe the associations and patterns among a set of input measures.},
-   keywords = {Machine learning},
-   doi = {10.1007/978-0-387-84858-7}
+@ONLINE{StanfordNLP,
+  title = {The Stanford Natural Language Processing Group},
+  url = {http://nlp.stanford.edu/},
+  author = {Stanford NLP Group},
+  year = {},
+  organization = {Stanford University}
 }
-
-
-@book{Murphy:2012:MLbook,
-   year = {2012},
-   author = {Murphy, Kevin P},
-   title = {Machine learning: a probabilistic perspective},
-   publisher = {MIT press},
-   address = {Cambridge (MA)},
-   abstract = {This books adopts the view that the best way to make machines that can learn from data is to use the tools of probability theory, which has been the mainstay of statistics and engineering for centuries. Probability theory can be applied to any problem involving uncertainty. In machine learning, uncertainty comes in many forms: what is the best prediction (or decision) given some data? what is the best model given some data? what measurement should I perform next? etc. The systematic application of probabilistic reasoning to all inferential problems, including inferring parameters of statistical models, is sometimes called a Bayesian approach. However, this term tends to elicit very strong reactions (either positive or negative, depending on who you ask), so we prefer the more neutral term “probabilistic approach”. Besides, we will often use techniques such as maximum likelihood estimation, which are not Bayesian methods, but certainly fall within the probabilistic paradigm.},
-   url = {http://www.cs.ubc.ca/~murphyk/MLbook/index.html}
+@ONLINE{MLPipelines,
+  title = {ML Pipelines},
+  url = {https://amplab.cs.berkeley.edu/ml-pipelines/},
+  author = {Sparks, Evan},
+  year = {2014},
+  organization = {UC Berkeley}
 }
-
-
-@article{Holzinger:2014:trends,
-   year = {2014},
-   author = {Holzinger, Andreas},
-   title = {Trends in Interactive Knowledge Discovery for Personalized Medicine: Cognitive Science meets Machine Learning},
-   journal = {IEEE Intelligent Informatics Bulletin},
-   volume = {15},
-   number = {1},
-   pages = {6-14},
-   abstract = {A grand goal of future medicine is in modelling the complexity of patients to tailor medical decisions, health practices and therapies to the individual patient. This trend towards personalized medicine produces unprecedented amounts of data, and even though the fact that human experts are excellent at pattern recognition in dimensions of smaller than three, the problem is that most biomedical data is in dimensions much higher than three, making manual analysis difficult and often impossible. Experts in daily medical routine are decreasingly capable of dealing with the complexity of such data. Moreover, they are not interested the data, they need knowledge and insight in order to support their work. Consequently, a big trend in computer science is to provide efficient, useable and useful computational methods, algorithms and tools to discover knowledge and to interactively gain insight into high-dimensional data. A synergistic combination of methodologies of two areas may be of great help here: Human–Computer Interaction (HCI) and Knowledge Discovery/Data Mining (KDD), with the goal of supporting human intelligence with machine learning. A trend in both disciplines is the acquisition and adaptation of representations that support efficient learning. Mapping higher dimensional data into lower dimensions is a major task in HCI, and a concerted effort of computational methods including recent advances from graphtheory and algebraic topology may contribute to finding solutions. Moreover, much biomedical data is sparse, noisy and timedependent, hence entropy is also amongst promising topics. This paper provides a rough overview of the HCI-KDD approach and focuses on three future trends: graph-based mining, topological data mining and entropy-based data mining.[interactive machine learning]},
-url = {http://www.comp.hkbu.edu.hk/~cib/2014/Dec/article2/iib_vol15no1_article2.pdf}
+@ONLINE{Make2013,
+  title = {GNU Make for Reproducible Data Analysis},
+  url = {http://zmjones.com/make/},
+  author = {Zachary M. Jones},
+  year = {2013},
+  organization = {Pennsylvania State University}
 }
-
-@book{Mitchell:1997:MachineLearningBook,
-   year = {1997},
-   author = {Mitchell, Tom M},
-   title = {Machine learning},
-   publisher = {McGraw Hill},
-   address = {New York},
-   abstract = {The field of machine learning is concerned with the question of how to construct computer programs that automatically improve with experience. In recent  years many successful machine learning applications have been developed, ranging from data-mining programs that learn to detect fraudulent credit card transactions, to information-filtering systems that learn users'  reading preferences, to autonomous vehicles that learn to drive on public highways. At the same time, there have been important advances in the theory and algorithms that form the foundations of this field.}
+@ONLINE{AnalLifecycle,
+  title = {Data scientists tackle the analytic lifecycle},
+  url = {http://radar.oreilly.com/2013/07/data-scientists-and-the-analytic-lifecycle.html},
+  author = {Lorica, Ben},
+  year = {2013},
+  organization = {O’Reilly Media, Inc.}
 }
-
-@article{PetzEtAl:2015:Sentiment,
-   year = {2015},
-   author = {Petz, Gerald and Karpowicz, Michał and Fürschuß, Harald and Auinger, Andreas and Stříteský, Václav and Holzinger, Andreas},
-   title = {Computational approaches for mining user’s opinions on the Web 2.0},
-   journal = {Information Processing \& Management},
-   volume = {51},
-   number = {4},
-   pages = {510-519},
-   abstract = {The emerging research area of opinion mining deals with computational methods in order to find, extract and systematically analyze people’s opinions, attitudes and emotions towards certain topics. While providing interesting market research information, the user generated content existing on the Web 2.0 presents numerous challenges regarding systematic analysis, the differences and unique characteristics of the various social media channels being one of them. This article reports on the determination of such particularities, and deduces their impact on text preprocessing and opinion mining algorithms. The effectiveness of different algorithms is evaluated in order to determine their applicability to the various social media channels. Our research shows that text preprocessing algorithms are mandatory for mining opinions on the Web 2.0 and that part of these algorithms are sensitive to errors and mistakes contained in the user generated content.},
-   keywords = {Opinion mining},
-   doi = {http://dx.doi.org/10.1016/j.ipm.2014.07.011},
-   url = {http://www.sciencedirect.com/science/article/pii/S0306457315000655}
+@ONLINE{DataScienceTools2013,
+  title = {Data Science Tools: Fast, easy to use, and scalable},
+  url = {http://radar.oreilly.com/2013/03/fast-easy-to-use-scalable-data-science-tools.html},
+  author = {Lorica, Ben},
+  year = {2013},
+  organization = {O’Reilly Media, Inc.}
 }
-
-@article{HolzingerEtAl:2014:KDDBio,
-   year = {2014},
-   author = {Holzinger, Andreas and Dehmer, Matthias and Jurisica, Igor},
-   title = {Knowledge Discovery and interactive Data Mining in Bioinformatics - State-of-the-Art, future challenges and research directions},
-   journal = {BMC Bioinformatics},
-   volume = {15},
-   number = {S6},
-   pages = {I1},
-   abstract = {The life sciences, biomedicine and health care are increasingly turning into a data intensive science. Particularly in bioinformatics and computational biology we face not only increased volume and a diversity of highly complex, multi-dimensional and often weakly-structured and noisy data, but also the growing need for integrative analysis and modeling. Due to the increasing trend towards personalized and precision medicine (P4 medicine: Predictive, Preventive, Participatory, Personalized), biomedical data today results from various sources in different structural dimensions, ranging from the microscopic world, and in particular from the omics world (e.g., from genomics, proteomics, metabolomics, lipidomics, transcriptomics, epigenetics, microbiomics, fluxomics, phenomics, etc.) to the macroscopic world (e.g., disease spreading data of populations in public health informatics). The challenge is not only to extract meaningful information from this data, but to gain knowledge, to discover previously unknown insight, look for patterns, and to make sense of the data. },
-   keywords = {Knowledge Discovery, Interactive Data Mining, Bioinformatics, Biomedical Informatics, Data intensive Science},
-   doi = {doi:10.1186/1471-2105-15-S6-I1},
-   url = {http://www.biomedcentral.com/1471-2105/15/S6/I1}
+@ONLINE{AnalOneComponent2013,
+  title = {Data Analysis: Just one component of the Data Science workflow},
+  url = {http://radar.oreilly.com/2013/09/data-analysis-just-one-component-of-the-data-science-workflow.html},
+  author = {Lorica, Ben},
+  year = {2013},
+  organization = {O’Reilly Media, Inc.}
 }
-
-@book{Holzinger:2014:SpringerTextbook,
-   year = {2014},
-   author = {Holzinger, Andreas},
-   title = {Biomedical Informatics: Discovering Knowledge in Big Data},
-   publisher = {Springer},
-   address = {New York},
-   abstract = {This book provides a broad overview of the topic Bioinformatics (medical informatics + biological information) with a focus on data, information and knowledge. From data acquisition and storage to visualization, privacy, regulatory, and other practical and theoretical topics, the author touches on several fundamental aspects of the innovative interface between the medical and computational domains that form biomedical informatics. Each chapter starts by providing a useful inventory of definitions and commonly used acronyms for each topic, and throughout the text, the reader finds several real-world examples, methodologies, and ideas that complement the technical and theoretical background. Also at the beginning of each chapter a new section called key problems, has been added, where the author discusses possible traps and unsolvable or major problems. This new edition includes new sections at the end of each chapter, called future outlook and research avenues, providing pointers to future challenges.},
-   doi = {10.1007/978-3-319-04528-3},
-   url = {http://dx.doi.org/10.1007/978-3-319-04528-3}
+@ONLINE{<CiteRef>,
+  title = {},
+  url = {},
+  author = {},
+  year = {},
+  organization = {}
 }
-
-@incollection{Holzinger:2013:HCI-KDD,
-   year = {2013},
-   author = {Holzinger, Andreas},
-   title = {Human-–Computer Interaction and Knowledge Discovery ({HCI-KDD}): What is the benefit of bringing those two fields to work together?},
-   booktitle = {Multidisciplinary Research and Practice for Information Systems, Springer Lecture Notes in Computer Science LNCS 8127},
-   editor = {Cuzzocrea, Alfredo and Kittl, Christian and Simos, Dimitris E. and Weippl, Edgar and Xu, Lida},
-   publisher = {Springer},
-   address = {Heidelberg, Berlin, New York},
-   pages = {319-328},
-   abstract = {A major challenge in our networked world is the increasing amount of data, which require efficient and user-friendly solutions. A timely example is the biomedical domain: the trend towards personalized medicine has resulted in a sheer mass of the generated (-omics) data. In the life sciences domain, most data models are characterized by complexity, which makes manual analysis very time-consuming and frequently practically impossible. Computational methods may help; however, we must acknowledge that the problem-solving knowledge is located in the human mind and – not in machines. A strategic aim to find solutions for data intensive problems could lay in the combination of two areas, which bring ideal pre-conditions: Human–Computer Interaction (HCI) and Knowledge Discovery (KDD). HCI deals with questions of human perception, cognition, intelligence, decision-making and interactive techniques of visualization, so it centers mainly on supervised methods. KDD deals mainly with questions of machine intelligence and data mining, in particular with the development of scalable algorithms for finding previously unknown relationships in data, thus centers on automatic computational methods. A proverb attributed perhaps incorrectly to Albert Einstein illustrates this perfectly: “Computers are incredibly fast, accurate, but stupid. Humans are incredibly slow, inaccurate, but brilliant. Together they may be powerful beyond imagination”. Consequently, a novel approach is to combine HCI & KDD in order to enhance human intelligence by computational intelligence. },
-   keywords = {Human-Computer Interaction (HCI), Knowledge Discovery in Data (KDD), HCI-KDD, E-Science, Interdisciplinary, Intersection science},
-   url = {https://online.tugraz.at/tug_online/voe_main2.getVollText?pDocumentNr=382991&pCurrPk=72064}
-}
-
-
-

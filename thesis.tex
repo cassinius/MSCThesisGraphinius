@@ -101,6 +101,12 @@
 
 \usepackage{listings}                 % for listings of source code
 
+% Include pdfs in landscape mode
+\usepackage{pdflscape}
+\usepackage[inner=30mm,outer=30mm,top=30mm,bottom=30mm,a4paper]{geometry}
+\usepackage[final]{pdfpages}
+
+
 
 \usepackage[austrian,english]{babel}  % load babel *before* natbib or jurabib
 \addto{\captionsenglish}{%
@@ -149,64 +155,6 @@
   linenosize=\small,
   linenodelimiter=,
 }
-
-
-%begin{latexonly}
-\ifpdf
-  % pdflatex
-  \usepackage[pdftex]{graphicx}
-  \DeclareGraphicsExtensions{.pdf,.jpg,.png}
-  %\pdfcompresslevel=9
-  \pdfpageheight=297mm
-  \pdfpagewidth=210mm
-  %\usepackage[         % hyperref should be last package loaded
-   % pdftex,
-    %pdftitle={Master's Thesis PDF title},
-    %pdfsubject={Master's Thesis},
-    %pdfauthor={Author Name},
-    %pdfkeywords={Master's Thesis keywords},
-    %bookmarks,
-    %bookmarksnumbered,
-    %linktocpage,
-    %pagebackref,
-    %colorlinks,
-    %linkcolor=darkred,
-    %anchorcolor=red,
-    %citecolor=darkgreen,
-    %urlcolor=darkblue,
-   % pdfview={FitH},
-    %pdfstartview={Fit},
-    %pdfpagemode=UseOutlines,       % open bookmarks in Acrobat
-    %plainpages=false,              % avoids duplicate page number problem
-    %pdfpagelabels,                 % avoids duplicate page number problem
-% ]{hyperref}
-
- % \renewcommand*{\backref}[1]{}
- % \renewcommand*{\backrefalt}[4]{%
- % \ifcase #1 %
- % (Not cited.)%
- % \or
- % (Cited on page~#2.)%
- % \else
- % (Cited on pages~#2.)%
- % \fi
- % }
-
-%  \renewcommand*{\backrefsep}{, }
-%  \renewcommand*{\backreftwosep}{ and~}
-%  \renewcommand*{\backreflastsep}{ and~}
-
-%\else
-  % latex
-%  \usepackage{graphicx}
-%  \DeclareGraphicsExtensions{.eps}
-%\fi
-%end{latexonly}
-
-
-% \includeonly{intro,biblio}   % selective inclusion
-
-
 
 \newcommand{\halfh}{9.5cm}        % height of figures for 2 per page
 \newcommand{\thirdh}{6cm}         % height of figures for 3 per page
@@ -277,7 +225,7 @@
 \pagestyle{empty}            % for title pages
 
 
-\include{thesis-00-title}       % Title Pages, Abstracts, Keywords, Pledge, %Abbreviations
+\include{chapters/00_title}       % Title Pages, Abstracts, Keywords, Pledge, %Abbreviations
 
 
 %------------------------------------------------------
@@ -294,18 +242,35 @@
 \setcounter{page}{15} % adjust this number if introduction becomes shorter or longer
 
 
-\include{thesis-01-intro}       % Introduction and Motivation for Research
-\include{thesis-02-relat}       % Theoretical Background and Related Work
-\include{thesis-03-mat}         % Materials and Methods
-\include{thesis-04-result}      % Results
-\include{thesis-05-disc}        % Discussions
-\include{thesis-06-concl}       % Conclusion
-\include{thesis-07-outlook}     % Future Work
+
+\include{chapters/01_motivation_introduction}
+
+\include{chapters/02_graphinius_platform}
+
+\include{chapters/03_applications}
+
+\include{chapters/04_related_work_survey}
+
+\include{chapters/05_graphinius_architecture}
+
+\include{chapters/06_software_requirements_survey}
+
+\include{chapters/07_implementation}
+
+\include{chapters/08_implementation_use_cases}
+
+\include{chapters/09_results}
+
+\include{chapters/10_open_problems_future_work}
+
+\include{chapters/11_conclusion}
+
+
 
 \appendix
 % \noappendicestocpagenum
 % \addappheadtotoc
-\include{thesis-08-append}      % Appendix A
+\include{chapters/12_appendices}      % Appendix A
 
 
 \cleardoublepage
@@ -328,7 +293,7 @@
 
 \cleardoublepage
 \phantomsection
-\include{thesis-10-biblio}      % Bibliography
+\include{chapters/13_bibliography}      % Bibliography
 
 
 \end{document}
