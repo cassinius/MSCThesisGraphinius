@@ -2,7 +2,13 @@
 \label{ch:future_work}
 
 
-Considering GRAPHINIUS an arbitrarily extendable computing platform (which uses graphs as underlying, universal data structures), there are many possibilities to build upon this work, ranging from small improvements to the introduction of fundamentally new infrastructure, transcending the use of contemporary graph libraries - this section shall give a brief - and certainly incomplete - outline of this potential:
+
+\section{Future Work}
+\label{sect:future_challenges}
+
+Considering GRAPHINIUS an arbitrarily extendable computing platform (which uses graphs as underlying, universal data structures), there are many possibilities to build upon this work, ranging from small improvements to the introduction of fundamentally new infrastructure, transcending the use of contemporary graph libraries. 
+
+The use of a centralized, Web based graphical workflow system will prove especially useful in exploiting and propagates the experience of individual users, as it bundles not only data, but also the settings and results of all experiments conducted on that platform.
 
 
 \section{Graph generators (graph types)}
@@ -21,8 +27,45 @@ Considering GRAPHINIUS an arbitrarily extendable computing platform (which uses 
 \label{sect:pipelines}
 
 
+\subsection{Heterogeneous data linkage}
+\label{ssect:heterogeneous_data}
+
+Many research fields comprise several sub-problems which are amenable to different machine learning approaches and feature their own, distinctive input data sets. Coming from various, different data sets featuring their distinct attribute domains, they probably are - via their time-, space- or other dimensions, interlinkable with one another. Usually, studies are only concerned about using a single one of those data sources and applying different methods to it. However, a more holistic approach would be to fuse those data sets along one or more dimensions (or any other meaningful ruleset) in order to achieve a richer representation of the underlying problem. A resulting data-set might take the form of a graph structure, in which individual entities from the originating sets are linked by meaningful connection rules, which in themselves will have to be learned. 
+
+%For example, \cite{thebook} introduced the concept of authority ranking for heterogeneous networks, where the impact is transferred along edges to simultaneously rank nodes of different types.
+
+\subsection{Meta machine learning}
+\label{ssect:meta_ml}
+
+Meta-learning applies learning algorithms on data collected about machine learning experiments. As one of the first papers regarding this topic, \citep{Rice1975} defined the "Algorithm Selection Problem", which was first recognized as a meta learning problem by the machine learning community. He describes five spaces in which the Algorithm Selection Problem plays out:
+
+\begin{itemize}
+	\item \textbf{The problem space}: This is the set of all possible input problems (datasets + desired result class).
+	
+	\item \textbf{The feature space}: Features of a specific problem or family of problems. In dermatological imaging those would be defined by the imaging method (laser-scan vs. stanza), the scale of the objects to be detected (single cells vs nevi) etc.
+	
+	\item \textbf{The algorithm space}: The set of all algorithms suitable for the specific problem (features) to be worked on.
+	
+	\item \textbf{The performance measures} (the metric space): The set of possible measurements that could describe the quality of a solution (runtime performance, accuracy, ..).
+	
+	\item \textbf{The criteria space}: The weighing of different performance measures considered for a particular solution.
+\end{itemize}
+
+
+In most scenarios concerning Graphinius we will be concerned with the selection of workflow components and their parameters based on the nature of the specific area of application, the tackled problems, their features, available algorithms, preprocessing methods, parameters as well as performance measures.
+
+\subsection{Hyper heuristics}
+\label{ssect:hyper_heuristics}
+
+Hyper heuristics are a way of selecting or configuring algorithms by searching a space of lower level heuristics instead of searching the solution (parameter) space itself. Hyper heuristics are different from meta learning in that they work independently of the problem domain and therefore promise to be generally applicable; the challenges lie in producing algorithms that do not need to be optimal, but rather good-enough, soon-enough, cheap-enough \citep{Burke:2003:Hyperheuristics}.
+
+Although many research fields in themselves are not broad enough to be a suitable proving ground for hyper heuristic research, the Graphinius platform will provide us with meta-data about experiments in many diverse areas. We fully agree with \cite{Burke2013} who concludes that there is still little interaction between research communities, a problem whose solution could lead to the extension of algorithms to both new problem domains and new methodologies through cross-fertilization of ideas.
+
+
 \section{Meta ML / heuristics database}
 \label{sect:heuristics}
+
+The greatest advantage of using Meta ML in combination with a centralized, Web based workflow system lies in the fact that users may profit from their colleagues' meta data by building up a collective Meta ML database: input data plus algorithm parameters plus success metrics.
 
 
 \section{Algorithmic recommender}
