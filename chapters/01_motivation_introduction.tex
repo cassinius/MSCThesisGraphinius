@@ -7,9 +7,11 @@ Choosing a suitable topic for a Master's Thesis is not a readily decided matter.
 \section{Scientific motivation}
 \label{sect:scientific_motivation}
 
-Having been a member of the HCI-KDD.org group for 1 1/2 years now, I have developed a genuine interested in graph theory, machine learning, HCI as well as their applications in modern information systems - not least in the context of medical image processing. Although finalizing my Master's study at a relatively advanced age, I am still open to pursuing a PhD in those areas. Therefore, it seemed logical to tackle some problems related to those fields; however significant progress in such advanced matters are not easily within the reach of even professional scientists, leave alone a single MSc student on a deadline...
+Having been a member of the HCI-KDD.org group for over 2 years now, I have developed a genuine interested in graph theory, machine learning, HCI as well as their applications in modern information systems - not least in the context of biomedical applications. Although finalizing my Master's study at a relatively advanced age, I am still open to pursuing a PhD in those areas. Therefore, it seemed logical to tackle some problems related to those fields; however significant progress in such matters are not easily achieved even by professional scientists, leave alone a single MSc student on a deadline...
 
-For this reason I intended to contribute to the future work of Professor Holzingers Team (whether part of it or not) by concerning myself with scientific matters without the pretension of being capable of improving on complex research efforts. As a result, I built on work already conducted in my Master's project by underpinning it with a more general and expandable Software architecture. This way, I hope to be able to help without leaving my actual field of study.
+For this reason I intended to contribute to the future work of Professor Holzingers Team by concerning myself with scientific matters without the pretension of being capable of improving on complex research efforts. As a result, I built on work already conducted in my Master's project by underpinning it with a more general and expandable Software architecture. Assisting (data) scientists by providing a better underlying infrastructure to accelerate their experimental iterations and making demanding processing steps available to researchers outside the field of computer science or software development, has been dubbed 'data engineering' over the recent years [article citations]. 
+
+Popular projects like Apache Hadoop or Spark, Google's recently released TensorFlow and many other, more specialized clowd-based research platforms, fall under this category - albeit they boast very different properties and advantages and are therefore suitable for different, although overlapping, use cases. The Graphinius library (and future platform) presented in this thesis is unique in the sense that it allows computations directly on the client, but without requiring any installation, by utilizing a piece of software contained in any browser - the JavaScript virtual machine (JSVM). 
 
 
 \section{Technological / engineering motivation}
@@ -20,12 +22,22 @@ As a student of Software Development and Business Management the two aspects of 
 As a consequence, the following thesis is an attempt at merging my scientific curiosity with my drive towards new, exciting Software Development methodologies into a working, expandable prototype of a future Web based research platform. I am glad if I was partially able to live up to that goal.
 
 
-
-
 \chapter{Introduction}
 \label{ch:introduction}
 
-The following sections shall give a brief introduction into how and why project OGMA came into existence, what challenges we want to tackle building it, as well as the general objectives and potential new application it might give rise to.
+The following sections shall give a brief introduction into how and why project Graphinius came into existence, what challenges we want to tackle building it, as well as the general objectives and potential new applications it might enable or make feasible in the future.
+
+
+\section{What is Graphinius?}
+\label{sect:intro_whats_graphinius}
+
+Graphs are a fundamental tool of mathematics and can be applied to a very diverse field of modern scientific areas: network routing (information, traffic, logistics), social network / community analysis, image processing, NLP operating on graphs of document spaces and topic clusters as well as fraud detection via belief propagation networks (all of the mentioned and a few others will be described in Chapter 4).
+
+A relatively novel addition to that spectrum is the emerging field of computational biology, in which we can find PPI, metabolics, or connectome graphs. Since BioMed Researchers are usually no tech experts, an intuitive, UI-based research platform could facilitate rapid experimental iterations. Graphinius aims to be such a Web-based, graph theoretical research platform offering real-time in-browser computations as well as tightly integrated visualization, interaction, and manipulation of graph structures. 
+
+In this thesis I am mainly introducing GraphiniusJS and it's underlying design principles, but 
+
+ , a WebGL / Three.js based graph visualization library using low-level datastructures and concepts, enabling it to visualize up to 20k nodes / 60k edges fluenlty even on middle-class laptops. We will also provide an outlook on the whole, emerging Graphinius platform and it's exciting capabilities.
 
 
 \section{The history of OGMA}
