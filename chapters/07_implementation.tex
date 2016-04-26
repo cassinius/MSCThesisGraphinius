@@ -37,6 +37,8 @@ The levels on which testing can occur as defined in \cite{Myers2004AST} are Unit
 	\hspace*{-0.5cm}
 	\includegraphics[width=0.8\textwidth]{figures/package_deps}
 	\caption{GraphiniusJS development and runtime dependencies}
+	\small
+	As is clearly visible, I focused on managing all complexity during development time, resulting in zero dependencies for the runtime JS bundle.
 \end{figure}
 
 
@@ -62,21 +64,30 @@ The levels on which testing can occur as defined in \cite{Myers2004AST} are Unit
 \section{Implemented Algorithms}
 \label{sect:implemented_algos}
 
-	\subsection{Core Search - BFS / DFS / PFS}
-	\label{ssect:bfs_dfs}
+	\subsection{Degree Distribution}
+	\label{ssect:deg_dist}
+
+	\subsection{Core Search - Graph Traversal}
+	\label{ssect:core_search}
+	
+		\subsubsection{Breadth first search}
+		\label{sssect:search_bfs}
+		
+		\subsubsection{Depth first search}
+		\label{sssect:search_dfs}
+		
+		\subsubsection{Best (priority) first search}
+		\label{sssectsearch_:pfs}
+		
 	
 	\subsection{Topological Sorting / SCC}
 	\label{ssect:toposort_scc}
-	
-	\subsection{Degree Distribution}
-	\label{ssect:deg_dist}
 		
 	\subsection{Shortest paths}
 	\label{ssect:shortest_paths}
 	
 	\subsection{Clustering}
 	\label{ssect:clustering}
-
 
 %	\subsection{Centralities}
 %	\label{ssect:centralities}
