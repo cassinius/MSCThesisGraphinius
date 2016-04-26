@@ -35,7 +35,7 @@ Graphs are a fundamental tool of mathematics and can be applied to a very divers
 
 A relatively novel addition to that spectrum is the emerging field of computational biology, in which we can find PPI, metabolics, or connectome graphs. Since BioMed Researchers are usually no tech experts, an intuitive, UI-based research platform could facilitate rapid experimental iterations. Graphinius aims to be such a Web-based, graph theoretical research platform offering real-time in-browser computations as well as tightly integrated visualization, interaction, and manipulation of graph structures. 
 
-In this thesis I will mainly introduce GraphiniusJS and its underlying design principles; however, I am in the lucky position of already having coordinated the development of a graph visualization library in the context of a colleague's Master's Project. This WebGL / Three.js based library called GraphiniusVis uses low-level datastructures and concepts, enabling it to visualize up to 20k nodes / 60k edges inside a browser fluently even on middle-class laptops. I will also provide an outlook on the whole, emerging Graphinius platform and its exciting capabilities for researchers and students.
+In this thesis I will mainly introduce GraphiniusJS and its underlying design principles; however, I am in the lucky position of already having supported the development of a graph visualization library in the context of a colleague's Master's Project. This WebGL / Three.js based library called GraphiniusVis uses low-level datastructures and concepts, enabling it to visualize up to 20k nodes / 60k edges inside a browser fluently even on middle-class laptops. I will also provide an outlook on the whole, emerging Graphinius platform and its exciting capabilities for researchers and students.
 
 
 \section{The history of Graphinius}
@@ -61,7 +61,7 @@ Building upon those insights Professor Holzinger and I came up with a project ca
 	% \centering
 	% \hspace*{-0.5cm}
 	\includegraphics[width=1.1\textwidth]{figures/iKNOdis_OGMA_structure}
-	\caption{Graphinius platform architecture overview}
+	\caption{Former project iKNOdis architecture overview}
 \end{figure}
 
 
@@ -113,8 +113,8 @@ This incident shows how much effort is potentially squandered by trying to imple
 \end{itemize}
 
 
-
-\cite{LargeScaleMLPipelines}, ...
+Papers to cite in this context: \\
+\cite{LargeScaleMLPipelines}
 \cite{MLPipelineMLlib}
 \cite{DataAnalysisDSWorkflow}
 \cite{StanfordNLP}
@@ -125,20 +125,14 @@ This incident shows how much effort is potentially squandered by trying to imple
 \cite{AnalOneComponent2013}
 
 
-no automatic coupling with existing test data corporae 
-
-
-
 \section{A Web based approach - why?}
 \label{sect:web_transition}
-
-
 
 \section{How a Web based approach could benefit users, researchers and society}
 \label{sect:web_benefits}
 
 \begin{itemize}
-	\item \textbf{Ease of access.} Yeah, really?? Cooool point.... (about -270 deg cent....)
+	\item \textbf{Ease of access.}
 	\item \textbf{Effortless scalability.}
 	\item \textbf{Built-in potential analysis.}
 	\item \textbf{Server Side Meta Machine Learning.} As researchers start using our platform, their pipeline configurations, input descriptions, task specifiers (classification, text analysis etc.) as well as results will be stored on the server. Enough data provided, such a database might be amenable to the development of heuristics on the expected success of a particular algorithm invoked at a specific stage of the pipeline.
@@ -153,11 +147,8 @@ no automatic coupling with existing test data corporae
 \subsection{education}
 \label{ssect:education}
 
-\subsection{algorithm design / test (on small graphs)}
-\label{ssect:algodesign}
-
-\subsection{fast prototyping}
-\label{ssect:prototyping}
+\subsection{algorithm prototyping}
+\label{ssect:algo_proto}
 
 \subsection{research platform}
 \label{ssect:research}

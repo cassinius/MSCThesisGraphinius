@@ -106,6 +106,18 @@
 		\item On the other hand, questions of data security / privacy will have to be dealt with, as we are talking about preemptively filling the client memory with possibly otherwise unnecessary or superfluous data.
 	\end{itemize}
 	
+	
+	\begin{figure}[ht]
+		\label{fig_local_sphere}
+		\begin{center}
+			\includegraphics[width=1\textwidth]{figures/local_sphere}
+			\caption{Local sphere projected from global sphere}
+		\end{center}
+		\small
+		Only a very small portion of the global graph is actually visible from any connected client. The sum of all viewable items however, if properly conveyed to the client (i.e. with their connection information preserved), could form a subgraph of the whole network called the 'local sphere', which would allow the browser to utilize the underlying graph structure to extract hidden knowledge and perform graph computations on its own.
+	\end{figure}
+	
+	
 	Needless to say, GraphiniusJS would be an ideal candidate to explore this concept further and could, if used appropriately on carefully modeled local spheres, enable start-ups to compete with much larger companies employing complex and very expensive machine learning infrastructures.
 	
 	
