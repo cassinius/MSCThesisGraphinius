@@ -59,6 +59,16 @@
 	\subsection{Graph based image processing}
 	\label{ssect:app_graph_img_proc}
 	
+	\begin{figure}[ht]
+		\label{fig_graph_based_img_classification}
+		\begin{center}
+			\includegraphics[width=1\textwidth]{figures/graph_img_class}
+			\caption{Graph based image classification example}
+		\end{center}
+		\small
+		1) a laser scan image of a nevus is oversegmented and 2) a graph extracted by interpreting region centroids as nodes and region adjacency as edges. 3) A belief propagation algorithm is applied to the resulting graph yielding 2) a converged state representing the nevus classification as benign or malignant.
+	\end{figure}
+	
 	\subsection{Graph based NLP}
 	\label{ssect:app_graph_nlp}
 	
@@ -68,10 +78,32 @@
 	\subsection{Anonymization}
 	\label{ssect:app_snonymization}
 	
+	\begin{figure}[ht]
+		\label{fig_graph_based_img_classification}
+		\begin{center}
+			\includegraphics[width=0.9\textwidth]{figures/anonym/3typesofdata}
+			\caption{The three types of data considered in (k-)anonymization}
+		\end{center}
+	\end{figure}
+	
+	
+	\begin{figure}[H]
+		\centering
+		\begin{minipage}[b]{0.5\textwidth}
+			\includegraphics[width=\textwidth]{figures/anonym/k_anon_input}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[b]{0.418\textwidth}
+			\includegraphics[width=\textwidth]{figures/anonym/k_anon_output}
+		\end{minipage}
+		\caption{Tabular anonymization: input table and anonymization result}
+	\end{figure}	
+	
+	
 	\subsection{Fraud detection}
 	\label{ssect:fraud_detection}
 
-
+	Polo chau's BP in MRF for spam classification work...
 
 \section{Application specific requirements}
 \label{section:app_requirements}
@@ -84,6 +116,8 @@
 	
 	\subsection{Preprocessing}
 	\label{ssect:preprocessing}
+	
+	Graph generation (ER model...)
 	
 	\subsection{Feature Selection}
 	\label{ssect:feature_selection}

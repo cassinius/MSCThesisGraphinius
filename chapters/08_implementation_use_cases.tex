@@ -22,6 +22,19 @@
 		\item \textbf{graph based segmentation}
 		\item \textbf{visualization}
 	\end{enumerate}
+	
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics [width=0.24\textwidth] {figures/kruskal/sample2_input}
+			\includegraphics [width=0.24\textwidth] {figures/kruskal/out_rm_01}
+			\includegraphics [width=0.24\textwidth] {figures/kruskal/out_rm_02}
+			\includegraphics [width=0.24\textwidth] {figures/kruskal/out_rm_03}
+			\caption{Kruskal MST based region merging}
+		\end{center}
+		\small 
+		Result of applying a Kruskal based region merging algorithm to an image of numerous small scale regular structures. (1) Input image, (2) Result with parameters $k=1150, s=0, m=\infty$, (3) Result with parameters $k=150, s=5, m=500$, (4) Result with parameters $k=50, s=2, m=150 $.
+		
+	\end{figure}
 
 
 \section{Anonymity: SaNGreeA (with iML)}
@@ -35,6 +48,22 @@
 		\item \textbf{Anonymize via SaNGreeA modified}
 		\item \textbf{Compare results}
 	\end{enumerate}
+	
+	\begin{figure}[ht]
+		\label{fig_anonIML}
+		\begin{center}
+			\includegraphics[width=0.8\textwidth]{figures/anonym/gen_hierarchy}
+			\caption{Example of a typical generalization hierarchy}
+		\end{center}
+	\end{figure}	
+	
+	\begin{figure}[ht]
+		\label{fig_anonIML}
+		\begin{center}
+			\includegraphics[width=1\textwidth]{figures/anonym/anonIML}
+			\caption{Anonymization augmented by IML (human in the loop)}
+		\end{center}
+	\end{figure}
 
 
 %\section{NLP: Community extraction \& group labeling (OPTIONAL !!)}

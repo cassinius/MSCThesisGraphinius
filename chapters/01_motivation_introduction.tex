@@ -40,7 +40,7 @@ In this thesis I am mainly introducing GraphiniusJS and it's underlying design p
  , a WebGL / Three.js based graph visualization library using low-level datastructures and concepts, enabling it to visualize up to 20k nodes / 60k edges fluenlty even on middle-class laptops. We will also provide an outlook on the whole, emerging Graphinius platform and it's exciting capabilities.
 
 
-\section{The history of OGMA}
+\section{The history of Graphinius}
 \label{sect:ogma_history}
 When I met Andreas Holzinger in November 2013 he presented me with a `crazy' idea, as he put it: To analyze dermatological images not by traditional image processing methods, but by first transforming them into a graph structure and subsequently apply graph mining algorithms with the goal of obtaining results at least comparable to the quality achievable as of date. My first experiments in what I quickly termed ``graph extraction'' from images' were conducted in Matlab and progressed rather modestly; being a developer used to employ C-style programing languages and Object oriented paradigms, Matlab seemed a peculiar (and very costly) way to perform specific, handwritten algorithms which did not lend themselves especially well to matrix representations and calculations. Moreover I was concerned with the fact that even if I succeeded in doing a great job in extracting usable graphs (what that meant was not clear to me at that time) I would not easily be able to share my work with colleagues outside the research community. Providing C++ / Java Code on Github for developers having working installations of those environments is certainly standard by today, but installations of Matlab (or Octave with specific add-on packages installed) are not widespread. Furthermore, in case my results would be interesting to the public as well, a live demonstration of the software at work might be desirable.
 
@@ -58,13 +58,18 @@ Building upon those insights Professor Holzinger and I came up with a project ca
 
 \par
 
-\begin{figure}
-\includegraphics[width=0.95\textwidth]{figures/iKNOdis_OGMA_structure}
+\begin{figure}[ht]
+	\label{fig_iKNOdis_structure}
+	% \centering
+	% \hspace*{-0.5cm}
+	\includegraphics[width=1.1\textwidth]{figures/iKNOdis_OGMA_structure}
+	\caption{Graphinius platform architecture overview}
 \end{figure}
 
 
-In the process of creating an FWF proposal out of iKnodis, the project was split into two separate projects in order to make them amenable to independent smaller funding efforts as well as different groups of developers working on their respective areas of interest yet maintaining their focus towards achieving the common goal. This resulted into iKNOdis now spanning graph extraction out of images as well as 3-dimensional visualization of the resulting graph structures via a Browser based method. The remaining modules of building a Web Based research platform as well as establishing graph mining algorithms able to tackle object recognition / image classification tasks usually covered by traditional image processing techniques, have been outsourced to project OGMA, the Open Graph Mining Architecture. Although it will be in the context of OGMA that this Master Thesis will play out, the resulting smart computational pipeline will also encompass the algorithms of iKNOdis. Indeed, a graph extraction algorithm already implemented during my Master's Project \cite{GraphExtractPaper} will be part of the test cases for the practical implementation found in later chapters of this work. Let us now outline the further structure of this thesis.
+In the process of creating an FWF proposal out of iKnodis, the project was split into two separate projects in order to make them amenable to independent smaller funding efforts as well as different groups of developers working on their respective areas of interest yet maintaining their focus towards achieving the common goal. This resulted into iKNOdis now spanning graph extraction out of images as well as 3-dimensional visualization of the resulting graph structures via a Browser based method. 
 
+The remaining modules of building a Web Based research platform as well as establishing graph mining algorithms able to tackle object recognition / image classification tasks usually covered by traditional image processing techniques, have been outsourced to project OGMA, the Open Graph Mining Architecture. Although it will be in the context of OGMA that this Master Thesis will play out, the resulting smart computational pipeline will also encompass the algorithms of iKNOdis. Indeed, a graph extraction algorithm already implemented during my Master's Project \cite{GraphExtractPaper} will be part of the test cases for the practical implementation found in later chapters of this work. 
 
 \section{How this thesis is structured}
 \label{section:thesis_structure}
