@@ -119,21 +119,19 @@ year = {2013}
 	biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/CrankshawBGLZFGJ14},
 	bibsource = {dblp computer science bibliography, http://dblp.org}
 }
-@article{Felzenszwalb2004,
-author = {Felzenszwalb, Pedro F. and Huttenlocher, Daniel P.},
-doi = {10.1023/B:VISI.0000022288.19776.77},
-file = {:home/bernd/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Felzenszwalb, Huttenlocher - 2004 - Efficient Graph-Based Image Segmentation.pdf:pdf},
-issn = {0920-5691},
-journal = {International Journal of Computer Vision},
-keywords = {clustering,graph algorithm,image segmentation,perceptual organization},
-month = sep,
-number = {2},
-pages = {167--181},
-title = {{Efficient Graph-Based Image Segmentation}},
-url = {http://link.springer.com/10.1023/B:VISI.0000022288.19776.77},
-volume = {59},
-year = {2004}
-}
+
+@article{FelzenszwalbHuttenlocher2004,
+	year = {2004},
+	doi = {10.1023/B:VISI.0000022288.19776.77},
+	author = {Felzenszwalb, Pedro F and Huttenlocher, Daniel P},
+	title = {Efficient graph-based image segmentation},
+	journal = {International Journal of Computer Vision},
+	volume = {59},
+	number = {2},
+	pages = {167-181},
+	abstract = {This paper addresses the problem of segmenting an image into regions. We define a predicate for measuring the evidence for a boundary between two regions using a graph-based representation of the image. We then develop an efficient segmentation algorithm based on this predicate, and show that although this algorithm makes greedy decisions it produces segmentations that satisfy global properties. We apply the algorithm to image segmentation using two different kinds of local neighborhoods in constructing the graph, and illustrate the results with both real and synthetic images. The algorithm runs in time nearly linear in the number of graph edges and is also fast in practice. An important characteristic of the method is its ability to preserve detail in low-variability image regions while ignoring detail in high-variability regions.}
+} 
+
 @article{LeeObjectGraphs2012,
 abstract = {How can knowing about some categories help us to discover new ones in unlabeled images? Unsupervised visual category discovery is useful to mine for recurring objects without human supervision, but existing methods assume no prior information and thus tend to perform poorly for cluttered scenes with multiple objects. We propose to leverage knowledge about previously learned categories to enable more accurate discovery, and address challenges in estimating their familiarity in unsegmented, unlabeled images. We introduce two variants of a novel object-graph descriptor to encode the 2D and 3D spatial layout of object-level co-occurrence patterns relative to an unfamiliar region and show that by using them to model the interaction between an image’s known and unknown objects, we can better detect new visual categories. Rather than mine for all categories from scratch, our method identifies new objects while drawing on useful cues from familiar ones. We evaluate our approach on several benchmark data sets and demonstrate clear improvements in discovery over conventional purely appearance-based baselines.},
 author = {Lee, Yong Jae and Grauman, Kristen},
@@ -1010,4 +1008,15 @@ year = {2007}
 	address = {Berlin, Heidelberg},
 }
 
-
+@article{JordanMitchell:2015:MLtrendsScience,
+	year = {2015},
+	author = {Jordan, M. I. and Mitchell, T. M.},
+	title = {Machine learning: Trends, perspectives, and prospects},
+	journal = {Science},
+	volume = {349},
+	number = {6245},
+	pages = {255-260},
+	abstract = {Machine learning addresses the question of how to build computers that improve automatically through experience. It is one of today’s most rapidly growing technical fields, lying at the intersection of computer science and statistics, and at the core of artificial intelligence and data science. Recent progress in machine learning has been driven both by the development of new learning algorithms and theory and by the ongoing explosion in the availability of online data and low-cost computation. The adoption of data-intensive machine-learning methods can be found throughout science, technology and commerce, leading to more evidence-based decision-making across many walks of life, including health care, manufacturing, education, financial modeling, policing, and marketing.},
+	doi = {10.1126/science.aaa8415},
+	url = {http://www.sciencemag.org/content/349/6245/255.abstract}
+} 

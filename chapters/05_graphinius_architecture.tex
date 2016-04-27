@@ -2,11 +2,11 @@
 \label{ch:graphinius_architecture}
 
 \begin{figure}[ht]
-	\label{fig_graphinius_architecture}
 	% \centering
 	\hspace*{-0.5cm}
 	\includegraphics[width=1.1\textwidth]{figures/Graphinius_Architecture_pdf}
 	\caption{Graphinius platform architecture overview}
+	\label{fig_graphinius_architecture}
 \end{figure}
 
 
@@ -20,14 +20,39 @@ As the name suggests, the Base offers all the functionality necessary to develop
 \section{Graphinius JS}
 \label{sect:graphinius_js}
 
-	\subsection{Input / Output}
+	\subsection{Graph input readers}
 	\label{ssect:input_output}
 	
 		\subsubsection{CSV}
 		\label{sssection: io_csv}
 		
+		
+		\begin{figure}[ht]
+			\begin{lstlisting}
+				A, B, u, C, u, A, d, B, d, D, d
+				B, A, u
+				C, A, u, A, d
+				D, A, d
+			\end{lstlisting}
+			\caption{Adjacency list including edge direction}
+			\label{fig:adj_list_direction}
+		\end{figure}
+		
+		CSV Edge Lists use the simple format of [StartNode, EndNode [,directed]].		
+			
+		
 		\subsubsection{JSON}
 		\label{sssection: io_json}
+		
+		\begin{figure}[ht]
+			\centering
+ 			\hspace*{-1.5cm}
+			\includegraphics[width=1.2\textwidth]{figures/search_graph_json}
+			\caption{Sample graph in the Graphinius JSON format}
+			\label{fig:json_input_graph}
+			\small Apart from the 'to' node, direction and weight, any node can exhibit an arbitrarily large feature vector containing any type of information (like patient data, word vectors, etc.). Another special sub-object which the input reader is looking for is the 'coords' object, which specifies the coordinates used in the constant layout renderer of the GraphiniusVIS library.
+		\end{figure}
+		
 	
 	\subsection{Graph Core}
 	\label{ssect:graph_core}
