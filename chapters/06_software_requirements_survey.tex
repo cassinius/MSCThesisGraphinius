@@ -36,136 +36,154 @@ Those new methods provide great opportunities (but also challenges) even for the
 \end{landscape}
 
 
-\section{Graphinius JS}
-\label{library}
+\section{Preprocessing (compiling) JS Meta Languages}
+\label{sect:language}
 
-	The components presented in this section correspond with the graphical elements in Figure~\ref{fig:webdev_cycle_components}.
-
-	\subsection{Preprocessing (compiling) JS Meta Languages}
-	\label{ssect:language}
+	\subsection{Javascript / ES6}
+	\label{ssect:js_es6}
 	
-		\subsubsection{Javascript / ES6}
-		\label{sssect:js_es6}
-		
-		Although the JavaScript language was put together by Brendan Eich of the Netscape company within 3 weeks in 1994 (when it was initially called LiveScript, and in 1995 renamed to JavaScript in a marketing attempt to jump on the Java-hype bandwagon), it turned out to be a nifty little language for general in-browser development and computations. JavaScript is a prototype based language, which means that it uses pointers to parent objects instead of class instantiations, features first-order functions (functions which can generate functions) and function-as-object passing, which is ideal for callback-based implementations of the visitor pattern, even more so as JS functions are automatically closures (functions or lambdas that have, regardless of their execution context, full access to their original definition scope).
-		
-		After almost two decades however, the JS development community felt that requirements on modern web-based product had increased so drastically, that traditional JavaScript could only partially serve them anymore. Problems are - amongst others: 1) the lack of an explicit type system (which is crucial for larger software projects), 2) the lack of an implicit module system allowing for requiring other files or packages (except in the form of browser script tags), 3) the lack of a chaining system for async callbacks (which resulted in the notorious 'pyramid of doom'), 4) the somewhat peculiar functional scoping, which is mostly an entrance barrier to developers of other languages, as well as 5) a general lack of elegant language constructs (like deconstruction of objects into variables etc.).
-		
-		While some of those problems have been addressed even in the context of ECMAScript 5 (like the introduction of promises to replace nested callback functions), many shortcomings could only be addressed by external libraries, which polluted the workflow with additional dependencies not needed in more sophisticated languages and often increasing the JS download size by hundreds of kilobytes, which can become a problem on mobile devices.
-		
-		ECMAScript 6 (codename harmony) is an overhaul of the JavaScript language featuring classes, a new keyword for the familiar block scoping ('let'), as well as an integrated module system allowing to require external files even inside the browser. The greatest obstacle to using ES6 today is the lack of complete support across all browser vendors - this is where ES6-to-ES5 compilers like \textit{Traceur} or the more popular \textit{Babel} come in. As far as syntax goes, ES 6 cleans up some keyword usages in order to make code more readable (samples taken from \url{http://es6-features.org/}):
-		
-		
-		\begin{lstlisting}[caption={ECMAScript 5 (usually referred to as 'JavaScript') version of functional programming using the natively built-in mapping function.}, label={fig:ECMAScript5_mapping}, language=JavaScript]
-	odds  = evens.map(function (v) { return v + 1; });
-	pairs = evens.map(function (v) { return { even: v, odd: v + 1 }; });
-	nums  = evens.map(function (v, i) { return v + i; });
-		\end{lstlisting}
-		
-		
-		\begin{lstlisting}[caption={ECMAScript 6 equivalent to the above code.}, label={fig:ECMAScript6_mapping}, language=JavaScript]
-	odds  = evens.map(v => v + 1)
-	pairs = evens.map(v => ({ even: v, odd: v + 1 }))
-	nums  = evens.map((v, i) => v + i)
-		\end{lstlisting}
-		
-		Although ES6 is a great improvement over ES5 in many respects, it still lacks an explicit type system and interfaces (which can guide an IDE in it's analysis regarding Code Completion and IntelliSense). It was therefore not considered the best option for the development of a potentially large library as GraphiniusJS.			
-		
-		\subsubsection{Coffeescript (CS)}
-		\label{sssect:coffeescript}
-		
-		Coffeescript was an attempt to make JavaScript code more readable as well as writable. It was apparently inspired by the clean syntax used in modern scripting languages like Ruby or Python and adopted the use of whitespace as control characters like Python (but not Ruby). Most of the language was based on using 'syntactic sugar' to abbreviate otherwise verbose JS code. For instance, the  \textit{this} variable was replaced by the  \textit{@} sign, the return statement at the end of a function became superfluous, and the lambda operator \textit{->} was introduced as a shortcut for the \textit{function} keyword in normal JS. Examples taken from \url{http://ricardo.cc/2011/06/02/10-CoffeeScript-One-Liners-to-Impress-Your-Friends.html}
-		
-		\begin{lstlisting}[caption={Two versions of the same mapping functionality in CoffeeScript}, label={fig:Coffeescript_mapping}, language=JavaScript]
-	[1..10].map (i) -> i*2
-	i * 2 for i in [1..10]
-		\end{lstlisting}
-		
-		Like ES6, Coffeescript is compiled down to ES5 through it's own coffee compiler. As much as the idea of CS is neat and very justified for individual developers, the use of whitespace as control characters can add some additional hassles if working in a team; only slight deviations in the individual setup can cause serious problems, like the use of editors that use different representations for tabs (tab vs 2 spaces vs 4 spaces) or different line ending symbols (Windows vs. Mac vs. Linux). Furthermore, CS did not resolve the lack of an internal module system or the lack of an explicit type system, and was therefore not considered for Graphinius JS.
-		
-		
-		\subsubsection{Typescript}
-		\label{sssect:typescript}
-		
-		
-		
-		
-	\subsection{Testing}
-	\label{ssect:testing}
+	Although the JavaScript language was put together by Brendan Eich of the Netscape company within 3 weeks in 1994 (when it was initially called LiveScript, and in 1995 renamed to JavaScript in a marketing attempt to jump on the Java-hype bandwagon), it turned out to be a nifty little language for general in-browser development and computations. JavaScript is a prototype based language, which means that it uses pointers to parent objects instead of class instantiations, features first-order functions (functions which can generate functions) and function-as-object passing, which is ideal for callback-based implementations of the visitor pattern, even more so as JS functions are automatically closures (functions or lambdas that have, regardless of their execution context, full access to their original definition scope).
 	
-		\subsubsection{Jasmine}
-		\label{sssect:jasmine}
-		
-		\subsubsection{Mocha / Chai(!)}
-		\label{sssect:mocha_chai}
-		
-		\subsubsection{Mocking Library (Sinon)}
-		\label{sssect:mocking}
-
-		\subsubsection{Selenium(??)}
-		\label{sssect:selenium}
-		
+	After almost two decades however, the JS development community felt that requirements on modern web-based product had increased so drastically, that traditional JavaScript could only partially serve them anymore. Problems are - amongst others: 1) the lack of an explicit type system (which is crucial for larger software projects), 2) the lack of an implicit module system allowing for requiring other files or packages (except in the form of browser script tags), 3) the lack of a chaining system for async callbacks (which resulted in the notorious 'pyramid of doom'), 4) the somewhat peculiar functional scoping, which is mostly an entrance barrier to developers of other languages, as well as 5) a general lack of elegant language constructs (like deconstruction of objects into variables etc.).
 	
-	\subsection{Documentation}
-		\label{ssect:documentation}
-		
-		\subsubsection{JSDoc}
-		\label{sssect:jsdoc}
-		
-		\subsubsection{TypeDoc}
-		\label{sssect:typedoc}
-		
-
-	\subsection{Build system for browser}
-		\label{ssect:build_browser}
-		
-		\subsubsection{Browserify}
-		\label{sssect:browserify}
-		
-		\subsubsection{request.js}
-		\label{sssect:request_js}
-		
-		\subsubsection{webpack}
-		\label{sssect:webpack}
-
-
-	\subsection{Task Runner}
-	\label{ssect:build_system}
+	While some of those problems have been addressed even in the context of ECMAScript 5 (like the introduction of promises to replace nested callback functions), many shortcomings could only be addressed by external libraries, which polluted the workflow with additional dependencies not needed in more sophisticated languages and often increasing the JS download size by hundreds of kilobytes, which can become a problem on mobile devices.
 	
-		\subsubsection{Grunt}
-		\label{sssect:grunt}
-		
-		\subsubsection{Gulp}
-		\label{sssect:gulp}
-		
-		\begin{figure}[ht]
-			\label{fig_grunt_gulp}
-			\centering
-			\hspace*{-1.4cm}
-			\includegraphics[width=1.2\textwidth]{figures/grunt_gulp_comparison}
-			\caption{Comparison between Grunt \& Gulp build systems}
-		\end{figure}
-		
+	ECMAScript 6 (codename harmony) is an overhaul of the JavaScript language featuring classes, a new keyword for the familiar block scoping ('let'), as well as an integrated module system allowing to require external files even inside the browser. The greatest obstacle to using ES6 today is the lack of complete support across all browser vendors - this is where ES6-to-ES5 compilers like \textit{Traceur} or the more popular \textit{Babel} come in. As far as syntax goes, ES 6 cleans up some keyword usages in order to make code more readable (samples taken from \url{http://es6-features.org/}):
+	
+	
+	\begin{lstlisting}[caption={ECMAScript 5 (usually referred to as 'JavaScript') version of functional programming using the natively built-in mapping function.}, label={fig:ECMAScript5_mapping}, language=JavaScript]
+odds  = evens.map(function (v) { return v + 1; });
+pairs = evens.map(function (v) { return { even: v, odd: v + 1 }; });
+nums  = evens.map(function (v, i) { return v + i; });
+	\end{lstlisting}
+	
+	
+	\begin{lstlisting}[caption={ECMAScript 6 equivalent to the above code.}, label={fig:ECMAScript6_mapping}, language=JavaScript]
+odds  = evens.map(v => v + 1)
+pairs = evens.map(v => ({ even: v, odd: v + 1 }))
+nums  = evens.map((v, i) => v + i)
+	\end{lstlisting}
+	
+	Although ES6 is a great improvement over ES5 in many respects, it still lacks an explicit type system and interfaces (which can guide an IDE in it's analysis regarding Code Completion and IntelliSense). It was therefore not considered the best option for the development of a potentially large library as GraphiniusJS.			
+	
+	\subsection{Coffeescript (CS)}
+	\label{ssect:coffeescript}
+	
+	Coffeescript was an attempt to make JavaScript code more readable as well as writable. It was apparently inspired by the clean syntax used in modern scripting languages like Ruby or Python and adopted the use of whitespace as control characters like Python (but not Ruby). Most of the language was based on using 'syntactic sugar' to abbreviate otherwise verbose JS code. For instance, the  \textit{this} variable was replaced by the  \textit{@} sign, the return statement at the end of a function became superfluous, and the lambda operator \textit{->} was introduced as a shortcut for the \textit{function} keyword in normal JS. Examples taken from \url{http://ricardo.cc/2011/06/02/10-CoffeeScript-One-Liners-to-Impress-Your-Friends.html}
+	
+	\begin{lstlisting}[caption={Two versions of the same mapping functionality in CoffeeScript}, label={fig:Coffeescript_mapping}, language=JavaScript]
+[1..10].map (i) -> i*2
+i * 2 for i in [1..10]
+	\end{lstlisting}
+	
+	Like ES6, Coffeescript is compiled down to ES5 through it's own coffee compiler. As much as the idea of CS is neat and very justified for individual developers, the use of whitespace as control characters can add some additional hassles if working in a team; only slight deviations in the individual setup can cause serious problems, like the use of editors that use different representations for tabs (tab vs 2 spaces vs 4 spaces) or different line ending symbols (Windows vs. Mac vs. Linux). Furthermore, CS did not resolve the lack of an internal module system or the lack of an explicit type system, and was therefore not considered for Graphinius JS.
+	
+	
+	\subsection{Typescript (TS)}
+	\label{ssect:typescript}
+	
+	The greatest obstacle to large-scale web-development in ES5 was the lack of an explicit type system and built-in module system, which would allow an IDE to scan dependent files and constructs and infer a valid type-flow, enabling the development environment to assist the programmer with code completion and type error hints. This was realized by Microsoft when they ported part of their Office suite to the web (Office365), which consumed not only years of manpower but took hundreds of thousands of lines of code before a stable product could be released. As a consequence, they formed a group around their lead C\# / .NET developer Anders Hejlsberg (the former creator of TurboPascal and chief software engineer at Borland until 1996) with the mission to develop a JS meta language incorporating those characteristics for large scale web development in 2012. The result of those efforts is Typescript, which of 2016 is a superset of ES6 with the additional benefits of allowing for the declaration of interfaces, enums, and in-place type annotations (amongst many others features like default and optional function parameters): 
+	
+	[listing]
+	
+	Furthermore, the Typescript compiler can output TS code to ES6, ES5 or even ES3, and already incorporates some features currently only found in the ES7 draft specification (which will take years to become the next standard). With all the benefits offered by ES6, no additional compile step (over ES6 with traceur/babel) and additional typings support (which comes in the form of separate typing files that even exist for most external libraries like underscore, lodash or jquery), I decided on Typescript as the base language for Graphinius JS.
 	
 
+\section{CSS preprocessing}
+\label{sect:css_preproc}
+
+	Just like the requirements on JavaScript underwent a steady evolution as project sizes went from very small-scale Webpages to full-blown in-browser application suites, so did the demands on Cascading Style Sheets (CSS) increase over time. The original CSS specification did not offer any possibilities of abstraction or code-reuse, for example. There were no modules that could be included and shared, no parameters one could pass to instructions (like the pixel width a border-radius should exhibit) nor any variables one could set as defaults (for the purpose of color-scheme definitions, for instance). Several projects have sprung up in order to amend that situation. Let's briefly take a look at 2 options, namely SCSS (SASS, which is just SCSS without braces and semicolons) and LESS, which runs the pre-processing step on the client rather than the server:
+	
+	\begin{lstlisting}[caption={SCSS example demonstrating the use of variables and mixings}, label={fig:scss_preproc}, language=CSS]
+	$font-stack:    Helvetica, sans-serif;
+	$primary-color: #333;
+	@mixin border-radius($radius) {
+		-webkit-border-radius: $radius;
+		-moz-border-radius: $radius;
+		-ms-border-radius: $radius;
+		border-radius: $radius;
+	}
+	body {
+		font: 100% $font-stack;
+		color: $primary-color;
+	}	
+	.box { @include border-radius(10px); }
+	\end{lstlisting}
+	\small
+	Example taken from \url{http://sass-lang.com/guide}.
+	
+	
+	\begin{lstlisting}[caption={LESS example demonstrating the use of variables and default parameters}, label={fig:less_preproc}, language=CSS]
+	@base: #f938ab;	
+	.box-shadow(@style, @c) when (iscolor(@c)) {
+	-webkit-box-shadow: @style @c;
+		box-shadow:         @style @c;
+	}
+	.box-shadow(@style, @alpha: 50\%) when (isnumber(@alpha)) {
+			.box-shadow(@style, rgba(0, 0, 0, @alpha));
+	}
+	\end{lstlisting}
+	\small
+	Example taken from \url{http://lesscss.org/}.	
+	
+	
+\section{Testing}
+\label{sect:testing}
+
+	With the increase in size and complexity of JavaScript codebases,
+
+	\subsection{Jasmine}
+	\label{ssect:jasmine}
+	
+	\subsection{Mocha / Chai(!)}
+	\label{ssect:mocha_chai}
+	
+	\subsection{Mocking Library (Sinon)}
+	\label{ssect:mocking}
+
+	\subsection{Selenium(??)}
+	\label{ssect:selenium}
+	
+
+\section{Documentation}
+	\label{sect:documentation}
+	
+	\subsection{JSDoc}
+	\label{ssect:jsdoc}
+	
+	\subsection{TypeDoc}
+	\label{ssect:typedoc}
+	
+
+\section{Build system for browser}
+	\label{sect:build_browser}
+	
+	\subsection{Browserify}
+	\label{ssect:browserify}
+	
+	\subsection{request.js}
+	\label{ssect:request_js}
+	
+	\subsection{webpack}
+	\label{ssect:webpack}
 
 
+\section{Task Runner}
+\label{sect:build_system}
 
-
-
-\section{Graphinius VIS}
-\label{sect:graphinius_vis}
-
-Description of Nicole's choices and decisions...
-
-\begin{landscape}
-\begin{figure}[ht]
-	\label{fig_vis_control_flow}
-	% \centering
-	\hspace*{-1cm}
-	\includegraphics[width=1.9\textwidth]{figures/VIS_Control_Flow}
-	\caption{Graphinius VIS control flow}
-\end{figure}
-\end{landscape}
+	\subsection{Grunt}
+	\label{ssect:grunt}
+	
+	\subsection{Gulp}
+	\label{ssect:gulp}
+	
+	\begin{figure}[ht]
+		\label{fig_grunt_gulp}
+		\centering
+		\hspace*{-1.4cm}
+		\includegraphics[width=1.2\textwidth]{figures/grunt_gulp_comparison}
+		\caption{Comparison between Grunt \& Gulp build systems}
+	\end{figure}
+	
 
 
