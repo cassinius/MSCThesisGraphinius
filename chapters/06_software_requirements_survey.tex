@@ -84,7 +84,27 @@ i * 2 for i in [1..10]
 	
 	The greatest obstacle to large-scale web-development in ES5 was the lack of an explicit type system and built-in module system, which would allow an IDE to scan dependent files and constructs and infer a valid type-flow, enabling the development environment to assist the programmer with code completion and type error hints. This was realized by Microsoft when they ported part of their Office suite to the web (Office365), which consumed not only years of manpower but took hundreds of thousands of lines of code before a stable product could be released. As a consequence, they formed a group around their lead C\# / .NET developer Anders Hejlsberg (the former creator of TurboPascal and chief software engineer at Borland until 1996) with the mission to develop a JS meta language incorporating those characteristics for large scale web development in 2012. The result of those efforts is Typescript, which of 2016 is a superset of ES6 with the additional benefits of allowing for the declaration of interfaces, enums, and in-place type annotations (amongst many others features like default and optional function parameters): 
 	
-	[listing]
+	\begin{lstlisting}[caption={Typescript sample featuring import of an external module, an exported interface definition, type annotations, instance variable setting via constructor specifiers (protected) as well as optional parameters}, label={fig:TS example}, language=JavaScript]
+	import * as $N from "./Nodes";
+	
+	export interface IConnectedNodes {
+		a: $N.IBaseNode;
+		b: $N.IBaseNode;
+	}
+	
+	class BaseEdge implements IBaseEdge {
+		protected _directed		: boolean;
+		protected _weighted 	: boolean;
+		protected _weight		: number;
+		protected _label		: string;
+		
+		constructor (protected _id,
+			protected _node_a:$N.IBaseNode,
+			protected _node_b:$N.IBaseNode,
+			options?: EdgeConstructorOptions) {...}
+	}
+	
+	\end{lstlisting}
 	
 	Furthermore, the Typescript compiler can output TS code to ES6, ES5 or even ES3, and already incorporates some features currently only found in the ES7 draft specification (which will take years to become the next standard). With all the benefits offered by ES6, no additional compile step (over ES6 with traceur/babel) and additional typings support (which comes in the form of separate typing files that even exist for most external libraries like underscore, lodash or jquery), I decided on Typescript as the base language for Graphinius JS.
 	
@@ -124,16 +144,21 @@ i * 2 for i in [1..10]
 	}
 	\end{lstlisting}
 	\small
-	Example taken from \url{http://lesscss.org/}.	
+	Example taken from \url{http://lesscss.org/}.
+	
+	While CSS preprocessors are important in every contemporary web project, the work described in this Master Thesis is focused on the underlying graph library, which features no (built-in) graphical component and therefore did not require any such module.
 	
 	
 \section{Testing}
 \label{sect:testing}
 
-	With the increase in size and complexity of JavaScript codebases,
+	With the increase in size and complexity of JavaScript codebases, testing became essential in the modern web development cycle. While there are several other JS (unit) test frameworks available (like JSUnit, QUnit, YUI-Test), we will mention only two contemporary libraries in detail, which both allow for behavior driven development (BDD) style testing as well as mocking, stubbing, and spying. Those libraries have very similar syntax and are intermixable with different assertion libraries; it seems to the author that a choice between those libraries is more a question of taste than necessity, and for GraphiniusJS, a combination of Mocha with Chai has been chosen.
 
 	\subsection{Jasmine}
 	\label{ssect:jasmine}
+	
+	Jasmine \citep{hahn2013javascript} is modeled after the Ruby RSpec Gem and refers to its tests as \textit{specs}.
+	
 	
 	\subsection{Mocha / Chai(!)}
 	\label{ssect:mocha_chai}
