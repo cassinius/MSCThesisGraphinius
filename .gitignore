@@ -4,6 +4,7 @@
 *.blg
 *.log
 *.lof
+*.lol
 *.toc
 *.out
 *.bbl
