@@ -3,6 +3,27 @@
 
 % \lstinputlisting[language=json]{listings/models.js}
 
+\chapter{Anonymization Tables}
+\label{App:AppendixA}
+
+\section{Input data}
+\label{sect:anon_input_data}
+
+\section{Anonymized data}
+\label{sect:anon_output_data}
+
+{
+\setstretch{1}
+\csvreader[
+longtable=llllll,
+table head=
+\toprule\bfseries Age range & \bfseries Employment & \bfseries Country & \bfseries Gender & \bfseries Race & \bfseries Marital status \\ \midrule\endhead
+\bottomrule\endfoot,
+late after line=\\,
+%before reading={\catcode`\#=12},after reading={\catcode`\#=6}
+]{figures/anonym/adults_300_anon_k10.csv}{1=\age,2=\employed,3=\country,4=\gender,5=\race,6=\marital}{\age & \employed & \country & \gender & \race & \marital}
+}
+
 \chapter{GraphiniusJS API}
 \label{App:AppendixB}
 

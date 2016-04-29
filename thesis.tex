@@ -47,6 +47,8 @@
 \usepackage{amssymb} %maths
 \usepackage{amsmath} %maths
 
+\usepackage{csvsimple,longtable,booktabs}
+
 \usepackage[
   position=bottom,
   margin=1cm,
@@ -437,10 +439,10 @@
 \addcontentsline{toc}{chapter}{List of Listings}
 \lstlistoflistings
 
-\cleardoublepage
-\phantomsection
-\addcontentsline{toc}{chapter}{List of Tables}
-\listoftables
+%\cleardoublepage
+%\phantomsection
+%\addcontentsline{toc}{chapter}{List of Tables}
+%\listoftables
 
 % \cleardoublepage
 % \phantomsection
@@ -452,6 +454,7 @@
 
 \cleardoublepage
 \phantomsection
+\addcontentsline{toc}{chapter}{References}
 \include{chapters/13_bibliography}      % Bibliography
 
 

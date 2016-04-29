@@ -1,0 +1,301 @@
+age, workclass, native-country, sex, race, marital-status 
+39, *, United-States, Male, White, Never-married
+39, *, United-States, Male, White, Never-married
+39, *, United-States, Male, White, Never-married
+39, *, United-States, Male, White, Never-married
+39, *, United-States, Male, White, Never-married
+39, *, United-States, Male, White, Never-married
+39, *, United-States, Male, White, Never-married
+39, *, United-States, Male, White, Never-married
+39, *, United-States, Male, White, Never-married
+39, *, United-States, Male, White, Never-married
+[50 - 53], Self, United-States, Male, White, Married-civ-spouse
+[50 - 53], Self, United-States, Male, White, Married-civ-spouse
+[50 - 53], Self, United-States, Male, White, Married-civ-spouse
+[50 - 53], Self, United-States, Male, White, Married-civ-spouse
+[50 - 53], Self, United-States, Male, White, Married-civ-spouse
+[50 - 53], Self, United-States, Male, White, Married-civ-spouse
+[50 - 53], Self, United-States, Male, White, Married-civ-spouse
+[50 - 53], Self, United-States, Male, White, Married-civ-spouse
+[50 - 53], Self, United-States, Male, White, Married-civ-spouse
+[50 - 53], Self, United-States, Male, White, Married-civ-spouse
+[38 - 50], Private, United-States, Male, White, Divorced
+[38 - 50], Private, United-States, Male, White, Divorced
+[38 - 50], Private, United-States, Male, White, Divorced
+[38 - 50], Private, United-States, Male, White, Divorced
+[38 - 50], Private, United-States, Male, White, Divorced
+[38 - 50], Private, United-States, Male, White, Divorced
+[38 - 50], Private, United-States, Male, White, Divorced
+[38 - 50], Private, United-States, Male, White, Divorced
+[38 - 50], Private, United-States, Male, White, Divorced
+[38 - 50], Private, United-States, Male, White, Divorced
+[53 - 60], Private, United-States, Male, *, Married-civ-spouse
+[53 - 60], Private, United-States, Male, *, Married-civ-spouse
+[53 - 60], Private, United-States, Male, *, Married-civ-spouse
+[53 - 60], Private, United-States, Male, *, Married-civ-spouse
+[53 - 60], Private, United-States, Male, *, Married-civ-spouse
+[53 - 60], Private, United-States, Male, *, Married-civ-spouse
+[53 - 60], Private, United-States, Male, *, Married-civ-spouse
+[53 - 60], Private, United-States, Male, *, Married-civ-spouse
+[53 - 60], Private, United-States, Male, *, Married-civ-spouse
+[53 - 60], Private, United-States, Male, *, Married-civ-spouse
+[28 - 46], Private, America, Female, *, Married-civ-spouse
+[28 - 46], Private, America, Female, *, Married-civ-spouse
+[28 - 46], Private, America, Female, *, Married-civ-spouse
+[28 - 46], Private, America, Female, *, Married-civ-spouse
+[28 - 46], Private, America, Female, *, Married-civ-spouse
+[28 - 46], Private, America, Female, *, Married-civ-spouse
+[28 - 46], Private, America, Female, *, Married-civ-spouse
+[28 - 46], Private, America, Female, *, Married-civ-spouse
+[28 - 46], Private, America, Female, *, Married-civ-spouse
+[28 - 46], Private, America, Female, *, Married-civ-spouse
+[49 - 54], Private, America, Female, *, *
+[49 - 54], Private, America, Female, *, *
+[49 - 54], Private, America, Female, *, *
+[49 - 54], Private, America, Female, *, *
+[49 - 54], Private, America, Female, *, *
+[49 - 54], Private, America, Female, *, *
+[49 - 54], Private, America, Female, *, *
+[49 - 54], Private, America, Female, *, *
+[49 - 54], Private, America, Female, *, *
+[49 - 54], Private, America, Female, *, *
+[31 - 36], Private, United-States, Female, White, Never-married
+[31 - 36], Private, United-States, Female, White, Never-married
+[31 - 36], Private, United-States, Female, White, Never-married
+[31 - 36], Private, United-States, Female, White, Never-married
+[31 - 36], Private, United-States, Female, White, Never-married
+[31 - 36], Private, United-States, Female, White, Never-married
+[31 - 36], Private, United-States, Female, White, Never-married
+[31 - 36], Private, United-States, Female, White, Never-married
+[31 - 36], Private, United-States, Female, White, Never-married
+[31 - 36], Private, United-States, Female, White, Never-married
+[42 - 45], Private, United-States, Male, White, Married-civ-spouse
+[42 - 45], Private, United-States, Male, White, Married-civ-spouse
+[42 - 45], Private, United-States, Male, White, Married-civ-spouse
+[42 - 45], Private, United-States, Male, White, Married-civ-spouse
+[42 - 45], Private, United-States, Male, White, Married-civ-spouse
+[42 - 45], Private, United-States, Male, White, Married-civ-spouse
+[42 - 45], Private, United-States, Male, White, Married-civ-spouse
+[42 - 45], Private, United-States, Male, White, Married-civ-spouse
+[42 - 45], Private, United-States, Male, White, Married-civ-spouse
+[42 - 45], Private, United-States, Male, White, Married-civ-spouse
+[37 - 38], Private, United-States, Male, *, Married-civ-spouse
+[37 - 38], Private, United-States, Male, *, Married-civ-spouse
+[37 - 38], Private, United-States, Male, *, Married-civ-spouse
+[37 - 38], Private, United-States, Male, *, Married-civ-spouse
+[37 - 38], Private, United-States, Male, *, Married-civ-spouse
+[37 - 38], Private, United-States, Male, *, Married-civ-spouse
+[37 - 38], Private, United-States, Male, *, Married-civ-spouse
+[37 - 38], Private, United-States, Male, *, Married-civ-spouse
+[37 - 38], Private, United-States, Male, *, Married-civ-spouse
+[37 - 38], Private, United-States, Male, *, Married-civ-spouse
+[30 - 49], *, *, Male, *, Married-civ-spouse
+[30 - 49], *, *, Male, *, Married-civ-spouse
+[30 - 49], *, *, Male, *, Married-civ-spouse
+[30 - 49], *, *, Male, *, Married-civ-spouse
+[30 - 49], *, *, Male, *, Married-civ-spouse
+[30 - 49], *, *, Male, *, Married-civ-spouse
+[30 - 49], *, *, Male, *, Married-civ-spouse
+[30 - 49], *, *, Male, *, Married-civ-spouse
+[30 - 49], *, *, Male, *, Married-civ-spouse
+[30 - 49], *, *, Male, *, Married-civ-spouse
+[23 - 25], Private, United-States, Female, White, Never-married
+[23 - 25], Private, United-States, Female, White, Never-married
+[23 - 25], Private, United-States, Female, White, Never-married
+[23 - 25], Private, United-States, Female, White, Never-married
+[23 - 25], Private, United-States, Female, White, Never-married
+[23 - 25], Private, United-States, Female, White, Never-married
+[23 - 25], Private, United-States, Female, White, Never-married
+[23 - 25], Private, United-States, Female, White, Never-married
+[23 - 25], Private, United-States, Female, White, Never-married
+[23 - 25], Private, United-States, Female, White, Never-married
+[32 - 41], *, United-States, Male, Black, *
+[32 - 41], *, United-States, Male, Black, *
+[32 - 41], *, United-States, Male, Black, *
+[32 - 41], *, United-States, Male, Black, *
+[32 - 41], *, United-States, Male, Black, *
+[32 - 41], *, United-States, Male, Black, *
+[32 - 41], *, United-States, Male, Black, *
+[32 - 41], *, United-States, Male, Black, *
+[32 - 41], *, United-States, Male, Black, *
+[32 - 41], *, United-States, Male, Black, *
+[25 - 27], Self, United-States, Male, White, Never-married
+[25 - 27], Self, United-States, Male, White, Never-married
+[25 - 27], Self, United-States, Male, White, Never-married
+[25 - 27], Self, United-States, Male, White, Never-married
+[25 - 27], Self, United-States, Male, White, Never-married
+[25 - 27], Self, United-States, Male, White, Never-married
+[25 - 27], Self, United-States, Male, White, Never-married
+[25 - 27], Self, United-States, Male, White, Never-married
+[25 - 27], Self, United-States, Male, White, Never-married
+[25 - 27], Self, United-States, Male, White, Never-married
+[43 - 44], Self, United-States, Female, White, Divorced
+[43 - 44], Self, United-States, Female, White, Divorced
+[43 - 44], Self, United-States, Female, White, Divorced
+[43 - 44], Self, United-States, Female, White, Divorced
+[43 - 44], Self, United-States, Female, White, Divorced
+[43 - 44], Self, United-States, Female, White, Divorced
+[43 - 44], Self, United-States, Female, White, Divorced
+[43 - 44], Self, United-States, Female, White, Divorced
+[43 - 44], Self, United-States, Female, White, Divorced
+[43 - 44], Self, United-States, Female, White, Divorced
+[59 - 66], *, United-States, Female, White, *
+[59 - 66], *, United-States, Female, White, *
+[59 - 66], *, United-States, Female, White, *
+[59 - 66], *, United-States, Female, White, *
+[59 - 66], *, United-States, Female, White, *
+[59 - 66], *, United-States, Female, White, *
+[59 - 66], *, United-States, Female, White, *
+[59 - 66], *, United-States, Female, White, *
+[59 - 66], *, United-States, Female, White, *
+[59 - 66], *, United-States, Female, White, *
+[56 - 64], *, United-States, Male, White, Married-civ-spouse
+[56 - 64], *, United-States, Male, White, Married-civ-spouse
+[56 - 64], *, United-States, Male, White, Married-civ-spouse
+[56 - 64], *, United-States, Male, White, Married-civ-spouse
+[56 - 64], *, United-States, Male, White, Married-civ-spouse
+[56 - 64], *, United-States, Male, White, Married-civ-spouse
+[56 - 64], *, United-States, Male, White, Married-civ-spouse
+[56 - 64], *, United-States, Male, White, Married-civ-spouse
+[56 - 64], *, United-States, Male, White, Married-civ-spouse
+[56 - 64], *, United-States, Male, White, Married-civ-spouse
+[19 - 22], Private, United-States, Male, White, Never-married
+[19 - 22], Private, United-States, Male, White, Never-married
+[19 - 22], Private, United-States, Male, White, Never-married
+[19 - 22], Private, United-States, Male, White, Never-married
+[19 - 22], Private, United-States, Male, White, Never-married
+[19 - 22], Private, United-States, Male, White, Never-married
+[19 - 22], Private, United-States, Male, White, Never-married
+[19 - 22], Private, United-States, Male, White, Never-married
+[19 - 22], Private, United-States, Male, White, Never-married
+[19 - 22], Private, United-States, Male, White, Never-married
+[23 - 28], *, United-States, Male, White, Never-married
+[23 - 28], *, United-States, Male, White, Never-married
+[23 - 28], *, United-States, Male, White, Never-married
+[23 - 28], *, United-States, Male, White, Never-married
+[23 - 28], *, United-States, Male, White, Never-married
+[23 - 28], *, United-States, Male, White, Never-married
+[23 - 28], *, United-States, Male, White, Never-married
+[23 - 28], *, United-States, Male, White, Never-married
+[23 - 28], *, United-States, Male, White, Never-married
+[23 - 28], *, United-States, Male, White, Never-married
+[22 - 41], Gov, United-States, Male, *, Married-civ-spouse
+[22 - 41], Gov, United-States, Male, *, Married-civ-spouse
+[22 - 41], Gov, United-States, Male, *, Married-civ-spouse
+[22 - 41], Gov, United-States, Male, *, Married-civ-spouse
+[22 - 41], Gov, United-States, Male, *, Married-civ-spouse
+[22 - 41], Gov, United-States, Male, *, Married-civ-spouse
+[22 - 41], Gov, United-States, Male, *, Married-civ-spouse
+[22 - 41], Gov, United-States, Male, *, Married-civ-spouse
+[22 - 41], Gov, United-States, Male, *, Married-civ-spouse
+[22 - 41], Gov, United-States, Male, *, Married-civ-spouse
+[48 - 70], Private, America, Male, White, *
+[48 - 70], Private, America, Male, White, *
+[48 - 70], Private, America, Male, White, *
+[48 - 70], Private, America, Male, White, *
+[48 - 70], Private, America, Male, White, *
+[48 - 70], Private, America, Male, White, *
+[48 - 70], Private, America, Male, White, *
+[48 - 70], Private, America, Male, White, *
+[48 - 70], Private, America, Male, White, *
+[48 - 70], Private, America, Male, White, *
+[19 - 36], Private, United-States, Female, White, *
+[19 - 36], Private, United-States, Female, White, *
+[19 - 36], Private, United-States, Female, White, *
+[19 - 36], Private, United-States, Female, White, *
+[19 - 36], Private, United-States, Female, White, *
+[19 - 36], Private, United-States, Female, White, *
+[19 - 36], Private, United-States, Female, White, *
+[19 - 36], Private, United-States, Female, White, *
+[19 - 36], Private, United-States, Female, White, *
+[19 - 36], Private, United-States, Female, White, *
+[31 - 35], Private, United-States, Male, White, Married-civ-spouse
+[31 - 35], Private, United-States, Male, White, Married-civ-spouse
+[31 - 35], Private, United-States, Male, White, Married-civ-spouse
+[31 - 35], Private, United-States, Male, White, Married-civ-spouse
+[31 - 35], Private, United-States, Male, White, Married-civ-spouse
+[31 - 35], Private, United-States, Male, White, Married-civ-spouse
+[31 - 35], Private, United-States, Male, White, Married-civ-spouse
+[31 - 35], Private, United-States, Male, White, Married-civ-spouse
+[31 - 35], Private, United-States, Male, White, Married-civ-spouse
+[31 - 35], Private, United-States, Male, White, Married-civ-spouse
+[24 - 40], Self, United-States, Male, White, Married-civ-spouse
+[24 - 40], Self, United-States, Male, White, Married-civ-spouse
+[24 - 40], Self, United-States, Male, White, Married-civ-spouse
+[24 - 40], Self, United-States, Male, White, Married-civ-spouse
+[24 - 40], Self, United-States, Male, White, Married-civ-spouse
+[24 - 40], Self, United-States, Male, White, Married-civ-spouse
+[24 - 40], Self, United-States, Male, White, Married-civ-spouse
+[24 - 40], Self, United-States, Male, White, Married-civ-spouse
+[24 - 40], Self, United-States, Male, White, Married-civ-spouse
+[24 - 40], Self, United-States, Male, White, Married-civ-spouse
+[57 - 76], *, North-America, Male, *, Married-civ-spouse
+[57 - 76], *, North-America, Male, *, Married-civ-spouse
+[57 - 76], *, North-America, Male, *, Married-civ-spouse
+[57 - 76], *, North-America, Male, *, Married-civ-spouse
+[57 - 76], *, North-America, Male, *, Married-civ-spouse
+[57 - 76], *, North-America, Male, *, Married-civ-spouse
+[57 - 76], *, North-America, Male, *, Married-civ-spouse
+[57 - 76], *, North-America, Male, *, Married-civ-spouse
+[57 - 76], *, North-America, Male, *, Married-civ-spouse
+[57 - 76], *, North-America, Male, *, Married-civ-spouse
+50, *, America, Male, White, *
+50, *, America, Male, White, *
+50, *, America, Male, White, *
+50, *, America, Male, White, *
+50, *, America, Male, White, *
+50, *, America, Male, White, *
+50, *, America, Male, White, *
+50, *, America, Male, White, *
+50, *, America, Male, White, *
+50, *, America, Male, White, *
+46, *, *, *, White, *
+46, *, *, *, White, *
+46, *, *, *, White, *
+46, *, *, *, White, *
+46, *, *, *, White, *
+46, *, *, *, White, *
+46, *, *, *, White, *
+46, *, *, *, White, *
+46, *, *, *, White, *
+46, *, *, *, White, *
+[29 - 42], Private, *, *, *, *
+[29 - 42], Private, *, *, *, *
+[29 - 42], Private, *, *, *, *
+[29 - 42], Private, *, *, *, *
+[29 - 42], Private, *, *, *, *
+[29 - 42], Private, *, *, *, *
+[29 - 42], Private, *, *, *, *
+[29 - 42], Private, *, *, *, *
+[29 - 42], Private, *, *, *, *
+[29 - 42], Private, *, *, *, *
+[79 - 90], *, *, *, *, *
+[79 - 90], *, *, *, *, *
+[79 - 90], *, *, *, *, *
+[79 - 90], *, *, *, *, *
+[79 - 90], *, *, *, *, *
+[79 - 90], *, *, *, *, *
+[79 - 90], *, *, *, *, *
+[79 - 90], *, *, *, *, *
+[79 - 90], *, *, *, *, *
+[79 - 90], *, *, *, *, *
+43, *, America, Female, *, *
+43, *, America, Female, *, *
+43, *, America, Female, *, *
+43, *, America, Female, *, *
+43, *, America, Female, *, *
+43, *, America, Female, *, *
+43, *, America, Female, *, *
+43, *, America, Female, *, *
+43, *, America, Female, *, *
+43, *, America, Female, *, *
+[28 - 34], Private, *, Female, *, *
+[28 - 34], Private, *, Female, *, *
+[28 - 34], Private, *, Female, *, *
+[28 - 34], Private, *, Female, *, *
+[28 - 34], Private, *, Female, *, *
+[28 - 34], Private, *, Female, *, *
+[28 - 34], Private, *, Female, *, *
+[28 - 34], Private, *, Female, *, *
+[28 - 34], Private, *, Female, *, *
+[28 - 34], Private, *, Female, *, *
