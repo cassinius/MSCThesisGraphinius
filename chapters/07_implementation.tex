@@ -192,14 +192,27 @@ As the name suggests, the Base offers all the functionality necessary to develop
 	As is clearly visible, I focused on managing all complexity during development time, resulting in zero dependencies for the runtime JS bundle.
 
 
-
 \section{Testing approach}
 \label{sect:testing_approach}
 
-	Behavior Driven Development (BDD) is a testing philosophy that 
+	Behavior Driven Development (BDD) is a testing philosophy that approaches the development of a new feature from a high level view on the expected end-result and then works it's way down from spec's through functional to unit tests, until the feature is fully implemented, tested and covered. The ideal methodology would consist of the following steps:
+	
+	\begin{enumerate}
+		\item Define the expected behavior of a feature (=module) in a form that both clients as well as developers understand and formulate them using (executable) specifications. The Cucumber framework introduced in the last chapter is an ideal candidate for this high level of abstraction. Executing the spec immediately will naturally fail because no code was actually written.
+		\item From the specs defined in step one, we then derive functional tests which span the execution of several functions or methods in sequence in order to produce a certain result. Again, any test execution will expectedly fail as we have still not written the code yet.
+		\item From the functional tests defined in step two, we finally derive low-level tests covering single units of code. Once more the tests will fail initially, upon which we endeavor to fill in the single pieces of code until all tests at that level are passing.
+		\item Once the unit-test level is done, we work our way upwards to the next functional test on our todo-list. This process is repeated until all functional tests required for our initially specified features are covered.
+		\item We then move on to the next feature on our product requirements list.
+	\end{enumerate}
+	
+	 As already mentioned, because a software library intended to be used by other programmers usually has only technical clients, feature specification (testing) was omitted in programming Graphinius JS. For this reason, we will only take a look at unit and functional tests in this section (as well was mocking and spying). Furthermore, in developing a web application using the Mocha and Chai test libraries, there is no fundamental difference between unit and functional tests. Let us therefore take a look at instances of both categories to see how we would structure our approach:
 	
 	\subsection{Unit tests}
 	\label{ssect:unittests}
+	
+	As stated, unit tests cover the low-level constructs of functions or methods which themselves do not depend on any lower-level functions.
+	
+	In the example below, we see two test cases: the first calls a binary Heap evalInputPriority function on line 2, whose job it is to cast any input to a (sortable) number, if possible. As the string "55" can be cast to the number 55, this test will be successful. In the second example on lines 5 and 6, we pass boolean values which - employing the JS \textit{parseInt(arg)} function - will evaluate to NaN (which is JS shorthand for \textit{Not a Number}).
 	
 	\begin{lstlisting}[caption={Unit tests covering the functionality of one simple function.}, label={fig:unit_tests}, language=JavaScript]	
 it('should accept String encoded Integers as input and evaluate to their Integer value', () => {
@@ -213,8 +226,13 @@ it('should not accept booleans as input values (makes no sense...) ', () => {
 	\small
 	(Sample taken from the GraphiniusJS binaryHeapTests.ts file.)
 	
+	
 	\subsection{Functional tests}
 	\label{ssect:func_tests}
+	
+	In functional testing we invoke some procedure which in turn will call other functions or methods, in any sequence or call depth required in order to fulfill its purpose.
+	
+	In the example below, we instantiate a new JSON reader, specify some configuration options and hand it a JSON file. We then expect the resulting graph to be of a certain size in number of nodes and edges. The \textit{readFromJSONFile} function will itself call several subordinate functions for reading a file from disk, processing the character sequence it receives, instantiating a GraphiniusJS graph object etc.
 	
 	\begin{lstlisting}[caption={A functional test covering the whole instantiation process of a graph from a JSON input structure.}, label={fig:functional_test}, language=JavaScript]
 it('should correctly generate our small example graph out of a JSON file with direction _mode set to undirected', () => {
@@ -233,6 +251,10 @@ it('should correctly generate our small example graph out of a JSON file with di
 	
 	\subsection{Mocks used for browser code testing}
 	\label{ssect:mocks}
+	
+	Mocks are a useful construct for testing functionality that would involve some non-trivial behavior. For instance, if we would like to test a snippet of code (as in the following code example) which loads a JSON file remotely over the network before instantiating a graph, we are assuming the existence of a server, the existence of the remote file, as well as a working Internet connection. Moreover, in this specific case, the code under test is also meant to be executed inside a browser environment, whereas we would like to invoke our test from the NodeJS console.
+	
+	The solution to this problem is to \text{mock} the XMLHTTPRequest object used by a browser to send AJAX requests over the internet, which - again in this specific case - replaces the object with a NodeJS request object and simulates the original XMLHTTPRequest API through a delegating wrapper around it. The exact sequence in this example is: 1) requiring the mocking library on line 3, 2) initializing a browser environment (providing the window and document objects) on line 4, 3) injecting browser globals into the Node environment on line 13, 4) requiring filesystem capabilities for local file loading on line 16 as well as loading the file on line 17, 5) initiating the mock on line 20 and finally setting up a fake web server responding to a certain URL on lines 23 through 30. The rest of the procedure (not shown in this exmaple) behaves exactly as an equivalent test inside a browser environment would.
 	
 	\begin{lstlisting}[caption={A mocking setup simulating a Web Server GET response...}, label={fig:mock_service_test}, language=JavaScript]
 describe('Loading graphs in simulated browser environment', () => {		
@@ -278,9 +300,18 @@ describe('Loading graphs in simulated browser environment', () => {
 	\small
 	... to an XML-HTTP GET Request in order to read a graph structure from a remote JSON file from inside a browser environment. (Sample taken from the GraphiniusJS JSONInputAsyncTests.ts file.)
 	
+	
+	\subsection{Stubs}
+	\label{ssect:stubs}
+	There is another concept often confused with mocks called \textit{stubs}. Stubs are used when the response of a function is not supposed to be complex but rather boolean in nature. E.g. an authorization module could internally use a method checking if a user has sufficient permissions to be allowed to access a resource. This functionality could be implemented rather simply, or it could invoke elaborate tests involving diverse software modules throughout the whole system. For testing some function building upon it however, only the distinction between \textit{allowed} and \textit{not allowed} is are really of interest. Therefore, a stub can be instantiated and told to forgo any \textit{real} authority checks but instead simply return a true or false value. 
+	
+	The difference between stubs and mocks is therefore that stubs replace potentially complex implementations with trivial ones, whereas mocks can act as a proxy but do not necessarily reduce complexity - reading a graph from a local file is as complex as reading it from a remote one (not considering the underlying complexity of the network stack, of course).
+	
 
 	\subsection{Spies (Sinon)}
 	\label{ssect:spies}
+	
+	Spies are test wrapper objects that observe the original function or method and record any activity regarding it, e.g. how often it was called, which argument values it was called with, which values were returned or if an error was thrown. In the example below, we instantiate a local backup object \textit{original}, then instantiate a spy on line 10, store the original function reference in our backup object on line 12, and replace the original function with our spy on line 14. In calling \$DFS.prepareDFSVisitStandardConfig on line 25, we expect to see the original function invoked in the process, which we check on line 28. The \textit{after} block from lines 18 through 21 then restores the original objects.
 	
 	\begin{lstlisting}[caption={A functional test making use of a spy...}, label={fig:spy_test}, language=JavaScript]
 describe('testing config preparation functions - ', () => {

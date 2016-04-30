@@ -161,7 +161,7 @@ body {
 	
 	Jasmine \citep{hahn2013javascript} is modeled after the Ruby RSpec Gem and refers to its tests as \textit{specs}. It allows for nesting of \textit{describe} blocks in order to distinguish different levels of test suites, follows the \textit{should} approach by providing \textit{it} functions taking a description of a test as well as it's test body in the form of a callback. An assertion library is built right into Jasmine and uses the \textit{expect} style of writing assertions. Let's have a look at a small example:
 	
-	\begin{lstlisting}[caption={Jasmine example of a nested test suite containing one simple assertion in expect style as well as a spy and a stub}, label={fig:jasmine_expect}, language=JavaScript]
+	\begin{lstlisting}[caption={Jasmine example of a nested test suite containing one simple assertion in expect style as well as a spy and a stub}, label={lst:jasmine_expect}, language=JavaScript]
 describe('calculator', function() {
 	describe('add()', function() {
 		it('should add 2 numbers togoether', function() {
@@ -183,7 +183,7 @@ spyOn(user, 'isValid').andReturns(true);
 	
 	The Mocha test runner basically provides the same functionality as Jasmine in that it provides \textit{describe} blocks, should-style \textit{it} functions and several ways to output reports (spec-style, list, dots, the nyan cat...) as well as handle pending tests (via not handing a callback to the \textit{it} function) or skipping tests (via \textit{it.skip();}). The greatest difference to Jasmine is the fact that Mocha does not ship with a built-in assertion library. There are several compatible alternatives, like \textit{should.js}, \textit{expect.js} or \textit{unexpected}. The most popular and widely used, however, clearly seems to be \textit{Chai}, which provides the \textit{should}, \textit{assert} as well as \textit{expect} styles of writing assertions. In addition to that, we also need a library called sinon.js that allows for spying and stubbing. We will be seeing some in-depth examples of Mocha, Chai (expect style) and Sinon in the Chapter~\ref{ch:implementation}, so let's limit ourselves to the same use case as above:
 	
-	\begin{lstlisting}[caption={Mocha example of a nested test suite containing one simple assertion in expect style as well as a spy and a stub}, label={fig:mocha_chai_sinon}, language=JavaScript]
+	\begin{lstlisting}[caption={Mocha example of a nested test suite containing one simple assertion in expect style as well as a spy and a stub}, label={lst:mocha_chai_sinon}, language=JavaScript]
 describe('calculator', function() {
 	describe('add()', function() {
 		it('should add 2 numbers togoether', function() {
