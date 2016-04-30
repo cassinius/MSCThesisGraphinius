@@ -178,6 +178,8 @@ As the name suggests, the Base offers all the functionality necessary to develop
 \section{Dependent Libraries}
 \label{sect:dep_libraries}
 
+	As described in the last chapter~\ref{ch:software_requirements}, the modern web development process is 
+
 	\begin{figure}[ht]
 		\label{fig_dependencies}
 		\centering
@@ -198,14 +200,121 @@ As the name suggests, the Base offers all the functionality necessary to develop
 	\subsection{Unit tests}
 	\label{ssect:unittests}
 	
+	\begin{lstlisting}[caption={Unit tests covering the functionality of one simple function.}, label={fig:unit_tests}, language=JavaScript]	
+it('should accept String encoded Integers as input and evaluate to their Integer value', () => {
+	expect(binHeap.evalInputPriority("55")).to.equal(55);
+});
+it('should not accept booleans as input values (makes no sense...) ', () => {
+	expect(binHeap.evalInputPriority(true)).to.be.NaN;
+	expect(binHeap.evalInputPriority(false)).to.be.NaN;
+});
+	\end{lstlisting}
+	\small
+	(Sample taken from the GraphiniusJS binaryHeapTests.ts file.)
+	
 	\subsection{Functional tests}
 	\label{ssect:func_tests}
 	
+	\begin{lstlisting}[caption={A functional test covering the whole instantiation process of a graph from a JSON input structure.}, label={fig:functional_test}, language=JavaScript]
+it('should correctly generate our small example graph out of a JSON file with direction _mode set to undirected', () => {
+	json = new JSON_IN();
+	json._explicit_direction = false;
+	json._direction = false;
+	graph = json.readFromJSONFile(small_graph);
+	expect(graph.nrNodes()).to.equal(4);
+	expect(graph.nrDirEdges()).to.equal(0);
+	expect(graph.nrUndEdges()).to.equal(4);
+});
+	\end{lstlisting}
+	\small
+	(Sample taken from the GraphiniusJS JSONInputTests.ts file.)
+	
+	
 	\subsection{Mocks used for browser code testing}
 	\label{ssect:mocks}
+	
+	\begin{lstlisting}[caption={A mocking setup simulating a Web Server GET response...}, label={fig:mock_service_test}, language=JavaScript]
+describe('Loading graphs in simulated browser environment', () => {		
+	// Mocking the XHR object
+	var mock = require('xhr-mock');
+	var jsDomCleanup = null,
+	mocked = false;
+	
+	// URL to replace with path
+	var small_graph_url = REMOTE_HOST + "small_graph.json";
+	var small_graph_path = 'test/input/test_data/small_graph.json';
+	
+	beforeEach(() => {		
+		// Injecting browser globals into our Node environment
+		jsDomCleanup = require('jsdom-global')();
+		
+		// Access to local filesystem for mocking service
+		var fs = require('fs');
+		var json = fs.readFileSync(small_graph_path).toString();
+		
+		//replace the real XHR object with the mock XHR object
+		mock.setup();
+	
+		// Mocking Browser GET request to test server
+			mock.get(small_graph_url, function(req, res) {
+				mocked = true;
+				return res
+					.status(200)
+					.header('Content-Type', 'application/json')
+					.body(json);
+			});
+		});
+		
+	afterEach(() => {
+		mock.teardown();
+		jsDomCleanup();
+		mocked = false;
+	});
+	
+	// Rest of tests are the same as in non-mocked, local reader based input tests
+});
+	\end{lstlisting}
+	\small
+	... to an XML-HTTP GET Request in order to read a graph structure from a remote JSON file from inside a browser environment. (Sample taken from the GraphiniusJS JSONInputAsyncTests.ts file.)
+	
 
 	\subsection{Spies (Sinon)}
 	\label{ssect:spies}
+	
+	\begin{lstlisting}[caption={A functional test making use of a spy...}, label={fig:spy_test}, language=JavaScript]
+describe('testing config preparation functions - ', () => {
+	var prepForDFSVisitSpy,
+	prepForDFSSpy,
+	original = {
+		prepareDFSStandardConfig: null,
+		prepareDFSVisitStandardConfig: null
+	};
+
+	before(() => {
+		prepForDFSSpy = sinon.spy($DFS.prepareDFSStandardConfig);
+		prepForDFSVisitSpy = sinon.spy($DFS.prepareDFSVisitStandardConfig);
+		original.prepareDFSStandardConfig = $DFS.prepareDFSStandardConfig;
+		original.prepareDFSVisitStandardConfig = $DFS.prepareDFSVisitStandardConfig;
+		$DFS.prepareDFSStandardConfig = prepForDFSSpy;
+		$DFS.prepareDFSVisitStandardConfig = prepForDFSVisitSpy;
+	});
+
+	after(() => {
+		$DFS.prepareDFSStandardConfig = original.prepareDFSStandardConfig;      
+		$DFS.prepareDFSVisitStandardConfig = original.prepareDFSVisitStandardConfig;
+	});
+
+
+	it('preprareDFSVisitStandardConfig should correctly instantiate a DFSConfig object', () => {
+		var config = $DFS.prepareDFSVisitStandardConfig();
+		
+		// Here the spy is finally used to check internal method invocation
+		expect(prepForDFSVisitSpy).to.have.been.calledOnce;
+	});
+});
+	\end{lstlisting}
+	\small
+	... to test internal method invocation, restoring the original method afterwards. (Sample taken from the GraphiniusJS DFSTests.ts file.)
 
 
 \section{Implemented Algorithms}

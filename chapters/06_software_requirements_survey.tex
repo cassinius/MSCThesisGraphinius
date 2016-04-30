@@ -85,7 +85,7 @@ i * 2 for i in [1..10]
 	
 	The greatest obstacle to large-scale web-development in ES5 was the lack of an explicit type system and built-in module system, which would allow an IDE to scan dependent files and constructs and infer a valid type-flow, enabling the development environment to assist the programmer with code completion and type error hints. This was realized by Microsoft when they ported part of their Office suite to the web (Office365), which consumed not only years of manpower but took hundreds of thousands of lines of code before a stable product could be released. As a consequence, they formed a group around their lead C\# / .NET developer Anders Hejlsberg (the former creator of TurboPascal and chief software engineer at Borland until 1996) with the mission to develop a JS meta language incorporating those characteristics for large scale web development in 2012. The result of those efforts is Typescript, which of 2016 is a superset of ES6 with the additional benefits of allowing for the declaration of interfaces, enums, and in-place type annotations (amongst many others features like default and optional function parameters): 
 	
-	\begin{lstlisting}[caption={Typescript sample featuring import of an external module, an exported interface definition, type annotations, instance variable setting via constructor specifiers (protected) as well as optional parameters}, label={fig:TS example}, language=JavaScript]
+	\begin{lstlisting}[caption={Typescript sample featuring import of an external module...}, label={fig:TS example}, language=JavaScript]
 import * as $N from "./Nodes";
 
 export interface IConnectedNodes {
@@ -105,11 +105,8 @@ class BaseEdge implements IBaseEdge {
 		options?: EdgeConstructorOptions) {...}
 }	
 	\end{lstlisting}
-	\vspace{-0.3cm}
-	\begin{center}
-		\small
-		(Example taken from the Graphinius JS Edge Class)
-	\end{center}
+	\small
+	..., an exported interface definition, type annotations, instance variable setting via constructor specifiers (protected) as well as optional parameters. (Example taken from the Graphinius JS Edge Class.)
 	
 	Furthermore, the Typescript compiler can output TS code to ES6, ES5 or even ES3, and already incorporates some features currently only found in the ES7 draft specification (which will take several years to become the next standard). With all the benefits offered by ES6, no additional compile step (over ES6 with traceur/babel) and additional typings support (which comes in the form of separate typing files that even exist for most external libraries like underscore, lodash or jquery), Typescript made an ideal candidate as the base language for Graphinius JS.
 	
