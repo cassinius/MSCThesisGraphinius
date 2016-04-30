@@ -306,8 +306,17 @@ module.exports = function () {
 		\item \textbf{Package \& bundle (compress)} the dist folder's content using webpack and output a minified JavaScript file consumable by any standard web browser.
 	\end{enumerate}
 	
+	\begin{figure}[ht]
+		\label{fig_js_bundling}
+		% \centering
+		\hspace*{-0.5cm}
+		\includegraphics[width=1.1\textwidth]{figures/bundle_process}
+		\caption{The GraphiniusJS Bundling process}
+	\end{figure}
+	
 	In addition to those standard tasks, a library called \textit{Istanbul} was used to capture the progressing test coverage.
-
+	
+	In order to execute those tasks, the following two task runners were considered:
 
 	\subsection{Grunt}
 	\label{ssect:grunt}
