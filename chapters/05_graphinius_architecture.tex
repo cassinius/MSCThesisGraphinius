@@ -18,41 +18,7 @@ As the name suggests, the Base offers all the functionality necessary to develop
 	
 
 \section{Graphinius JS}
-\label{sect:graphinius_js}
-
-	\subsection{Graph input readers}
-	\label{ssect:input_output}
-	
-		\subsubsection{CSV}
-		\label{sssection: io_csv}
-		
-		
-		\begin{figure}[ht]
-			\begin{lstlisting}
-				A, B, u, C, u, A, d, B, d, D, d
-				B, A, u
-				C, A, u, A, d
-				D, A, d
-			\end{lstlisting}
-			\caption{Adjacency list including edge direction}
-			\label{fig:adj_list_direction}
-		\end{figure}
-		
-		CSV Edge Lists use the simple format of [StartNode, EndNode [,directed]].		
-			
-		
-		\subsubsection{JSON}
-		\label{sssection: io_json}
-		
-		\begin{figure}[ht]
-			\centering
- 			\hspace*{-1.5cm}
-			\includegraphics[width=1.2\textwidth]{figures/search_graph_json}
-			\caption{Sample graph in the Graphinius JSON format}
-			\label{fig:json_input_graph}
-			\small Apart from the 'to' node, direction and weight, any node can exhibit an arbitrarily large feature vector containing any type of information (like patient data, word vectors, etc.). Another special sub-object which the input reader is looking for is the 'coords' object, which specifies the coordinates used in the constant layout renderer of the GraphiniusVIS library.
-		\end{figure}
-		
+\label{sect:graphinius_js}		
 	
 	\subsection{Graph Core}
 	\label{ssect:graph_core}
@@ -74,12 +40,46 @@ As the name suggests, the Base offers all the functionality necessary to develop
 		\subsubsection{Degrees}
 		\label{sssection: core_degrees}
 		
-		\subsubsection{Centralities}
-		\label{sssection: core_centralities}
-		
 		\subsubsection{Generators}
 		\label{sssection: core_}
 		
+		probability
+		per-node degree
+	
+	
+	\subsection{Graph input readers}
+	\label{ssect:input_output}
+	
+		\subsubsection{CSV}
+		\label{sssection: io_csv}
+		
+		
+		\begin{figure}[ht]
+			\begin{lstlisting}
+			A, B, u, C, u, A, d, B, d, D, d
+			B, A, u
+			C, A, u, A, d
+			D, A, d
+			\end{lstlisting}
+			\caption{Adjacency list including edge direction}
+			\label{fig:adj_list_direction}
+		\end{figure}
+		
+		CSV Edge Lists use the simple format of [StartNode, EndNode [,directed]].		
+		
+		
+		\subsubsection{JSON}
+		\label{sssection: io_json}
+		
+		\begin{figure}[ht]
+			\centering
+			\hspace*{-1.5cm}
+			\includegraphics[width=1.2\textwidth]{figures/search_graph_json}
+			\caption{Sample graph in the Graphinius JSON format}
+			\label{fig:json_input_graph}
+			\small Apart from the 'to' node, direction and weight, any node can exhibit an arbitrarily large feature vector containing any type of information (like patient data, word vectors, etc.). Another special sub-object which the input reader is looking for is the 'coords' object, which specifies the coordinates used in the constant layout renderer of the GraphiniusVIS library.
+		\end{figure}
+	
 	
 	\subsection{Algorithms}
 	\label{ssect:algorithms}
@@ -94,7 +94,7 @@ As the name suggests, the Base offers all the functionality necessary to develop
 		\label{sssection: algo_shorest_paths}
 
 
-\section{The Op-Log}
+\section{The Op-Log / History system}
 \label{sect:op_log}
 
 	\subsection{Timeline}
@@ -102,6 +102,19 @@ As the name suggests, the Base offers all the functionality necessary to develop
 	
 	\subsection{History Object}
 	\label{ssect:history_object}
+	
+		
+	
+	\begin{landscape}
+		\begin{figure}[ht]
+			\label{fig_history_workflow}
+			\centering
+			\vspace{-2.0cm}
+			%	\hspace*{0cm}
+			\includegraphics[width=1.6\textwidth]{figures/History_Workflow_pdf}
+			\caption{Graphinius JS <-> VIS communication via Op-Log}
+		\end{figure}
+	\end{landscape}
 
 	\subsection{Vocabulary}
 	\label{ssect:vocabulary}	
@@ -112,6 +125,9 @@ As the name suggests, the Base offers all the functionality necessary to develop
 
 \section{Graphinius VIS}
 \label{sect:graphinius_vis}
+
+	\subsection{WebGL rendering}
+	\label{ssect:webgl_rendering}	
 
 	\subsection{2D/3D Mode}
 	\label{ssect:vis_2d3d}
@@ -126,18 +142,7 @@ As the name suggests, the Base offers all the functionality necessary to develop
 	\label{ssect:vis_interact_manipulate}
 	
 	\subsection{Timeline rewind / repeat}
-	\label{ssect:vis_timeline}
-	
-	\begin{landscape}
-		\begin{figure}[ht]
-			\label{fig_history_workflow}
-			\centering
-			\vspace{-2.0cm}
-			%	\hspace*{0cm}
-			\includegraphics[width=1.6\textwidth]{figures/History_Workflow_pdf}
-			\caption{Graphinius JS <-> VIS communication via Op-Log}
-		\end{figure}
-	\end{landscape}
+	\label{ssect:vis_timeline}	
 	
 	\begin{landscape}
 		\begin{figure}[ht]
