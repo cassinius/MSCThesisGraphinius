@@ -48,33 +48,34 @@ Those new methods provide great opportunities (but also challenges) even for the
 	
 	While some of those problems have been addressed even in the context of ECMAScript 5 (like the introduction of promises to replace nested callback functions), many shortcomings could only be addressed by external libraries, which polluted the workflow with additional dependencies not needed in more sophisticated languages and often increased the JS download size by hundreds of kilobytes, which routinely becomes a problem on mobile devices.
 	
-	ECMAScript 6 (codename harmony) is an overhaul of the JavaScript language featuring classes, a new keyword for the familiar block scoping (\textit{let}), as well as an integrated module system allowing to require external files even inside the browser. The greatest obstacle to using ES6 today is the lack of complete support across all browser vendors - this is where ES6-to-ES5 compilers like \textit{Traceur} or the more popular \textit{Babel} come in. As far as syntax goes, ES 6 cleans up some keyword usages in order to make code more readable (samples taken from \url{http://es6-features.org/}):
-	
+	ECMAScript 6 (codename harmony) is an overhaul of the JavaScript language featuring classes, a new keyword for the familiar block scoping (\textit{let}), as well as an integrated module system allowing to require external files even inside the browser. The greatest obstacle to using ES6 today is the lack of complete support across all browser vendors - this is where ES6-to-ES5 compilers like \textit{Traceur} or the more popular \textit{Babel} come in. As far as syntax goes, ES 6 cleans up some keyword usages in order to make code more readable.	
 	
 	\begin{lstlisting}[caption={ECMAScript 5 (usually referred to as 'JavaScript') version of functional programming using the natively built-in mapping function.}, label={fig:ECMAScript5_mapping}, language=JavaScript]
 odds  = evens.map(function (v) { return v + 1; });
 pairs = evens.map(function (v) { return { even: v, odd: v + 1 }; });
 nums  = evens.map(function (v, i) { return v + i; });
-	\end{lstlisting}
-	
+	\end{lstlisting}	
 	
 	\begin{lstlisting}[caption={ECMAScript 6 equivalent to the above code.}, label={fig:ECMAScript6_mapping}, language=JavaScript]
 odds  = evens.map(v => v + 1)
 pairs = evens.map(v => ({ even: v, odd: v + 1 }))
 nums  = evens.map((v, i) => v + i)
 	\end{lstlisting}
+	(Examples taken from \citep{ES6Features})
 	
 	Although ES6 is a great improvement over ES5 in many respects, it still lacks an explicit type system and interfaces (which can guide an IDE in it's analysis regarding Code Completion and IntelliSense). It was therefore not considered the best option for the development of a potentially large library as GraphiniusJS.			
 	
 	\subsection{Coffeescript (CS)}
 	\label{ssect:coffeescript}
 	
-	Coffeescript was an attempt to make JavaScript code more readable as well as writable. It was apparently inspired by the clean syntax used in modern scripting languages like Ruby or Python and adopted the use of whitespace as control characters like Python (but not Ruby). Most of the language was based on using 'syntactic sugar' to abbreviate otherwise verbose JS code. For instance, the  \textit{this} variable was replaced by the  \textit{@} sign, the return statement at the end of a function became superfluous, and the lambda operator \textit{->} was introduced as a shortcut for the \textit{function} keyword in normal JS. Examples taken from \url{http://ricardo.cc/2011/06/02/10-CoffeeScript-One-Liners-to-Impress-Your-Friends.html}
+	Coffeescript was an attempt to make JavaScript code more readable as well as writable. It was apparently inspired by the clean syntax used in modern scripting languages like Ruby or Python and adopted the use of whitespace as control characters like Python (but not Ruby). Most of the language was based on using 'syntactic sugar' to abbreviate otherwise verbose JS code. For instance, the  \textit{this} variable was replaced by the  \textit{@} sign, the return statement at the end of a function became superfluous, and the lambda operator \textit{->} was introduced as a shortcut for the \textit{function} keyword in normal JS.
 	
 	\begin{lstlisting}[caption={Two versions of the same mapping functionality in CoffeeScript}, label={fig:Coffeescript_mapping}, language=JavaScript]
 [1..10].map (i) -> i*2
 i * 2 for i in [1..10]
 	\end{lstlisting}
+	\small
+	(Example taken from \url{CoffeeScript})
 	
 	Like ES6, Coffeescript is compiled down to ES5 through it's own coffee compiler. As much as the idea of CS is neat and very justified for individual developers, the use of whitespace as control characters can add some additional hassles if working in a team; only slight deviations in the individual setup can cause serious problems, like the use of editors that use different representations for tabs (tab vs. 2 spaces vs. 4 spaces) or different line ending symbols (Windows vs. Mac vs. Linux). Furthermore, CS did not resolve the lack of an internal module system or the lack of an explicit type system, and was therefore not considered for Graphinius JS.
 	
@@ -104,6 +105,11 @@ class BaseEdge implements IBaseEdge {
 		options?: EdgeConstructorOptions) {...}
 }	
 	\end{lstlisting}
+	\vspace{-0.3cm}
+	\begin{center}
+		\small
+		(Example taken from the Graphinius JS Edge Class)
+	\end{center}
 	
 	Furthermore, the Typescript compiler can output TS code to ES6, ES5 or even ES3, and already incorporates some features currently only found in the ES7 draft specification (which will take several years to become the next standard). With all the benefits offered by ES6, no additional compile step (over ES6 with traceur/babel) and additional typings support (which comes in the form of separate typing files that even exist for most external libraries like underscore, lodash or jquery), Typescript made an ideal candidate as the base language for Graphinius JS.
 	
@@ -129,7 +135,7 @@ body {
 .box { @include border-radius(10px); }
 	\end{lstlisting}
 	\small
-	Example taken from \url{http://sass-lang.com/guide}.
+	(Example taken from \citep{SassBasics})
 	
 	
 	\begin{lstlisting}[caption={LESS example demonstrating the use of variables and default parameters}, label={fig:less_preproc}, language=CSS]
@@ -143,7 +149,7 @@ body {
 }
 	\end{lstlisting}
 	\small
-	Example taken from \url{http://lesscss.org/}.
+	(Example taken from \citep{LessCSS})
 	
 	While CSS preprocessors are important in every contemporary web project, the work described in this Master Thesis is focused on the underlying graph library, which features no (built-in) graphical component and therefore did not require any such module.
 	
@@ -172,7 +178,7 @@ var userSaveSpy = spyOn(User.prototype, 'save');
 spyOn(user, 'isValid').andReturns(true);
 	\end{lstlisting}
 	\small
-	Example taken from \url{http://thejsguy.com/2015/01/12/jasmine-vs-mocha-chai-and-sinon.html}.
+	(Example taken from \citep{JSTestTest})
 	
 	
 	\subsection{Mocha / Chai}
@@ -199,7 +205,7 @@ sinon.spy(user, 'isValid');
 sinon.stub(user, 'isValid').returns(true);
 	\end{lstlisting}
 	\small
-	Example taken from \url{http://thejsguy.com/2015/01/12/jasmine-vs-mocha-chai-and-sinon.html}.
+	(Example taken from \citep{JSTestTest})
 
 	\subsection{Cucumber}
 	\label{ssect:selenium}
@@ -220,8 +226,7 @@ sinon.stub(user, 'isValid').returns(true);
 		Scenario: Reading documentation
 			Given I am on the Cucumber.js GitHub repository
 			When I go to the README file
-			Then I should see "Usage" as the page title
-	
+			Then I should see "Usage" as the page title	
 	\end{lstlisting}
 	
 	The step definition file implementing the first of the three lines in the scenario could be implemented as follows:
@@ -232,42 +237,81 @@ module.exports = function () {
 		this.visit('https://github.com/cucumber/cucumber-js', callback);
 	});
 };
-
-\end{lstlisting}
+	\end{lstlisting}
 	\small
-	Example taken from \url{https://github.com/cucumber/cucumber-js}.
+	(Examples taken from \citep{CucumberJS})
 	
 	Cucumber can be utilized from many different languages and has been used by the author as far back as 2009. In the case of Graphinius it will certainly be used once the platform module (browser UI) begins to take shape, as cucumber is very well suited to be used in combination with the browser DOM. For the scope of the underlying Graphinius JS library however, there was no reason to employ such a tool as collaboration with end-users on that level seems neither necessary nor sensible.
 
 
-\section{Documentation}
-	\label{sect:documentation}
+\section{Automatic Documentation}
+\label{sect:documentation}
+
+	Writing manual documentation on a software library is absolutely necessary if one desires their product to be used by other developers; writing documentation files separately from one's code files however is a burden not many programmers want to accept. This is were automated documentation generators come in - they scan the source code of a project for comments above a function or class definition and auto-generate the required documents in a convenient output format like HTML or PDF. 
 	
-	\subsection{JSDoc}
+	
+	\subsection{JSDoc \& alternatives}
 	\label{ssect:jsdoc}
+	
+	In the realm of JavaScript there are several candidates for pure, JS-based auto-doc generation; in a review conducted by \citep{JSDocRef}, the four libraries JSDoc, DOCCO, doxx and ui were examined for several properties, the most important of which were:
+	
+	\begin{itemize}
+		\item Does it support structured syntax (like Javadoc)?
+		\item Can the appearance be customized (via CSS or CSS frameworks like Bootstrap)?
+		\item Does the output contain a search feature?
+		\item Does it parse the entire source code or only the comment blocks?
+	\end{itemize}
+	
+	The interested reader may be referred to the resource mentioned above; as we are using Typescript for Graphinius JS, we do not want to limit ourselves to capturing just the information present in the output JS, but also the type information as well as interface specifications only found in the original TS sources.
 	
 	\subsection{TypeDoc}
 	\label{ssect:typedoc}
 	
+	Currently, there is only one library available for automatically scanning through Typescript sources and generating an appropriate documentation - TypeDoc. It extracts all type annotations found in interfaces or method specifications and scans Javadoc-like comment blocks. Its output is HTML5 with a convenient search function and customizable appearance as well as a practical legend for different types of entities (class, interface, function etc.); as of yet, it neither supports simple double-slash comments nor output to PDF. 
+	
+	A very nice feature to mention comes to bear in combination with a github project - in this case Typedoc is capable of directly linking an item's documentation to the appropriate place in the github repository, which makes switching from documentation to code a convenient experience. As the whole documentation for Graphinius JS exists in the form of extracted Typedoc and is readily available to the reader in Appendix~\ref{App:AppendixB}, we can forgo the display of a sample at this point.
+	
 
-\section{Build system for browser}
-	\label{sect:build_browser}
+\section{Build system for browsers / packaging}
+\label{sect:build_browser}
+
+	Within the server-side JavaScript version of NodeJS (which uses Google's V8 under the hood), one can easily require other files as modules through the CommonJS module specification. This of course is a superior way of building JS applications, as modules are thereby testable in isolation, dependencies can be required without adding some script tag into an HTML file, and dependency resolution is done via the built-in module framework as opposed to having to take care of including script tags in the right order (or otherwise they might overwrite each others' variables within the global namespace, which is a frequent source of attrition amongst web developers).
+	
+	Unfortunately, there is no native way to require JavaScript files or parts thereof from another JS file in the browser. With the advent of ECMAScript 6 this shortcoming will finally be corrected; however due to the fact that most browsers do not fully support that standard yet, and given the benefits of a 'normal' SW-development process, it has become commonplace to develop one's webapp in NodeJS (including all necessary libraries from the Node Package Manager's repositories), and then utilizing an external tool to package the software for its final release. Those tools have then to collect all the source files including dependencies, resolve any potential conflicts in the dependency graph, wrap each file's content with a require mechanism that works in the browser, and finally concatenate (and maybe minify / uglify) the result in order to save space.
+
+	Although there are a few more candidates (RequireJS, SystemJS, JSPM) that could be mentioned in this section, we are only going to take a look at two libraries which characterize the differences in this field pretty well:
+	
 	
 	\subsection{Browserify}
 	\label{ssect:browserify}
 	
-	\subsection{request.js}
-	\label{ssect:request_js}
+	Browserify is easily the most popular amongst the various packaging libraries available, and probably also the most powerful in its ability of dependency checking and conflict resolution. Throughout the first months of developing GraphiniusJS, the author used browserify to conveniently package all of the code files into a bundle readable by the browser. The library is especially handy since it can deal with NodeJS specific dependencies like the Filesystem module, which provide no additional use in the browser but can be hard to extract out manually from the packaging process. In addition it resolves circular dependencies on its own, which is especially practical for less experienced programmers. The great disadvantage or browserify is the file size of its output: in order to offer all the benefits it provides, it generates in excess of 30k lines of boilerplate code for even the tiniest of JavaScript programs. This results in a file size easily in excess of 1MB, which renders browserify practically unusable for mobile applications.
 	
-	\subsection{webpack}
+	\subsection{Webpack}
 	\label{ssect:webpack}
 
+	Webpack, in many respects, is the opposite of Browserify. It does not offer a no-hassle, work-the-first-time experience for today's stressed web developer, requires some (often much) configuration of loaders for different file types, easily capitulates in the event of circular dependencies (and does not even fire an error or warning) and has serious problems including all kinds of NodeJS (server-side) libraries. Despite the greater configuration effort and necessary developer's care however, Webpack's require wrapper around JavaScript files and functions is microscopic compared to browserify. This way, the author was capable of packaging all of Graphinius JS (as of this writing) into 67.8 kilobytes of uncompressed and 25 kilobytes of minified JavaScript, with further down-potential in using a better compression library like Google's Closure compiler in the future (which requires its own delicate handling...).
+	
 
 \section{Task Runner}
 \label{sect:build_system}
 
+	Finally, all of the above components have to work in perfect coordination in order to make the web development experience convenient and leave the programmer to their most important job: focusing on the problems to solve rather than manually operating different libraries in the various preparation steps. Therefore, task runners (the JavaScript vocabulary's version of Makefiles) have been invented, which offer several standard tasks to be executed and countless more to be added via their respective plugin systems. The main duty of a task runner is to watch local files for changes (happening every time they are saved to disk) and execute different, predetermined tasks in a given order. In the context of Graphinius JS, this development cycle consisted of the following phases (only 1 and 2 are executed on every save, the rest required a separate 'make' call):
+	
+	\begin{enumerate}
+		\item \textbf{Build:} Compile TypeScript to JavaScript.
+		\item \textbf{Test:} Run all synchronous Mocha tests; for performance reasons, a few asynchronous tests like remote JSON graph structure loading were not periodically executed.
+		\item \textbf{Generate Typedoc} and output the resulting HTML to a subfolder.
+		\item \textbf{Assemble JS output} files and write them to the dist directory for requiring from a NodeJS console.
+		\item \textbf{Package \& bundle (compress)} the dist folder's content using webpack and output a minified JavaScript file consumable by any standard web browser.
+	\end{enumerate}
+	
+	In addition to those standard tasks, a library called \textit{Istanbul} was used to capture the progressing test coverage.
+
 	\subsection{Grunt}
 	\label{ssect:grunt}
+	
+	
 	
 	\subsection{Gulp}
 	\label{ssect:gulp}
@@ -281,4 +325,16 @@ module.exports = function () {
 	\end{figure}
 	
 
+\section{Overview of technology choices}
+\label{sect:design_choices}
 
+In summary, the chosen technologies / libraries for developing Graphinius JS came to be:
+
+\begin{itemize}
+	\item \textbf{JS Preprocessor:} Typescript
+	\item \textbf{CSS Preprocessor:} N/A
+	\item \textbf{Testing libraries:} Mocha + Chai (expect style) + Sinon
+	\item \textbf{Doc generator:} Typedoc
+	\item \textbf{Packaging:} Webpack
+	\item \textbf{Task Runner:} Gulp
+\end{itemize}
