@@ -308,20 +308,23 @@ module.exports = function () {
 	
 	In addition to those standard tasks, a library called \textit{Istanbul} was used to capture the progressing test coverage.
 
+
 	\subsection{Grunt}
 	\label{ssect:grunt}
 	
-	
+	The	Grunt JS task runner has been around since early 2012 and follows the principle of \textit{Configuration over code}. This means that instead of writing executable code, the library takes a configuration file in the form of a \textit{Gruntfile.js}. Although this file is of generic JavaScript format, no real computations or control flows take place inside it; instead, Grunt takes instructions in the form of JSON object blocks, which makes writing a Gruntfile easy and intuitive, but severely limits the developer's possibilities to fine-tune desired functionalities.
 	
 	\subsection{Gulp}
 	\label{ssect:gulp}
 	
+	Gulp JS, as a slightly more recent contender (the first commit logged on github stems from July 2013) represents the opposite approach to Grunt JS - it is based on the idea of \textit{Code over configuration}. This implies that instead of writing an extensive configuration file, a \textit{Gulpfile.js} is written like a normal JavaScript program, making extensive use of the NodeJS-native streaming capabilities to pass results of an earlier processing step on to a later (much like the Unix kernel pipes can be used). This gives developers greater power over their build process, enabling them to use normal language constructs like branches and conditional assignments.		
+	
 	\begin{figure}[ht]
-		\label{fig_grunt_gulp}
 		\centering
-		\hspace*{-1.4cm}
-		\includegraphics[width=1.2\textwidth]{figures/grunt_gulp_comparison}
+		\hspace*{-1.1cm}
+		\includegraphics[width=1.15\textwidth]{figures/grunt_gulp_comparison}
 		\caption{Comparison between Grunt \& Gulp build systems}
+		\label{fig:grunt_gulp}
 	\end{figure}
 	
 
