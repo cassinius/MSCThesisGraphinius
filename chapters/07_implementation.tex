@@ -174,28 +174,29 @@ As the name suggests, the Base offers all the functionality necessary to develop
 	%\end{landscape}
 
 
-	
 \section{Dependent Libraries}
 \label{sect:dep_libraries}
 
-	As described in the last chapter~\ref{ch:software_requirements}, the modern web development process is 
+	As described in the last chapter~\ref{ch:software_requirements}, modern web development processes utilize a wealth of external modules and helpers to achieve a seamless, convenient development workflow. Whereas GraphiniusJS does not depend on any external libraries at runtime (as can be seen in the \textit{"dependencies"} section of Figure~\ref{fig:dependencies}), the author has been using a diverse collection of dependencies at development time, which shall be only introduced in all brevity:
+	
+	The \textbf{chai} library handles assertions in mocha tests, \textbf{gulp} is the main taskrunner library, \textbf{gulp-clean} provides for deletion of compilation- and other results, \textbf{gulp-concat} manages file concatenations, \textbf{gulp-istanbul} integrates istanbul into the gulp process, \textbf{gulp-mocha} integrates mocha into the gulp process, \textbf{gulp-rename} handles renaming of one or many sources to a single destination file, \textbf{gulp-typedoc} integrates typedoc into the gulp process, \textbf{gulp-uglify} integrates uglify into the gulp process, \textbf{gulp-watch} provides file watching capabilities, \textbf{istanbul} provides test coverage reports, \textbf{jsdom} simulates a DOM environment in pure JavaScript (NodeJS), \textbf{jsdom-global} provides global variable support for jsdom, \textbf{json-loader} is a submodule of webpack allowing for integration of JSON files into a minified JS bundle, \textbf{merge2} merges file contents, \textbf{mocha} is the main test runner, \textbf{sinon} provides spies and stubs for testing, \textbf{sinon-chai} integrates sinon with the chai assertion library, \textbf{typedoc} automatically generates documentation from Typescript sources, \textbf{webpack-stream} is necessary for running a webpack process inside a (stream-based) gulp task, and \textbf{xhr-mock} provides a mocking service for simulating browser-based XMLHTTPRequest objects in server-side NodeJS.
 
-	\begin{figure}[ht]
-		\label{fig_dependencies}
+	\begin{figure}[H]
 		\centering
 		\hspace*{-0.5cm}
-		\includegraphics[width=0.8\textwidth]{figures/package_deps}
+		\includegraphics[width=1\textwidth]{figures/package_deps}
 		\caption{GraphiniusJS development and runtime dependencies}
-		\small
-		As is clearly visible, I focused on managing all complexity during development time, resulting in zero dependencies for the runtime JS bundle.
+		\label{fig:dependencies}
 	\end{figure}
+	\small
+	As is clearly visible, I focused on managing all complexity during development time, resulting in zero dependencies for the runtime JS bundle.
 
 
 
 \section{Testing approach}
 \label{sect:testing_approach}
 
-	BDD...
+	Behavior Driven Development (BDD) is a testing philosophy that 
 	
 	\subsection{Unit tests}
 	\label{ssect:unittests}
