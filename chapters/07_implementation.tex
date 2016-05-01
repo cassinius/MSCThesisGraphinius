@@ -4,13 +4,12 @@
 
 The Graphinius Platform consists of four main components as depicted in the following diagram. Of those 4, the practical parts of this Master thesis mainly consider Graphinius Base, with all graph construction and analysis functionality residing in GraphiniusJS. 
 
-% \vspace{-0.5cm}
 \begin{figure}[H]
 	\centering
 	\hspace*{-0.5cm}
 	\includegraphics[width=1.05\textwidth]{figures/Graphinius_Architecture_new}
 	\caption{Graphinius platform architecture overview}
-	\label{fig_graphinius_architecture}
+	\label{fig:graphinius_architecture}
 \end{figure}
 
 
@@ -19,46 +18,125 @@ The Graphinius Platform consists of four main components as depicted in the foll
 
 As the name suggests, the Base module offers all the functionality necessary to develop graph-based applications on top of it, including basic graph-computations and algorithms as well as real-time, in-browser visualization. It is therefore logically composed of the two main modules \textit{GraphiniusJS} and \textit{GraphiniusVIS} as well as a mechanism of communication between those two, the \textit{History System}.
 
-
 \section{Graphinius JS}
 \label{sect:graphinius_js}
 
-	\subsection{Graph Core}
-	\label{ssect:graph_core}
+	Graphinius JS deals with graph loading via Input Readers for CSV and JSON file formats, instantiation as well as mutation of graphs through the graph, nodes and edge classes as well as some basic graph algorithms, including degree distributions, edge generators and traversal via breath-first, depth-first and best-first (priority-first) search algorithms. As not all components depicted in Figure~\ref{fig:graphinius_architecture} are of equal importance (or implemented yet), the following substructure does not fully comply with the organization of that diagram.
 		
-		\subsubsection{Edges}
-		\label{sssection: core_edges}
+	\subsection{Edges}
+	\label{ssection: core_edges}
+	
+	Edges are the most basic class within the GraphiniusJS library. They depend on the Nodes class solely in order to be able to check if their endpoints consist of valid graph nodes. Edges can never instantiate nodes themselves, so in order to add a valid edge to a graph, the connected nodes must already exist in the structure. Edges can be directed or undirected, weighted or unweighted, hold an ID and can be given a label. Apart from that, they contain no other internal logic.
+	
+	\subsection{Nodes}
+	\label{ssection: core_nodes}
+	
+	Nodes are already a lot more complex in Graphinius JS. They consist of an ID, an optional label, and have datastructures to hold the directed as well as undirected edges connected to them; When adding and removing connected edges they measure and update their own degrees (according to the mixed-graph nature of Graphinius, we always differentiate between in-, out-, and undirected degree) and are the lowest-level objects used in graph traversal, as they contain the necessary functionality to return their neighboring nodes (according to outgoing, incoming, or undirected edges).
+	
+	\subsection{Graph}
+	\label{ssection: core_graph}
+	
+	The Graph class is the main component at the core of Graphinius JS as it contains all necessary functionality to create as well as add and remove nodes and edges to a graph. It keeps track of its size in number of nodes and edges, holds datastructures to look up those objects as well (as always it differentiates between directed and undirected edges), can return a random node or edge, clean nodes from all incoming, outgoing or undirected edges and contains helpers to print statistics or the degree distribution over its nodes.
+	
+	Moreover, it contains the GraphMode setting which has two different meanings: As a metric of the graph, it tells a caller if the graph contains no edges at all (GraphMode.INIT), holds only undirected (GraphMode.UNDIRECTED) or directed (GraphMode.DIRECTED) edges, or a mixture of both (GraphMode.MIXED). As a setting for graph traversal, it enables \textit{graph views} by allowing algorithms operating on it to only see a subset of all the existing edges in the graph.
+	
+	\begin{lstlisting}[caption={Graph traveral dependent on GraphMode.}, label={lst:traversal_mode}, language=JavaScript]
+if ( dir_mode === $G.GraphMode.MIXED ) {
+	bfsScope.adj_nodes = bfsScope.current.adjNodes();
+}
+else if ( dir_mode === $G.GraphMode.UNDIRECTED ) {
+	bfsScope.adj_nodes = bfsScope.current.connNodes();
+}
+else if ( dir_mode === $G.GraphMode.DIRECTED ) {
+	bfsScope.adj_nodes = bfsScope.current.nextNodes();
+}
+else {
+	bfsScope.adj_nodes = [];
+}
+	\end{lstlisting}
+	
+	
+	\subsection{Edge Generators}
+	\label{ssection: core_}
+	
+	There are many graph generators found in more established graph libraries and even specialized generator-only components (like \citep{bader2006gtgraph}), which can be used to generate random graphs or graphs following a specific layout (trees, circles, spheres, arc diagrams etc.). For the emerging GraphiniusJS library, complete graph generators were not yet considered, but edge generators implemented. This allows us to take generic point cloud data (coming from diverse sources like tabular datasets, range images etc.) and convert them into a graph structure by adding random connections according to two different approaches:
+	
+	\begin{itemize}
+		\item \textbf{Per probability.} This algorithm goes through all node combinations in the graph and adds an edge between them with a certain probability. By its very nature, the algorithm runs in quadratic runtime in the number of nodes.
+		\item \textbf{Per node.} Considering every node in sequence and adds a certain number of edges between that node and another, randomly chosen one. This algorithm could take quadratic runtime in the number of nodes (if the random node algorithm chooses so poorly that it tries to add the same edge over and over again) but in practice should perform considerably faster.
+	\end{itemize}
+	
+	
+	\subsection{Degree distribution}
+	\label{ssection: core_degrees}
+	
+	Probably the easiest algorithm performable on a graph is to compute the degree distribution over its nodes. It simply walks over the internal node structure, counting all the ingoing, outgoing, and undirected edges returning some (numerical) histogram. The following figure depicts how to obtain a degree distribution in GraphiniusJS via a browser debugging console.
+	
+	\begin{figure}[H]
+		\centering
+		\hspace*{-0.5cm}
+		\includegraphics[width=1\textwidth]{figures/deg_dist}
+		\caption{Degree distribution of a graph with 13859 nodes and 41541 edges }
+		\label{fig:graphinius_architecture}
+	\end{figure}
+	
+	
+	\subsection{Graph Traversal}
+	\label{ssect:search_bfs}
+	
+		\textit{Graph traversal} is the general term for exploring a graph from a given start node (also called 'root' node in this context). There are three basic forms of traversal differentiating by the order by which new nodes are visited. In GraphiniusJS, graph traversal is implemented using the visitor pattern by defining callback functions for specific 'hooks' in the traversal procedure. The graph traversal algorithm is thus reduced to only running its particular node-expansion scheme on the data structures necessary for its purpose; the actual information 'extraction' and result 'compilation' is then done by executing the injected callbacks at the aforementioned, pre-determined hooks. Let's take a look at an example callback initializing the result set of a Breadth first search algorithm at the start of it's invocation and pushing that callback onto the \textit{init\_bfs} callback array inside the algorithm's config.callbacks object:
 		
-		\subsubsection{Nodes}
-		\label{sssection: core_nodes}
+		\begin{lstlisting}[caption={Defining a callback function for traversal.}, label={lst:traversal_cb}, language=JavaScript]
+// Standard INIT callback
+var initBFS = function( context : BFS_Scope ) {
+// initialize all nodes to infinite distance
+for ( var key in context.nodes ) {
+	config.result[key] = {
+		distance : Number.POSITIVE_INFINITY,
+		parent 	 : null,
+		counter	 : -1
+	};
+}
+callbacks.init_bfs.push( initBFS );
+		\end{lstlisting}
 		
-		\subsubsection{Graph}
-		\label{sssection: core_graph}
+		During the actual BFS run, this callback is then executed as follows:
 		
-		\subsubsection{Generators}
-		\label{sssection: core_}
-		
-		probability
-		per-node degree
-		
-		\subsubsection{Degrees}
-		\label{sssection: core_degrees}
-		
-		\subsubsection{Traversal - Breadth first search}
+		\begin{lstlisting}[caption={Executing a callback function during traversal.}, label={lst:traversal_cb_exec}, language=JavaScript]
+// Execute INIT callback
+if ( callbacks.init_bfs ) {
+	$CB.execCallbacks(callbacks.init_bfs, bfsScope);
+}
+		\end{lstlisting}
+
+	
+		\subsubsection{Breadth first search}
 		\label{sssect:search_bfs}
 		
-		\subsubsection{Traversal - Depth first search}
+		BFS traverses a graph by expanding one 'shell' of nodes after the other, which means that it progresses outwards from a starting node like the layers of an onion until all reachable nodes have been visited. It is primarily used for getting a sense of distances in a graph (although it does not compute shortest paths by itself) and uses a queue datastructure to add nodes it's list of future visitations.
+		
+		In GraphiniusJS, BFS makes use of the following hooks: 1) \textbf{init\_bfs} at the start of the algorithm, 2) \textbf{node\_unmarked} when an encountered node has not yet been marked as visited, 3) \textbf{node\_marked} in case such a node has already been visited, and 4) \textbf{sort\_nodes} in the case the user wants to imply a certain order by which to add nodes to the queue - this does not change the nature of BFS, however.
+		
+		\subsubsection{Depth first search}
 		\label{sssect:search_dfs}
 		
-		\subsubsection{Traversal - Best (priority) first search}
+		DFS explores new nodes in a recursive fashion, which makes it advance 'deep' into the far reaches of the graph structure before exploring the immediate vicinity of the start node. For this purpose it uses a stack as its basic datastructure; moreover, if no more nodes are reachable from a given departure node, but the graph structure has not been entirely explored yet, DFS (via an outer loop) will randomly choose one of the remaining nodes, thereby arriving at a (random) segmentation of the entire graph.
+		
+		In GraphiniusJS, DFS provides the following hooks: 1) \textbf{init\_dfs} at the start of the outer loop, 2) \textbf{init\_dfs\_visit} at the start of a 'visit' (the inner loop), 3) \textbf{node\_popped} for any callbacks to execute directly after a node has been taken from the stack, 4) \textbf{node\_marked} which behaves as in BFS, 5) \textbf{node\_unmarked} which behaves as in BFS, 6) \textbf{sort\_nodes} which behaves as in BFS, and 7) \textbf{adj\_nodes\_pushed} which executes directly after a node has been expanded and its neighbors pushed to the stack.
+		
+		\subsubsection{Best (priority) first search}
 		\label{sssect:search_pfs}
 		
-		\subsubsection{Traversal-based algorithms}
-		\label{sssect:travseral_algos}
+		PFS always picks from its available nodes the one that evaluates to an optimal value (e.g. the minimal distance given an edge weight) - it therefore uses a (MIN / MAX) heap as its underlying datastructure, which in GraphiniusJS has been implemented with injectable heuristics (via callback functions as described in the Graph Traversal~\ref{ssect:search_bfs} section).
 		
-		Centralities are 
+		PFS lets the caller inject the following callbacks: 1) \textbf{init\_pfs} is invoked at the start of the algorithm, 2) \textbf{node\_open} in case an encountered node is already contained in the OPEN set, 3) \textbf{node\_closed} in case an encountered node is already contained in the CLOSED set, 4) \textbf{better\_path} in case a more optimal path to a node under test has been discovered, and 5) \textbf{goal\_reached} if we have encountered a specified end goal causing the algorithm to immediately return.
 		
-		BFS / DFS implementations... [figure: callback-based DFS]
+	\subsection{Traversal-based algorithms}
+	\label{ssect:travseral_algos}
+	
+	Although as of the time of this writing, no more algorithms have been implemented in Graphinius JS, most of the commonly used techniques are building upon one or the other form of basic graph traversal. This includes shortest paths, cycle testing, topological sorting of nodes, strongly connected component analysis, minimum spanning trees, some centralities (closeness and betweenness for instance) as well as many more than the author (or reader) will be able to recollect.
+	
+	Building all traversal-based algorithms on top of either BFS, DFS or PFS utilizing their callback \& hook structure will enable us to easily add new graph-views defined on node or edge types (and other criteria) to the library in the future, without having to re-adapt each and every single component to the respective improvement.
 
 	
 	\subsection{Input / Output}
@@ -101,7 +179,7 @@ As the name suggests, the Base module offers all the functionality necessary to 
 		
 		The Graphinius JSON reader is a more complex class as it uses it's own data format specific to the use cases targeted by the platform. It uses a nested object structure defining an array of node objects potentially containing different arrays of sub-objects:
 		
-		An \textbf{edge array} containing objects specifying a \textit{to} node, a \textit{direction} specifier as well as some \textit{weight}; direction and weight are optional; a \textbf{coordinates} array containing the \textit{x}, \textit{y}, and \textit{z} coordinates of a node; the \textit{z} coordinate is optional; a \textbf{feature vector} containing a hashmap of arbitrary length containing objects of arbitrary type including nested structures. The feature vector is solely used by applications building on GraphiniusJS and ignored by the standard suite of algorithms as described in the previous section.
+		An \textbf{edge array} containing objects specifying a \textit{to} node, a \textit{direction} specifier as well as some \textit{weight}; direction and weight are optional; a \textbf{coordinates} array containing the \textit{x}, \textit{y}, and \textit{z} coordinates of a node; the \textit{z} coordinate is optional; a \textbf{feature vector} containing a hashmap of arbitrary length containing objects of arbitrary type including nested structures. The feature vector is solely used by applications building on GraphiniusJS and ignored by the standard suite of algorithms as described in the previous section. A sample of a valid graph in the Graphinius JSON file format is depicted in Figure~\ref{fig:json_input_graph}.
 		
 		\begin{figure}[ht]
 			\centering
