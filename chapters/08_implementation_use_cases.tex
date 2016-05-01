@@ -5,12 +5,62 @@
 \section{Manual editing (predefined structures)}
 \label{sect:manual_editing}
 
-	\begin{enumerate}
-		\item \textbf{Build graph yourself}
-		\item \textbf{Load predefined graph}
-		\item \textbf{Watch visualization update}
-		\item \textbf{run through whole algorithm at once (fluent vis??)}
-	\end{enumerate}
+	The first and foremost use case for Graphinius is simply to be able to interactively build, mutate, and visualize graphs in the browser. Although the final Graphinius Platform will feature a full-blown code editor with code completion and online documentation, the basic functionality can be demonstrated even using a form of REPL every modern browser is automatically equipped with: the debugging console.
+
+	\subsection{Build a graph manually}
+	\label{ssect:build_graph_manually}
+	
+	As depicted in the following Figure, the basic case is to create a new graph structure, add some nodes and edges, and then run different computations on it:
+	
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics [width=1\textwidth] {figures/buildGraphManually}
+			\caption{Manually building a new graph in the console}
+			\label{fig:build_graph_manually}
+		\end{center}
+	\end{figure}
+	
+	
+	\subsection{Load predefined graph and visualize}
+	\label{ssect:load_graph}
+	
+	Using either the CSV or JSON Reader build into GraphiniusJS, we can also request to instantiate a graph from a remote file. Here we use the JSON Reader to load a graph depicting a nevus and render it using GraphiniusVIS:
+	
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics [width=1\textwidth] {figures/loadingGraphInREPL}
+			\caption{Loading a JSON graph and visualizing it via the browser console; then determining its degree distribution.}
+			\label{fig:load_graph_repl}
+		\end{center}
+	\end{figure}
+	
+	
+	\subsection{Run a BFS alorithm and visualize}
+	\label{ssect:run_bfs_visualize}
+	
+	After loading a (undirected) graph according to the previous section, we choose a random start node and invoke a breadth-first-search algorithm resulting in a \textit{distance map} centering around that node. The following lines of code show distances and parents of a selection of nodes (note the parent / distance chain...) while the accompanying visualization colors the graph according to the obtained distances via gradient computations (the start node being colored green and the node with maximum distance being colored red).
+	
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics [width=1\textwidth] {figures/colorBFSREPL}
+			\caption{Computing a BFS in a live browser REPL \& visualizing the result.}
+			\label{fig:color_graph_bfs}
+		\end{center}
+	\end{figure}
+	
+	
+	\subsection{Run a DFS alorithm and visualize}
+	\label{ssect:run_dfs_visualize}
+	
+	Lastly, we load the same graph as before, this time interpreted as a directed graph, choose a random start node again and invoke a DFS algorithm. This returns to us an array of graph segments representing the node sets reachable from each start node of a respective DFS Visit run (had we chosen an undirected graph, there would only be a single segment). We then output the size of each segment and again visualize the result, assigning to each segment a different color.
+	
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics [width=1\textwidth] {figures/colorDFSREPL}
+			\caption{Computing a DFS in a live browser REPL \& visualizing the result.}
+			\label{fig:color_graph_dfs}
+		\end{center}
+	\end{figure}	
 
 
 \section{Graph extraction from images (graphs in preprocessing)}
