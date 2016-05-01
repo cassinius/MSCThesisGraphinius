@@ -1,10 +1,14 @@
+
 \chapter{Architecture / Implementation}
 \label{ch:implementation}
 
+The Graphinius Platform consists of four main components as depicted in the following diagram. Of those 4, the practical parts of this Master thesis mainly consider Graphinius Base, with all graph construction and analysis functionality residing in GraphiniusJS. 
+
+% \vspace{-0.5cm}
 \begin{figure}[H]
-	% \centering
-	\hspace*{-1.5cm}
-	\includegraphics[width=1.2\textwidth]{figures/Graphinius_Architecture_new}
+	\centering
+	\hspace*{-0.5cm}
+	\includegraphics[width=1.05\textwidth]{figures/Graphinius_Architecture_new}
 	\caption{Graphinius platform architecture overview}
 	\label{fig_graphinius_architecture}
 \end{figure}
@@ -13,7 +17,7 @@
 \section{Graphinius Base}
 \label{sect:graphinius_base}
 
-As the name suggests, the Base module offers all the functionality necessary to develop graph-based applications on top of it, including basic graph-computations and algorithms as well as real-time, in-browser visualization. It is therefore logically composed of the two main modules \textit{GraphiniusJS} and \textit{GraphiniusVIS} as well as a mechanism of communication between those two, the \textit{Op-Log}.
+As the name suggests, the Base module offers all the functionality necessary to develop graph-based applications on top of it, including basic graph-computations and algorithms as well as real-time, in-browser visualization. It is therefore logically composed of the two main modules \textit{GraphiniusJS} and \textit{GraphiniusVIS} as well as a mechanism of communication between those two, the \textit{History System}.
 
 
 \section{Graphinius JS}
@@ -31,33 +35,30 @@ As the name suggests, the Base module offers all the functionality necessary to 
 		\subsubsection{Graph}
 		\label{sssection: core_graph}
 		
-		\subsubsection{Core Search - Traversal}
-		\label{sssection: core_traveral}
-		
-				\subsubsection{Breadth first search}
-				\label{sssect:search_bfs}
-				
-				\subsubsection{Depth first search}
-				\label{sssect:search_dfs}
-				
-				\subsubsection{Best (priority) first search}
-				\label{sssect:search_pfs}
-				
-				\subsubsection{Traversal-based algorithms}
-				\label{sssect:travseral_algos}
-				
-				Centralities are 
-		
-		BFS / DFS implementations... [figure: callback-based DFS]
-		
-		\subsubsection{Degrees}
-		\label{sssection: core_degrees}
-		
 		\subsubsection{Generators}
 		\label{sssection: core_}
 		
 		probability
 		per-node degree
+		
+		\subsubsection{Degrees}
+		\label{sssection: core_degrees}
+		
+		\subsubsection{Traversal - Breadth first search}
+		\label{sssect:search_bfs}
+		
+		\subsubsection{Traversal - Depth first search}
+		\label{sssect:search_dfs}
+		
+		\subsubsection{Traversal - Best (priority) first search}
+		\label{sssect:search_pfs}
+		
+		\subsubsection{Traversal-based algorithms}
+		\label{sssect:travseral_algos}
+		
+		Centralities are 
+		
+		BFS / DFS implementations... [figure: callback-based DFS]
 
 	
 	\subsection{Input / Output}
