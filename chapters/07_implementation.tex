@@ -1,10 +1,10 @@
 \chapter{Architecture / Implementation}
 \label{ch:implementation}
 
-\begin{figure}[ht]
+\begin{figure}[H]
 	% \centering
-	\hspace*{-0.5cm}
-	\includegraphics[width=1.1\textwidth]{figures/Graphinius_Architecture_pdf}
+	\hspace*{-1.5cm}
+	\includegraphics[width=1.2\textwidth]{figures/Graphinius_Architecture_new}
 	\caption{Graphinius platform architecture overview}
 	\label{fig_graphinius_architecture}
 \end{figure}
@@ -13,7 +13,7 @@
 \section{Graphinius Base}
 \label{sect:graphinius_base}
 
-As the name suggests, the Base offers all the functionality necessary to develop graph-based applications on top of it, including basic graph-computations and algorithms as well as visualization. It is therefore logically composed of those two modules, Graphinius JS and Graphinius VIS as well as a mechanism of communication between those two.
+As the name suggests, the Base module offers all the functionality necessary to develop graph-based applications on top of it, including basic graph-computations and algorithms as well as real-time, in-browser visualization. It is therefore logically composed of the two main modules \textit{GraphiniusJS} and \textit{GraphiniusVIS} as well as a mechanism of communication between those two, the \textit{Op-Log}.
 
 
 \section{Graphinius JS}
@@ -31,8 +31,22 @@ As the name suggests, the Base offers all the functionality necessary to develop
 		\subsubsection{Graph}
 		\label{sssection: core_graph}
 		
-		\subsubsection{Traversal}
+		\subsubsection{Core Search - Traversal}
 		\label{sssection: core_traveral}
+		
+				\subsubsection{Breadth first search}
+				\label{sssect:search_bfs}
+				
+				\subsubsection{Depth first search}
+				\label{sssect:search_dfs}
+				
+				\subsubsection{Best (priority) first search}
+				\label{sssect:search_pfs}
+				
+				\subsubsection{Traversal-based algorithms}
+				\label{sssect:travseral_algos}
+				
+				Centralities are 
 		
 		BFS / DFS implementations... [figure: callback-based DFS]
 		
@@ -46,29 +60,47 @@ As the name suggests, the Base offers all the functionality necessary to develop
 		per-node degree
 
 	
-	\subsection{Graph input readers}
+	\subsection{Input / Output}
 	\label{ssect:input_output}
+	
+	There are two basic input readers implemented in GraphiniusJS: 
+	
+	\textbf{The CSV Reader}, which takes adjacency lists or edge lists in CSV format and supports the most simple, but widely used, formats as well a a few additional options, and
+	\textbf{The JSON Reader}, which operates on a custom, Graphinius-related JSON file format in order to support additional features specific to the use cases of the platform.
+	
+	As of the time of this writing, standard output filters have not been implemented, but would follow the same principles outlined below for their input counterparts.
 		
-		\subsubsection{CSV}
+		
+		\subsubsection{CSV Reader}
 		\label{sssection: io_csv}
 		
+		The CSV Reader class supports to widely used graph representation formats, namely \textit{adjacency lists} and \textit{edge lists}. An adjacency list is usually composed of lines indicating a StartNode at position one, followed by a series of connected EndNodes at the following positions in the line, where the connections can be interpreted as either directed or undirected edges:
 		
-		\begin{figure}[ht]
-			\begin{lstlisting}
-			A, B, u, C, u, A, d, B, d, D, d
-			B, A, u
-			C, A, u, A, d
-			D, A, d
-			\end{lstlisting}
-			\caption{Adjacency list including edge direction}
-			\label{fig:adj_list_direction}
-		\end{figure}
+		\begin{lstlisting}[caption={Sample Adjacency list, no edge direction.}, label={lst:adj_list_nodir}, language=JavaScript]
+		A, B, C, A, D
+		B, A
+		C, A
+		D, A
+		\end{lstlisting}
 		
-		CSV Edge Lists use the simple format of [StartNode, EndNode [,directed]].		
+		In addition to that, the Graphinius CSV Reader can be configured to consider explicitly defined edge directions, as in the following listing, or instructed to interpret all edges as either directed or undirected regardless of the direction specified in a file.
+		
+		\begin{lstlisting}[caption={Sample Adjacency list including edge direction.}, label={lst:adj_list_dir}, language=JavaScript]
+		A, B, u, C, u, A, d, B, d, D, d
+		B, A, u
+		C, A, u, A, d
+		D, A, d
+		\end{lstlisting}
+		
+		CSV Edge Lists work analogously but are even simpler and use the format \textit{(StartNode, EndNode [,directed])}.	
 		
 		
-		\subsubsection{JSON}
+		\subsubsection{JSON reader}
 		\label{sssection: io_json}
+		
+		The Graphinius JSON reader is a more complex class as it uses it's own data format specific to the use cases targeted by the platform. It uses a nested object structure defining an array of node objects potentially containing different arrays of sub-objects:
+		
+		An \textbf{edge array} containing objects specifying a \textit{to} node, a \textit{direction} specifier as well as some \textit{weight}; direction and weight are optional; a \textbf{coordinates} array containing the \textit{x}, \textit{y}, and \textit{z} coordinates of a node; the \textit{z} coordinate is optional; a \textbf{feature vector} containing a hashmap of arbitrary length containing objects of arbitrary type including nested structures. The feature vector is solely used by applications building on GraphiniusJS and ignored by the standard suite of algorithms as described in the previous section.
 		
 		\begin{figure}[ht]
 			\centering
@@ -81,7 +113,7 @@ As the name suggests, the Base offers all the functionality necessary to develop
 
 
 
-\section{The Op-Log / History system}
+\section{The History system}
 \label{sect:op_log}
 
 	The idea of a history subsystem came from the concept of a real-time in-browser graph exploration platform, in which every action performed via an online editor or some GUI action should result in some immediate, visible change in the graph visualization. Ideally, such real-time changes would also be reversible, so that a user could progress step-by-step forward and backward in time - either to grasp more clearly what some algorithm does to the structure of a graph, or to 'simulate' the behavior of an algorithm on the whole. 
@@ -348,30 +380,11 @@ describe('testing config preparation functions - ', () => {
 	\small
 	... to test internal method invocation, restoring the original method afterwards. (Sample taken from the GraphiniusJS DFSTests.ts file.)
 
-
-\section{Implemented Algorithms}
-\label{sect:implemented_algos}
-
-	\subsection{Degree Distribution}
-	\label{ssect:deg_dist}
-
-	\subsection{Core Search - Graph Traversal}
-	\label{ssect:core_search}
 	
-		\subsubsection{Breadth first search}
-		\label{sssect:search_bfs}
-		
-		\subsubsection{Depth first search}
-		\label{sssect:search_dfs}
-		
-		\subsubsection{Best (priority) first search}
-		\label{sssect:search_pfs}
-		
-		\subsubsection{Traversal-based algorithms}
-		\label{sssect:travseral_algos}
-		
-		Centralities are 
-	
+\section{Areas of Application}
+\label{sect:aoas}
+
+The implementation of 3 demo applications will be described in the next Chapter, Implementation - Areas of Application)~\ref{ch:use_cases}.
 	
 \section{Platform Services}
 \label{sect:platform_services}
