@@ -129,7 +129,7 @@
 		\subsection{Graph extraction}
 		\label{ssect:graph_extraction}
 	
-		In the attempt to extract graphs out of images, aside from traditional image segmentation approaches \citep{FelzenszwalbHuttenlocher2004}, there have been methods proposed for constructing object graphs from images, e.g. \citep{LeeObjectGraphs2012}. As for the task of merging several extracted graphs into one, we might build upon the work of \citep{Schneevoigt2014}, in which they propose a 3-step pipeline for the reconstruction of 3D objects from 2D image structures by solely utilizing dense methods of correlation analysis (global energy features instead of sparse local feature vectors. For purposes of the latter, \citep{Demetz2013} proposes a new local descriptor called Complete Rank Transform which is morphologically as well as illumination invariant, while containing a maximally possible amount of information \citep{Bobylev2014}. It would be interesting to see if those methods can also be applied to graphs while still retaining sufficient feature information.
+		In the attempt to extract graphs out of images, aside from traditional image segmentation approaches \citep{FelzenszwalbHuttenlocher2004}, there have been methods proposed for constructing object graphs from images, e.g. \citep{LeeObjectGraphs2012}. As for the task of merging several extracted graphs into one, we might build upon the work of \citep{Schneevoigt2014}, in which they propose a 3-step pipeline for the reconstruction of 3D objects from 2D image structures by solely utilizing dense methods of correlation analysis (global energy features instead of sparse local feature vectors. For purposes of the latter, \citep{Demetz2013} proposes a new local descriptor called Complete Rank Transform which is morphologically as well as illumination invariant, while containing a maximally possible amount of information \citep{Bobylev2014}. It would be interesting to see if those methods can also be applied to graphs while still retaining sufficient feature information. Moreover, any point cloud data \citep{PointCloudPaper2014} could be interpreted as graphs by enriching them with connections in order to form networks.
 		
 		\subsection{Graph processing}
 		\label{ssect:graph_processing}
@@ -148,16 +148,13 @@
 		In the context of Graphinius (VIS), an additional question presents itself in the form of 3D visualization of large data structures, especially since most layout algorithms to date are specifically limited to 2D projections.
 		
 		
-	\section{Biomedical applications}
-	\label{sect:app_biomed}
+	% \section{Biomedical applications}
+	% \label{sect:app_biomed}
 	
-	In the field of 
-	PPI
-	Connectome
-	Metabolics graphs
-	
-	
-	
+	% In the field of 
+	% PPI
+	% Connectome
+	% Metabolics graphs	
 	
 	
 	\section{Anonymization}
@@ -243,4 +240,8 @@
 
 	Anomaly detection via belief propagation in a Markov random field (BP-MRF) has been shown to work on large networks with high accuracy and realistic performance \citep{BeliefPropFraudDetection2007}, and can also be adapted to scale to hundreds of parallel machines as described in \citep{BeliefPropBillionNodes2010}.
 	
-	The idea behind this approach is that each node in a graph holds some belief about itself and is capable of forming opinions of its neighbors. Let's assume group of people represented by nodes and edges denoting friendships between those nodes; let's further assume that a small subgroup of those people are c
+	The idea behind this approach is that each node in a graph holds some belief about itself and is capable of forming opinions of its neighbors. Let's assume a group of people represented by nodes and edges denoting friendships between those nodes; let's further assume that a small subgroup of people are criminals and that criminals usually engage in friendship with other criminals, while non-criminals prefer to stay amongst themselves as well. 
+	
+	Given this model we can infer that if a node has a lot of edges to criminals, there is a higher chance for the underlying person to be a criminal as well. We first initialize this system with a certain belief structure (some nodes believe they are criminals, others don't) and we let nodes form opinions about each other ("you are connected to me and I am a criminal, therefore you must be a criminal also"). If we subsequently initiate a turn-based exchange of those opinions with a slight chance per turn of "convincing" a neighboring node, that system might (but not necessarily has to) converge to a stable state - a final belief distribution about who is a criminal and who is not.
+	
+	Although the example given might sound exotic at first, Belief Propagation has already successfully been applied to email spam classification and fraud detection in auction systems in 2007, improving the methods previously employed by significant margins.
