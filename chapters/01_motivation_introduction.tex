@@ -51,34 +51,33 @@ In this thesis I will mainly introduce GraphiniusJS and its underlying design pr
 
 \section{The history of Graphinius}
 \label{sect:ogma_history}
-When I met Andreas Holzinger in November 2013 he presented me with a 'crazy' idea: To analyze dermatological images not by traditional image processing methods, but by first transforming them into a graph structure and subsequently apply graph mining algorithms with the goal of obtaining results at least comparable to the quality achievable as of date. My first experiments in what I quickly termed ``graph extraction'' from images' were conducted in Matlab and progressed rather modestly; being a developer used to employ C-style programing languages and Object oriented paradigms, Matlab seemed a peculiar (and very costly) way to perform specific, handwritten algorithms which did not lend themselves especially well to matrix representations and calculations. Moreover I was concerned with the fact that even if I succeeded in doing a great job in extracting usable graphs (what that meant was not clear to me at that time) I would not easily be able to share my work with colleagues outside the research community. Providing C++ / Java Code on Github for developers having working installations of those environments is certainly standard by today, but installations of Matlab (or Octave with specific add-on packages installed) are not widespread. Furthermore, in case my results would be interesting to the public as well, a live demonstration of the software at work might be desirable.
+When I met Andreas Holzinger in November 2013 he presented me with a 'crazy' idea: To analyze dermatological images not by traditional image processing methods, but by first transforming them into a graph structure and subsequently apply graph mining algorithms with the goal of obtaining results at least comparable to the quality achievable as of date. My first experiments in what I came to term \textit{graph extraction from images} were conducted in Matlab and progressed rather modestly; being a developer used to employ C-style programing languages and Object oriented paradigms, Matlab seemed a peculiar (and very costly) way to perform specific, handwritten algorithms which did not lend themselves especially well to matrix representations and calculations. Moreover I was concerned with the fact that even if I succeeded in doing a great job in extracting usable graphs (and it wasn't even clear what that meant) I would not easily be able to share my work with colleagues outside the research community. Providing C++ / Python or Java Code in a Github repository for developers having working installations of those environments to reproduce, is standard by today. Installations of Matlab (or Octave with specific add-on packages installed) however are not very widespread. Furthermore, in case my results turned out to be interesting to the public, any live demonstration of the software on unprepared systems would be clearly impossible.
 
-\par
 
-After years of having utilizing Web based technologies and continuously researching new frameworks and improvements in that area, it seemed to me that if a whole document suite could be implemented in JavaScript (and even more demanding projects like an entire virtual machine inside the browser [CITE WEBSITE]), the time might be ripe to apply modern JavaScript Engines to the task of image as well as graph processing. Against my expectations Professor Holzinger did not have any objections and I was given green light to develop a simple prototype together with a colleague. This early work was focused purely on extracting graphs out of images without additional image preprocessing steps or subsequent graph analysis. As we would implement mathematical algorithms, we decided on TypeScript as a typed superset of JavaScript for our development process; no frameworks or numerical libraries were used. Within a little more than a month, we had an example website up and running which could load images into a canvas, segment them by either a Watershed or a Kruskal-based region merging algorithm and extract a graph from the label image; the results are available at http://berndmalle.com/imgextract and have been published in \cite{GraphExtractPaper}. As far as execution time was concerned, our crude and non-optimized JavaScript implementation fell just a little short of a comparable algorithm implemented in Matlab, with great upward potential for using in-browser optimizations or even GPU-accelerated processing.
+After years of having utilizing Web based technologies and continuously researching new frameworks and improvements in that area, it seemed to me that if a document suite (Google Docs, Office365) could be implemented in JavaScript (and even more demanding projects like an entire virtual box inside the browser \citep{LinuxVMBrowser}), the time might be ripe to apply modern JavaScript Engines to the task of graph extraction and processing too. Despite my expectations Professor Holzinger did not have any objections and I was given green light to develop a prototype. 
 
-\par
+This early work was focused purely on extracting graphs out of images without additional processing steps or subsequent graph analysis. Because I had to implement mathematical algorithms, I decided on using TypeScript, a typed superset of JavaScript for the development process; no frameworks or numerical libraries were used. Within a little more than a month, I had an example website up and running which could load images into a canvas, segment them by either a Watershed or a Kruskal-based region merging algorithm and extract a graph from the label image; the results are available at \url{http://berndmalle.com/graphext} and have partly been published in \cite{GraphExtractPaper}. As far as performance was concerned, our crude and unoptimized JavaScript implementation fell just a little short of a comparable algorithm in Matlab, with great upward potential for using in-browser optimizations or even GPU-accelerated processing.
 
-Of course there were downsides too - JavaScript engines are naturally single-threaded even in 2015, so long-running intense computing tasks tend to block other functions. This is even true for other Browser-intern modules like the rendering engine or input event handling, so that the whole user experience is severely diminished when computing demanding operations. However, a possibility to avert this behavior is the usage of WebWorkers which have been introduced as a working draft as early as 2009, but until recently haven't been widely supported. Also, possible downsides to their usage in situations where large datastructures need to be copied from the main thread to a worker (and back) have to be considered. More interestingly though, it became clear early on that implementing our suite of algorithms as a Web based platform would bring with it several major advantages over traditional software approaches amongst which are easy reproducability, effortless scalability and online meta machine learning opportunities; all of those advantages will be discussed in detail in subsequent chapters.
 
-\par
+Of course there were downsides too - JavaScript engines are naturally single-threaded even in 2016, so long-running, intense computing tasks tend to block other functions. This is even true for other Browser-intern modules like the rendering engine or input event handling, so that the whole user experience is severely diminished when conducting excessive operations. However, a possibility to avert this behavior is the usage of Web Workers which have been introduced as a working draft as early as 2009, but until recently haven't been widely supported. Also, possible downsides to their usage in situations where large datastructures need to be copied from the main thread to a worker (and back) have to be considered. More interestingly though, it became clear rather soon that implementing our suite of algorithms as a Web based platform would bring with it several major advantages over traditional software approaches: amongst others are 1) easy reproducibility, effortless scalability and online meta machine learning opportunities; all of those advantages will be discussed in detail in subsequent chapters.
 
-Building upon those insights Professor Holzinger and I came up with a project called iKnodis.net - Interactive Knowledge Discovery in Networks) - which was designed to cover the whole processing pipeline from image preprocessing over graph extraction to graph analysis and result visualization. In the process of defining those modules it became clear that single components of the processing pipeline would have to be interchangable so that other students be able to contribute new algorithms from future student and research projects to the different stages of operations. This generated the challenge of coming up with a flexible pipelining architecture that would itself be aware of the pre/postconditions in each stage of computation and upon satisfaction of all the constraints be able to connect the different parts together as well as executing them utilizing Webworkers in the background. On this basis I realized another potential advantage of a Web based research platform: by affording users the opportunity to contribute their own algorithms for certain parts of the pipeline via file upload, it would be possible to gather a large collection of algorithms in a much shorter period of time as compared to researchers working in isolated teams.
-
-\par
+Building upon those insights Professor Holzinger and I came up with a project called iKNOdis.net - Interactive Knowledge Discovery in Networks - which was designed to cover the whole processing pipeline from image preprocessing over graph extraction to graph analysis and result visualization. In the process of defining those modules it became clear that alternative algorithms at the same stage in the processing pipeline would have to be interchangeable so that other developers could contribute new algorithms to a common algorithmic database. This in turn would benefit all users of the platform who would be able to apply 'community'-contributed algorithms to their own problems (and at their own peril). The originally proposed iKNOdis.net architecture can be seen in Figure~\ref{fig_iKNOdis_structure}.
 
 \begin{figure}[ht]
-	\label{fig_iKNOdis_structure}
 	% \centering
 	% \hspace*{-0.5cm}
 	\includegraphics[width=1.1\textwidth]{figures/iKNOdis_OGMA_structure}
 	\caption{Former project iKNOdis architecture overview}
+	\label{fig_iKNOdis_structure}
+	\small
+	Whereas iKNOdis.net was meant to be used exclusively for image processing via graph-theoretical approaches, we broadened the idea of application areas while reducing the aim for specific scientific advances in image processing. The result is a Web-based, graph-theoretical processing platform whose base functionality (an in-browser graph library called GraphiniusJS) as well as visualization capabilities (GraphiniusVIS) are the main subjects of the Master Thesis at hand.
 \end{figure}
 
+In the process of creating an FWF proposal out of iKNOdis, the project was split into two separate endeavors in order to make them amenable to independent, smaller funding efforts as well as enabling different groups of developers to work on their respective areas of interest. This resulted in the formation of project Graphinius covering all graph-theoretical aspects and basic data-engineering infrastructure \cite{DataAnalysisDSWorkflow} by providing a Browser based graph processing and visualization platform. 
 
-In the process of creating an FWF proposal out of iKNOdis, the project was split into two separate projects in order to make them amenable to independent smaller funding efforts as well as different groups of developers working on their respective areas of interest yet maintaining their focus towards achieving the common goal. This resulted into iKNOdis now spanning graph extraction out of images as well as 3-dimensional visualization of the resulting graph structures via a Browser based method. 
+As evolution (of ideas) never stops, 
 
-The remaining modules of building a Web Based research platform as well as establishing graph mining algorithms able to tackle object recognition / image classification tasks usually covered by traditional image processing techniques, have been outsourced to project OGMA, the Open Graph Mining Architecture. Although it will be in the context of OGMA that this Master Thesis will play out, the resulting smart computational pipeline will also encompass the algorithms of iKNOdis. Indeed, a graph extraction algorithm already implemented during my Master's Project \cite{GraphExtractPaper} will be part of the test cases for the practical implementation found in later chapters of this work. 
+
 
 
 
@@ -126,23 +125,13 @@ This incident shows how much effort is potentially squandered by trying to imple
 \end{itemize}
 
 
-Papers to cite in this context: \\
-\cite{LargeScaleMLPipelines}
-\cite{MLPipelineMLlib}
-\cite{DataAnalysisDSWorkflow}
-\cite{StanfordNLP}
-\cite{MLPipelines}
-\cite{Make2013}
-\cite{AnalLifecycle}
-\cite{DataScienceTools2013}
-\cite{AnalOneComponent2013}
-
-
-\section{A Web based approach - why?}
-\label{sect:web_transition}
 
 \section{How a Web based approach could benefit users, researchers and society}
 \label{sect:web_benefits}
+
+Over the past several years, many platforms have emerged in the realm of \textit{data engineering}, providing means for researchers and data professionals to easily use, deploy and scale machine learning programs 
+\cite{DataScienceTools2013}. However, ... tech-savvy
+
 
 \begin{itemize}
 	\item \textbf{Ease of access.}
@@ -150,12 +139,13 @@ Papers to cite in this context: \\
 	\item \textbf{Built-in potential analysis.}
 	\item \textbf{Server Side Meta Machine Learning.} As researchers start using our platform, their pipeline configurations, input descriptions, task specifiers (classification, text analysis etc.) as well as results will be stored on the server. Enough data provided, such a database might be amenable to the development of heuristics on the expected success of a particular algorithm invoked at a specific stage of the pipeline.
 	\item \textbf{Heuristics-based recommendations.} Based on the last section, an optimal pipeline configuration might be computed provided only the input data (image, text, point cloud etc.) as well as the desired result. The Smart Computational Pipeline would then self assemble (given the user has no objections) and immediately commence the experiment.
+	\item \textbf{Instant deployment.} In traditional scientific programming, there is a large gap between developing a model suitable for a specific research question and actually deploying it in a production environment \citep{AnalLifecycle}.
 \end{itemize}
 
 
 
-\section{General applications}
-\label{sect:ogma_focal_points}
+\section{General application categories}
+\label{sect:gen_app_cats}
 
 \subsection{education}
 \label{ssect:education}

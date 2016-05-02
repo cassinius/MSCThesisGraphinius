@@ -39,13 +39,14 @@ As existing stacks indicate, there are several possible levels of pipelines whic
 	\item Level 5: A fully integrated data analysis platform that offers intuitive, visual pipeline assembly. Ideally, tools for reporting, reproduction and collaboration would also be included. In addition, the platform could offer experts the means to write stages themselves via an online code editor.
 \end{itemize}
 
-As many areas of applications for graph theory could make use of integrated processing pipelines, the future of Graphinius could lie in providing a Level 5 experience.
+As many areas of applications for graph theory could make use of integrated processing pipelines 
+\citep{MLPipelines}, the future of Graphinius could lie in providing a Level 5 experience.
 
 
 \subsection{JSVM based grid computing}
 \label{ssect:jsvm_grid}
 
-In order to process large graphs, single instances of the JSVM will no be sufficient. In order to make this scenario possible, it will be necessary to implement some form of internet-based cluster-approach, which is probably best defined by the term 'grid computing'.
+In order to process large graphs, single instances of the JSVM will no be sufficient. In order to make this scenario possible, it will be necessary to implement some form of internet-based cluster-approach, which is probably best defined by the term 'grid computing'. Unfortunately, most ML libraries are still not natively designed for distributed computing \citep{MLPipelineMLlib}.
 
 A survey of economic models for grid brokers and schedulers was conducted in \citep{Abramson2002}. Although interesting in the long run, we will use a simple queue mechanism to demonstrate our platform.
 
