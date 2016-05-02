@@ -26,12 +26,12 @@ As described in earlier chapters of this thesis, there are countless application
 	\subsection{Load predefined graph and visualize}
 	\label{ssect:load_graph}
 	
-	Using either the CSV or JSON Reader build into GraphiniusJS, we can also request to instantiate a graph from a remote file. Here we use the JSON Reader to load a graph depicting a nevus and render it using GraphiniusVIS (Figure~\ref{fig:load_graph_repl})
+	Using either the CSV or JSON Reader build into GraphiniusJS, we can also request to instantiate a graph from a remote file. Here we use the JSON Reader to load a graph depicting a nevus and render it using GraphiniusVIS (Figure~\ref{fig:load_graph_repl}). Apart from the visualization, we also compute its degree distribution.
 	
 	\begin{figure}[H]
 		\begin{center}
 			\includegraphics [width=1\textwidth] {figures/loadingGraphInREPL}
-			\caption{Loading a JSON graph and visualizing it via the browser console; then determining its degree distribution.}
+			\caption{Loading a JSON graph and visualizing it via the browser console.}
 			\label{fig:load_graph_repl}
 		\end{center}
 	\end{figure}
@@ -118,7 +118,7 @@ As described in earlier chapters of this thesis, there are countless application
 
 
 \section{Anonymity: SaNGreeA (with iML)}
-\label{sect:anonymization}
+\label{sect:aoa_anonymization}
 
 	\begin{enumerate}
 		\item \textbf{Process input data into suitable structure}
@@ -130,19 +130,12 @@ As described in earlier chapters of this thesis, there are countless application
 	\end{enumerate}
 	
 	\begin{figure}[ht]
-		\label{fig_anonIML}
 		\begin{center}
-			\includegraphics[width=0.8\textwidth]{figures/anonym/gen_hierarchy}
-			\caption{Example of a typical generalization hierarchy}
-		\end{center}
-	\end{figure}	
-	
-	\begin{figure}[ht]
-		\label{fig_anonIML}
-		\begin{center}
-			\includegraphics[width=1\textwidth]{figures/anonym/anonIML}
-			\caption{Anonymization augmented by IML (human in the loop)}
+			\includegraphics[width=1\textwidth]{figures/anonym/anon_adults_input_sample_pic}
+			\caption{Excerpt: the first 25 rows of the Adult census data set}
+			\label{fig:anonIML}
 		\end{center}
 	\end{figure}
+
 
 

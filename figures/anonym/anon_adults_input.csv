@@ -1,0 +1,20 @@
+Age,Workclass,Country,Gender,Race,Marital status
+39, State-gov, United-States, Male, White, Never-married
+50, Self-emp-not-inc, United-States, Male, White, Married-civ-spouse
+38, Private, United-States, Male, White, Divorced
+53, Private, United-States, Male, Black, Married-civ-spouse
+28, Private, Cuba, Female, Black, Married-civ-spouse
+37, Private, United-States, Female, White, Married-civ-spouse
+49, Private, Jamaica, Female, Black, Married-spouse-absent
+52, Self-emp-not-inc, United-States, Male, White, Married-civ-spouse
+31, Private, United-States, Female, White, Never-married
+42, Private, United-States, Male, White, Married-civ-spouse
+37, Private, United-States, Male, Black, Married-civ-spouse
+30, State-gov, India, Male, Asian-Pac-Islander, Married-civ-spouse
+23, Private, United-States, Female, White, Never-married
+32, Private, United-States, Male, Black, Never-married
+40, Private, ?, Male, Asian-Pac-Islander, Married-civ-spouse
+34, Private, Mexico, Male, Amer-Indian-Eskimo, Married-civ-spouse
+25, Self-emp-not-inc, United-States, Male, White, Never-married
+32, Private, United-States, Male, White, Never-married
+38, Private, United-States, Male, White, Married-civ-spouse
