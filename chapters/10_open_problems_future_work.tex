@@ -20,8 +20,8 @@ A new model for SMMT (shared memory multi-threading) revolves around the emergin
 An even faster - and already feasible - alternative is to conduct computations directly on the graphics hardware, which on modern computers (and even mobile devices) is capable of astonishing performance. The only hindrances to programming directly on the GPU via the web browser are 1) the mandatory usage of the GLSL (OpenGL Shader Language), 2) only complicated copying of data to and from the graphics card (no shared memory with the JSVM) as well as 3) the possible emergence of far superior ways of GPU coding (like WebCL), which would render extensive investments \& efforts today relatively useless in the near-future.
 
 
-\subsection{General processing / ML pipelines}
-\label{ssect:pipelines}
+\section{General processing / ML pipelines}
+\label{sect:pipelines}
 
 As existing stacks indicate, there are several possible levels of pipelines which can be sorted by increasing homogeneity amongst their stages as well as decreasing technical demands on their users:
 
@@ -43,8 +43,8 @@ As many areas of applications for graph theory could make use of integrated proc
 \citep{MLPipelines}, the future of Graphinius could lie in providing a Level 5 experience.
 
 
-\subsection{JSVM based grid computing}
-\label{ssect:jsvm_grid}
+\section{JSVM based grid computing}
+\label{sect:jsvm_grid}
 
 In order to process large graphs, single instances of the JSVM will no be sufficient. In order to make this scenario possible, it will be necessary to implement some form of internet-based cluster-approach, which is probably best defined by the term 'grid computing'. Unfortunately, most ML libraries are still not natively designed for distributed computing \citep{MLPipelineMLlib}.
 
@@ -59,14 +59,14 @@ A list of top 10 obstacles for cloud computing can be found in \citep{Armbrust20
 \citep{Liu2012} and \citep{Liu2014} describe a distributed, scientific workflow system for bioinformatics based on a platform called Galaxy and its deployment to Amazons EC2 service via the Globus Provisioning framework; it supports graphical composition of workflows without requiring programming knowledge, which is especially interesting for less tech-savvy researchers. The concept of Galaxy is a very interesting one, although the author believes that client-side, GPU-enabled computations in coordination with one another are the future of personal and institutional grids.
 
 
-\subsection{Heterogeneous data linkage}
+\section{Heterogeneous data linkage}
 \label{ssect:heterogeneous_data}
 
 Many research fields comprise several sub-problems which are amenable to different machine learning approaches and feature their own, distinctive input data sets. Coming from various, different data sets featuring their distinct attribute domains, they probably are - via their time-, space- or other dimensions, interlinkable with one another. Usually, studies are only concerned about using a single one of those data sources and applying different methods to it. However, a more holistic approach would be to fuse those data sets along one or more dimensions (or any other meaningful ruleset) in order to achieve a richer representation of the underlying problem. A resulting data-set might take the form of a graph structure, in which individual entities from the originating sets are linked by meaningful connection rules, which in themselves will have to be learned.
 
 
-\subsection{Meta machine learning}
-\label{ssect:meta_ml}
+\section{Meta machine learning}
+\label{sect:meta_ml}
 
 There are many papers in the Machine Learning community, Artificial Intelligence Planning, Operations Research and Hyper Heuristics (mostly for the optimization of search problems). From those papers it is clear that this field has a very rich history and therefore offers a plethora of research venues to be explored. As one of the first papers regarding this topic, \citep{Rice1975} defined the "Algorithm Selection Problem", which was first recognized as a meta learning problem by the machine learning community. He describes several spaces in which the Algorithm Selection Problem plays out:
 
@@ -91,8 +91,8 @@ There are many papers in the Machine Learning community, Artificial Intelligence
 In most scenarios concerning Graphinius we will be concerned with the selection of algorithmic components and their parameters based on the nature of the specific area of application, previously tackled problems, their features, available algorithms, preprocessing methods, parameters as well as performance measures.
 
 
-\subsection{Hyper heuristics}
-\label{ssect:hyper_heuristics}
+\section{Hyper heuristics}
+\label{sect:hyper_heuristics}
 
 \cite{Burke:2003:Hyperheuristics} introduce hyper heuristics as being different from meta-heuristics in that they concern themselves with families / classes of problems rather than one specific problem domain. They search a heuristics space instead of a solution space and often the goal is finding general-purpose heuristics that do not need to be optimal, but rather good-enough, soon-enough, cheap-enough. They also describe the 'Domain barrier', a concept which refers to a hyper heuristics approach being oblivious of the underlying problem domain, but simply receiving a collection of low level heuristics and deciding which one(s) to use, based solely on past history of heuristics applied and objective function values returned.
 
@@ -107,14 +107,14 @@ From \citep{Burke2010}, we can take the idea of three 'dimensions' of the hyper 
 Although many research fields in themselves are not broad enough to be a suitable proving ground for hyper heuristic research, the Graphinius platform will provide us with meta-data about experiments in many diverse areas. We fully agree with \cite{Burke2013} who concludes that there is still little interaction between research communities, a problem whose solution could lead to the extension of algorithms to both new problem domains and new methodologies through cross-fertilization of ideas.
 
 
-\subsection{Algorithmic recommender}
-\label{ssect:algo_recommender}
+\section{Algorithmic recommender}
+\label{sect:algo_recommender}
 
 As a natural consequence of the previous sections, a recommender for graph theoretical Machine Learning pipelines would ideally take arbitrary problem instances and output a suitable processing pipeline which has worked well for similar problems in the past. In addition, the pipeline would also be directly configured in code and downloaded into a researcher's browser, making it available to immediate execution.
 
 
-\subsection{Interactive Machine Learning}
-\label{ssect:fut_iml}
+\section{Interactive Machine Learning}
+\label{sect:fut_iml}
 
 Last (but certainly not least), the problem of interactive machine learning lies in enabling a human domain-expert to exercise influence over the internal optimization considerations of a ML algorithm. For instance, if we take the SaNGreeA algorithm example of Section~\ref{sect:aoa_anonymization}, we can imagine multiplying the cost vector (representing the information loss of a data point's generalized quasi-identifiers) by an arbitrary weight vector, giving either one or the other data attribute precedence of being preserved. Following the approach in Figure~\ref{fig:anonIML}, we could use an appropriate UI to intervene it that process: everytime the algorithm has to make a clustering decision, it would instead (with a certain probability) present the domain expert with that choice - and learn the human's preferences by taking into account their answers, thereby manipulating the weights of the cost vector. It would be interesting to see how anonymization results would change, not only in appearance, but especially in their resilience against background-knowledge attacks as a result of such customizations.
 

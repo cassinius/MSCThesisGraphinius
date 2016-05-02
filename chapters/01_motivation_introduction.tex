@@ -83,35 +83,24 @@ As evolution (of ideas) never stops, there are already new ideas springing up co
 \section{How this thesis is structured}
 \label{section:thesis_structure}
 
-The rest of this chapter is composed of a short description of how scientific computing / machine learning tasks are handled today. We will then explore the benefits individual users as well as the whole research community could derive from conducting experiments on such a platform; therefore we have to outline potential properties and focal points of such a technology.
+The rest of this chapter is composed of a short description of how scientific computing / machine learning tasks are handled today. We will explore the benefits individual users as well as the whole research community could derive from conducting experiments on such a platform; therefore we have to outline potential properties and focal points of the proposed technology.
 
-%\chapter{Theoretical background / applications}
-%\label{ch:theory_applications}
+In Chapter~\ref{ch:theory_applications}, Theoretical background / applications we are introducing different potential areas of application for Graphinius. The reader will notice that practically all of the fields discussed may be of interest to researchers outside the 'hardcore' Machine Learning or Data Science communities.
 
-%\chapter{The business case for Graphinius}
-%\label{ch:business_case}
+Chapter~\ref{ch:business_case} deals with possible economic opportunities involving the Graphinius platform and its conceivable business model, and will discuss some potential competitors.
 
-%\chapter{GRAPHINIUS as a platform}
-%\label{ch:graphinius_platform}
+An outline of the basic functionality of Graphinius will be given in Chapter~\ref{ch:graphinius_platform}, comprising technical features, graph-theoretical design decisions as well as handling characteristics important to its users.
 
-%\chapter{Software Requirements \& Survey}
-%\label{ch:software_requirements}
+The modern web development process will be discussed in-depth in Chapter~\ref{ch:software_requirements}, where we will become acquainted 
+with a set of requirements for modern Web based software and then go on to explore suitable technologies in each category and compare them to one another. At the end of this chapter, we will have all the tools in our hand to start building Graphinius.
 
-The next chapter 5, ``SCP Software Design'', will elaborate on the actual software implementation as well as the software development process followed in this project. First a set of requirements for modern Web based software will be compiled; based on this checklist an exploration of possible suitable technologies for both server and client will be conducted and their respective strenghts and weaknesses revealed. After a detailed comparison I will argue for the particular combination of choices I made and will subsequently describe the development process used to implement the pipeline. An illustration of how Webworkers were used to execute the pipeline as well as how results were visualized will finalize this chapter.
+I will go into details about the project implementation in Chapter~\ref{ch:implementation}, introducing each relevant subsystem in sequence, pointing out its role in the larger context and explain how and why it was built the way it was built.
 
+In Chapter~\ref{ch:impl_aoa} the reader will find three demo applications that have been implemented on top of Graphinius as a proof of feasibility of the platform. I will introduce some specific (mathematical) background knowledge and provide the sample results obtained using Graphinius.
 
-%\chapter{Architecture / Implementation}
-%\label{ch:implementation}
-I will first go into details about the project implementation and the difficulties and / or caveats that arose during my work. A detailed experimental setup will be described and the expected behavior of the SCP defined, while the ensuing section should verify those expectations and therefore validate the approach taken. A discussion of open and interesting challenges as well as  an outlook on future possibilities to enhance and expand on this work will top of this chapter.
+Chapter~\ref{ch:results_discussion} will provide some structural as well as performance metrics about the Graphinius (JS) library and (proudly) present the test coverage achieved as of the date of this writing.
 
-%\chapter{Implementation - Areas of Application}
-%\label{ch:impl_aoa}
-
-%\chapter{Results and Discussion}
-%\label{ch:results_discussion}
-
-%\chapter{Future Work}
-%\label{ch:future_work}
+Taking a look into the future in Chapter~\ref{ch:future_work}, we will discuss some promising new concepts and technologies which hold great potential for the advancement of any Web based, community-oriented research platform.
 
 I will finish this thesis with a summary and conclusion in Chapter~\ref{ch:conclusion}, and give some additional information about anonymization outputs in Appendix~\ref{App:AppendixA} and provide the whole Graphinius API as of the time of this writing in Appendix~\ref{App:AppendixB}.
 
@@ -157,8 +146,6 @@ Second, most modern frameworks allow for the setup of huge and very efficient cl
 	\item \textbf{A Pipeline recommender} with the ability to automatically instantiate and execute the recommended (sequence) of algorithms could be built upon this knowledge, which would further enhance a researcher's capacity to conduct more experiments faster, potentially leading to an increase in frequency or quality of scientific output.
 	
 	\item \textbf{Instant deployment.} In traditional scientific programming, there is a large gap between developing a model suitable for a specific research question and actually deploying it in a production environment \citep{AnalLifecycle}. Being Web based, Graphinius' development and production environment are one and the same, reducing the deployment procedure to posting a link to an experiment (for scalability, see above).
-	
-	\item \textbf{Easy corroboration of results} follows naturally considering the \textit{instant deployment} aspect, as clicking on a published link to an experiment, automatically downloading its code to one's browser and pressing the \textit{start} button is all that were needed to run a colleague's latest experiment on one's own computer.
 	
 	\item \textbf{Great visual capabilities.} Although there exist great visualization toolkits for many of the data science platforms out there today, the sheer mass of 2D and 3D libraries running in the browser enable completely new ways to demonstrate, interact with, and even manipulate results in real time. Moreover, exchanging of 'live' results (via simple bookmarks) instead of 'dead' graphs (in scientific papers) would soon become standard amongst members of such a community.
 \end{itemize}
