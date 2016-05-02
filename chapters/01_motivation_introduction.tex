@@ -73,20 +73,18 @@ Building upon those insights Professor Holzinger and I came up with a project ca
 	Whereas iKNOdis.net was meant to be used exclusively for image processing via graph-theoretical approaches, we broadened the idea of application areas while reducing the aim for specific scientific advances in image processing. The result is a Web-based, graph-theoretical processing platform whose base functionality (an in-browser graph library called GraphiniusJS) as well as visualization capabilities (GraphiniusVIS) are the main subjects of the Master Thesis at hand.
 \end{figure}
 
-In the process of creating an FWF proposal out of iKNOdis, the project was split into two separate endeavors in order to make them amenable to independent, smaller funding efforts as well as enabling different groups of developers to work on their respective areas of interest. This resulted in the formation of project Graphinius covering all graph-theoretical aspects and basic data-engineering infrastructure \cite{DataAnalysisDSWorkflow} by providing a Browser based graph processing and visualization platform. 
+In the process of creating an FWF proposal out of iKNOdis, the project was split into two separate endeavors in order to make them amenable to independent, smaller funding efforts as well as enabling separate groups of developers to work on their respective areas of interest. This resulted in the formation of project Graphinius covering all graph-theoretical aspects and basic data-engineering infrastructure \cite{DataAnalysisDSWorkflow} by providing a Browser based graph processing and visualization platform.
 
-As evolution (of ideas) never stops, 
+As a side-effect, Graphinius follows no specific research goal itself; we rather envision it as a future engineering infrastructure for data scientists, may they concern themselves with Machine Learning, Biomedical applications or any other field. This mental 'expansion' to a diverse set of interesting areas of application is reflected by an in-depth discussion of several potential candidates in Chapter~\ref{ch:theory_applications} as well as 3 different demo applications described in Chapter~\ref{ch:impl_aoa}.
 
-
-
+As evolution (of ideas) never stops, there are already new ideas springing up concerning the future of Graphinius - the most obvious one regarding a spin-off company providing the platform as a hosting service for the community - such a startup could profit from several different advantages over its competitors. Second, GraphiniusJS alone (without integration into the larger platform) could power web applications of the future (see Section~\ref{ssect:the_local_sphere}), enabling graph-based recommender systems for social networks that could be truly organized as \textit{peer networks} - without or with only a minimal server infrastructure.
 
 
 \section{How this thesis is structured}
 \label{section:thesis_structure}
 
-The rest of this chapter is composed of a short description of how composite machine learning tasks are handled today followed by the question if a transition towards Web based technologies is feasible given the narrow implementation choices in that field. We will then explore in detail what benefits researchers as well as the whole research community could derive from conducting experiments on such a platform; therefore we have to outline potential properties and focal points of such a technology. Upon a short discussion of how the gathering of metadata about diverse ML/KDDM experiments as well as their results could open up new opportunities, we will envision a future recommender system for composing machine learning pipelines based on a heuristic approach. This chapter will close with a brief overview of the general properties of the smart computational pipeline (henceforth called ``SCP'') under development.
+The rest of this chapter is composed of a short description of how scientific computing / machine learning tasks are handled today followed by the question if a transition towards Web based technologies is feasible given the narrow implementation choices in that field. We will then explore what benefits individual users as well as the whole research community could derive from conducting experiments on such a platform; therefore we have to outline potential properties and focal points of such a technology. 
 
-\par
 
 Chapter 3, ``Related work'', will consider past and present approaches to recognizing objects in images as well as conduct image classification utilizing graph based approaches and will therefore show the validity of OGMA's objectives. Furthermore, contemporary efforts of building machine learning pipelines as well as the data and insights they are based on will be investigated. An overview of existing software solution will conclude chapter 2.
 
@@ -111,35 +109,38 @@ Eventually the 7th and last chapter, ``Conclusion'', will give a short recap on 
 \section{How Machine Learning / KDD are approached today}
 \label{sect:ml_kdd_today}
 
-When taking the famous Machine Learning MOOC tought by Prof. Andrew Ng from Stanford University on Coursera in 2013, one story he was conveying during a section on optimizing Machine Learning Pipelines had especially caught my attention. As a specialist in high demand Prof. Ng is frequently consulting for Silicon Valley companies in matters of Machine Learning and Artificial Intelligence. On one of these occasions, the client company had been trying to optimize their ML pipeline for the better parts of 2 years without any significant improvements in their results. After looking at the different stages of their pipeline and conducting a so-called ceiling analysis, Prof. Ng concluded that two developers had spent 18 months on optimizing their background separation algorithm while the most significant potential for improvement really lay in a latter stage of the process. Based on this analysis the company was able to remedy the shortcomings in a relatively short amount of time.
+When i was taking the famous Machine Learning MOOC tought by Prof. Andrew Ng from Stanford University on Coursera in 2013, one story he conveyed during a section on optimizing Machine Learning Pipelines had especially caught my attention. As a specialist in high demand Prof. Ng is frequently consulting for Silicon Valley companies in matters of Machine Learning and Artificial Intelligence. On one of these occasions, the client company had been trying to optimize their ML pipeline for the better parts of 2 years without any significant improvements in their results. After looking at the different stages of their pipeline and conducting a so-called ceiling analysis, Prof. Ng concluded that two developers had spent 18 months on optimizing their background separation algorithm while the most significant potential for improvement really lay in a latter stage of the process. Based on this analysis the company was able to remedy the shortcomings in a relatively short period of time.
 
 \par
 
-This incident shows how much effort is potentially squandered by trying to implement sophisticated processing pipelines within isolated teams in a non-standardized fashion: Proprietary approaches - both in technology as in methodology - hinder the exchange of information with other members of the research community, thus opening up vulnerabilities to making mistakes which could have easily been avoided by considering the experience of other professionals. The following properties of data analysis / ML projects seem to give rise to such vulnerabilities:
+This incident shows how much effort is potentially squandered by trying to implement sophisticated algorithms within isolated teams in a non-standardized fashion: Proprietary approaches - both in technology as in methodology - hinder the exchange of information with other members of the research community, thus opening up vulnerabilities to making mistakes which could have easily been avoided by considering the experience of other professionals. The following properties of data analysis / ML projects seem to give rise to such vulnerabilities:
 
 \begin{itemize}
-	\item \textbf{Isolation.} Working on common machine learning problems in isolated teams without communication makes comparison of approaches as well as results unnecessarily hard. Dealing with errors at any stage of the pipeline takes more effort than necessary due to a lack of reference values, while achieving superb results has little to no effect on the potential of other experts.
-	\item \textbf{Proprietary Software.} Countless professionals prefer developing data analysis pipelines in highly proprietary software environments like Matlab or Mathematica. This prevents an influx of solid, community-tested algorithms while preventing others from gaining knowledge acquired in such organizations (if they are unwilling to pay for the software).
+	\item \textbf{Isolation.} Working on common machine learning problems in isolated teams without communication makes comparison of approaches as well as results unnecessarily hard. Dealing with errors at any stage of the algorithmic pipeline takes more effort than necessary due to a lack of reference values, while achieving superb results has little to no effect on the potential of other projects.
+	\item \textbf{Proprietary Software.} Countless professionals prefer developing data analysis pipelines in highly proprietary software environments like Matlab or Mathematica. This prevents an influx of solid, community-tested algorithms while preventing others from gaining knowledge acquired in such organizations (as long as they are unwilling to pay horrendously for the software).
 	\item \textbf{Irreproducibility.} As unpublished code cannot be perfectly reverse engineered, experiments conducted in isolation can't be easily corroborated. This might be advantageous with respect to product development and patent procedures, but is usually detrimental to the efforts of researchers trying to get published and spreading their insights.
 	\item \textbf{Lack of scalability.} Last but not least, heterogeneous and highly customized data processing pipelines might not lend themselves well to parallelization, which might prevent the use of such algorithms on quickly expanding datasets.
 \end{itemize}
 
+This leads us to the insight that a readily available (no complex setup or configuration), public and open source, standardized and scalable infrastructure which promotes the cross-fertilization of ideas and insights from individual experiments, would form the ideal model of a future, successful Machine Learning platform (graph-theoretical or otherwise).
 
 
 \section{How a Web based approach could benefit users, researchers and society}
 \label{sect:web_benefits}
 
-Over the past several years, many platforms have emerged in the realm of \textit{data engineering}, providing means for researchers and data professionals to easily use, deploy and scale machine learning programs 
-\cite{DataScienceTools2013}. However, ... tech-savvy
+Over the past several years, many platforms have emerged in the realm of \textit{data engineering}, providing means for researchers and data professionals to easily learn, deploy and scale machine learning models 
+\cite{DataScienceTools2013}. The greatest disadvantage of those platforms however, is that they all target the tech-savvy programming experts and experienced system administrators. While this may not be a problem for core ML researchers and programmers, it presents a serious obstacle to experts in the Life Sciences etc.
+
+Second, most modern frameworks allow for the setup of huge and very efficient clusters on a hardware / filesystem virtualization level. They do not provide built-in community networking functions, however, which could bridge the experience gap between disciplines (e.g. via hyper heuristics) or allow for easy reproducibility of results.
 
 
 \begin{itemize}
 	\item \textbf{Ease of access.}
-	\item \textbf{Effortless scalability.}
-	\item \textbf{Built-in potential analysis.}
+	\item \textbf{Effortless scalability.} JSVM based grid computing - which would be akin to the infrastructure powering Berkeley's BOINC framework 
+	\item \textbf{Corroboration of .}
 	\item \textbf{Server Side Meta Machine Learning.} As researchers start using our platform, their pipeline configurations, input descriptions, task specifiers (classification, text analysis etc.) as well as results will be stored on the server. Enough data provided, such a database might be amenable to the development of heuristics on the expected success of a particular algorithm invoked at a specific stage of the pipeline.
 	\item \textbf{Heuristics-based recommendations.} Based on the last section, an optimal pipeline configuration might be computed provided only the input data (image, text, point cloud etc.) as well as the desired result. The Smart Computational Pipeline would then self assemble (given the user has no objections) and immediately commence the experiment.
-	\item \textbf{Instant deployment.} In traditional scientific programming, there is a large gap between developing a model suitable for a specific research question and actually deploying it in a production environment \citep{AnalLifecycle}.
+	\item \textbf{Instant deployment.} In traditional scientific programming, there is a large gap between developing a model suitable for a specific research question and actually deploying it in a production environment \citep{AnalLifecycle}. Being Web based, Graphinius' development and production environment are one and the same, reducing the deployment procedure to posting a link to an experiment (for scalability, see above).
 \end{itemize}
 
 
