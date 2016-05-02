@@ -50,7 +50,7 @@ In this thesis I will mainly introduce GraphiniusJS and its underlying design pr
 
 
 \section{The history of Graphinius}
-\label{sect:ogma_history}
+\label{sect:graphinius_history}
 When I met Andreas Holzinger in November 2013 he presented me with a 'crazy' idea: To analyze dermatological images not by traditional image processing methods, but by first transforming them into a graph structure and subsequently apply graph mining algorithms with the goal of obtaining results at least comparable to the quality achievable as of date. My first experiments in what I came to term \textit{graph extraction from images} were conducted in Matlab and progressed rather modestly; being a developer used to employ C-style programing languages and Object oriented paradigms, Matlab seemed a peculiar (and very costly) way to perform specific, handwritten algorithms which did not lend themselves especially well to matrix representations and calculations. Moreover I was concerned with the fact that even if I succeeded in doing a great job in extracting usable graphs (and it wasn't even clear what that meant) I would not easily be able to share my work with colleagues outside the research community. Providing C++ / Python or Java Code in a Github repository for developers having working installations of those environments to reproduce, is standard by today. Installations of Matlab (or Octave with specific add-on packages installed) however are not very widespread. Furthermore, in case my results turned out to be interesting to the public, any live demonstration of the software on unprepared systems would be clearly impossible.
 
 
@@ -83,27 +83,37 @@ As evolution (of ideas) never stops, there are already new ideas springing up co
 \section{How this thesis is structured}
 \label{section:thesis_structure}
 
-The rest of this chapter is composed of a short description of how scientific computing / machine learning tasks are handled today followed by the question if a transition towards Web based technologies is feasible given the narrow implementation choices in that field. We will then explore what benefits individual users as well as the whole research community could derive from conducting experiments on such a platform; therefore we have to outline potential properties and focal points of such a technology. 
+The rest of this chapter is composed of a short description of how scientific computing / machine learning tasks are handled today. We will then explore the benefits individual users as well as the whole research community could derive from conducting experiments on such a platform; therefore we have to outline potential properties and focal points of such a technology.
 
+%\chapter{Theoretical background / applications}
+%\label{ch:theory_applications}
 
-Chapter 3, ``Related work'', will consider past and present approaches to recognizing objects in images as well as conduct image classification utilizing graph based approaches and will therefore show the validity of OGMA's objectives. Furthermore, contemporary efforts of building machine learning pipelines as well as the data and insights they are based on will be investigated. An overview of existing software solution will conclude chapter 2.
+%\chapter{The business case for Graphinius}
+%\label{ch:business_case}
 
-\par
+%\chapter{GRAPHINIUS as a platform}
+%\label{ch:graphinius_platform}
 
-In Chapter 4, ``SCP General Design'', we will lay the technical and scientific foundation for the design of a smart computational pipeline for OGMA. Building upon a high level overview of machine learning pipelines and their different stages in theory, we will be able to derive general requirements that any piece of software handling those processes will have to fulfill. Further, the question will arise as to how to represent algorithmic ``packages'' for the sake of this undertaking and how dependencies in the I/O of each pipelining stage should be resolved automatically. Following an analysis of how to use existing package manager algorithms to fulfill those requirements, the question of executing a valid processing pipeline within a browser environment considering modern users' expectations of fluidity and asynchronicity will be dealt with. At the end of this chapter, we will propose a data model for storing the experiment metadata for further analysis and find a description of the algorithms used for testing the pipeline later on.
-
-\par
+%\chapter{Software Requirements \& Survey}
+%\label{ch:software_requirements}
 
 The next chapter 5, ``SCP Software Design'', will elaborate on the actual software implementation as well as the software development process followed in this project. First a set of requirements for modern Web based software will be compiled; based on this checklist an exploration of possible suitable technologies for both server and client will be conducted and their respective strenghts and weaknesses revealed. After a detailed comparison I will argue for the particular combination of choices I made and will subsequently describe the development process used to implement the pipeline. An illustration of how Webworkers were used to execute the pipeline as well as how results were visualized will finalize this chapter.
 
-\par
 
-The 6th chapter on ``Results and Discussion'' will wrap up the efforts undertaken in this project. I will first go into details about the project implementation and the difficulties and / or caveats that arose during my work. A detailed experimental setup will be described and the expected behavior of the SCP defined, while the ensuing section should verify those expectations and therefore validate the approach taken. A discussion of open and interesting challenges as well as  an outlook on future possibilities to enhance and expand on this work will top of this chapter.
+%\chapter{Architecture / Implementation}
+%\label{ch:implementation}
+I will first go into details about the project implementation and the difficulties and / or caveats that arose during my work. A detailed experimental setup will be described and the expected behavior of the SCP defined, while the ensuing section should verify those expectations and therefore validate the approach taken. A discussion of open and interesting challenges as well as  an outlook on future possibilities to enhance and expand on this work will top of this chapter.
 
-\par 
+%\chapter{Implementation - Areas of Application}
+%\label{ch:impl_aoa}
 
-Eventually the 7th and last chapter, ``Conclusion'', will give a short recap on the motivation, goals, and main issues of this project and thus bring the thesis to its completion.
+%\chapter{Results and Discussion}
+%\label{ch:results_discussion}
 
+%\chapter{Future Work}
+%\label{ch:future_work}
+
+I will finish this thesis with a summary and conclusion in Chapter~\ref{ch:conclusion}, and give some additional information about anonymization outputs in Appendix~\ref{App:AppendixA} and provide the whole Graphinius API as of the time of this writing in Appendix~\ref{App:AppendixB}.
 
 
 \section{How Machine Learning / KDD are approached today}
@@ -131,29 +141,24 @@ This leads us to the insight that a readily available (no complex setup or confi
 Over the past several years, many platforms have emerged in the realm of \textit{data engineering}, providing means for researchers and data professionals to easily learn, deploy and scale machine learning models 
 \cite{DataScienceTools2013}. The greatest disadvantage of those platforms however, is that they all target the tech-savvy programming experts and experienced system administrators. While this may not be a problem for core ML researchers and programmers, it presents a serious obstacle to experts in the Life Sciences etc.
 
-Second, most modern frameworks allow for the setup of huge and very efficient clusters on a hardware / filesystem virtualization level. They do not provide built-in community networking functions, however, which could bridge the experience gap between disciplines (e.g. via hyper heuristics) or allow for easy reproducibility of results.
-
+Second, most modern frameworks allow for the setup of huge and very efficient clusters on a hardware / filesystem virtualization level. They do not provide built-in community networking functions, however, which could bridge the experience gap between disciplines (e.g. via hyper heuristics) or allow for easy reproducibility of results. The following list shall give a short overview of potential advantages of the Graphinius Platform:
 
 \begin{itemize}
-	\item \textbf{Ease of access.}
-	\item \textbf{Effortless scalability.} JSVM based grid computing - which would be akin to the infrastructure powering Berkeley's BOINC framework 
-	\item \textbf{Corroboration of .}
-	\item \textbf{Server Side Meta Machine Learning.} As researchers start using our platform, their pipeline configurations, input descriptions, task specifiers (classification, text analysis etc.) as well as results will be stored on the server. Enough data provided, such a database might be amenable to the development of heuristics on the expected success of a particular algorithm invoked at a specific stage of the pipeline.
-	\item \textbf{Heuristics-based recommendations.} Based on the last section, an optimal pipeline configuration might be computed provided only the input data (image, text, point cloud etc.) as well as the desired result. The Smart Computational Pipeline would then self assemble (given the user has no objections) and immediately commence the experiment.
+	\item \textbf{Ease of access.} With configuration and loading of binaries happening automatically from the outside, barely any costs for technical configuration and conducting experiments arise.
+	
+	\item \textbf{Effortless scalability} As users of the platform provide their own computing power via their browsers, the server role can initially be reduced to that of a static document server / database server.
+	
+	\item \textbf{Automatic grid potential.} As browsers were intended to always be connected to a larger network of computers, and 2-way communication via Web Sockets has recently become commonplace, we can imagine the JavaScript Virtual Machine (JSVM) as a natural node of a dynamic virtual grid computer - akin to a client node in Berkeley's BOINC framework (Seti@Home).
+	
+	\item \textbf{Centralization of experiment meta data.} As code and configuration will be stored and transmitted by a Web servers anyways, nodes will be able to send descriptions of conducted experiments back to the servers for storage and evaluation. Given enough participants on the platform, this would lead to the formation of ML meta knowledge, as to which algorithms in what sequence would perform best given some inputs and specified problem class (prediction, description, ...).
+	
+	\item \textbf{Hyper Heuristics} are a way of selecting or configuring algorithms by searching a space of lower level heuristics instead of searching the solution (or parameter) space itself. Hyper heuristics are different from Meta Learning in that they work independent of the problem domain and therefore promise to be generally applicable; the challenges lie in producing algorithms with a good overall runtime behavior - therefore, meta-data about experiments from diverse problem domains are required.
+	
+	\item \textbf{A Pipeline recommender} with the ability to automatically instantiate and execute the recommended (sequence) of algorithms could be built upon this knowledge, which would further enhance a researcher's capacity to conduct more experiments faster, potentially leading to an increase in frequency or quality of scientific output.
+	
 	\item \textbf{Instant deployment.} In traditional scientific programming, there is a large gap between developing a model suitable for a specific research question and actually deploying it in a production environment \citep{AnalLifecycle}. Being Web based, Graphinius' development and production environment are one and the same, reducing the deployment procedure to posting a link to an experiment (for scalability, see above).
+	
+	\item \textbf{Easy corroboration of results} follows naturally considering the \textit{instant deployment} aspect, as clicking on a published link to an experiment, automatically downloading its code to one's browser and pressing the \textit{start} button is all that were needed to run a colleague's latest experiment on one's own computer.
+	
+	\item \textbf{Great visual capabilities.} Although there exist great visualization toolkits for many of the data science platforms out there today, the sheer mass of 2D and 3D libraries running in the browser enable completely new ways to demonstrate, interact with, and even manipulate results in real time. Moreover, exchanging of 'live' results (via simple bookmarks) instead of 'dead' graphs (in scientific papers) would soon become standard amongst members of such a community.
 \end{itemize}
-
-
-
-\section{General application categories}
-\label{sect:gen_app_cats}
-
-\subsection{education}
-\label{ssect:education}
-
-\subsection{algorithm prototyping}
-\label{ssect:algo_proto}
-
-\subsection{research platform}
-\label{ssect:research}
-
