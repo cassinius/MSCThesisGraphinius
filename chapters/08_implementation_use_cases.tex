@@ -75,28 +75,28 @@ As described in earlier chapters of this thesis, there are countless application
 		\item \textbf{Input image as graph.} The resulting image is simply interpreted as a graph, which is possible because every pixel-based image naturally forms a graph structure, in which pixels are represented by nodes and neighborhoods are represented by edges. We then extract an edge list where the entries is sorted according to edge weight (= differences in the intensity values of neighboring nodes).
 		\item \textbf{Graph based (over-)segmentation.} As the next step, a Kruskal MST based algorithm developed by \citep{FelzenszwalbHuttenlocher2004} is applied. It takes the approach of merging regions from pixel level (= inital nodes) 'upwards' instead of recursively partitioning the whole image 'downwards' - essentially, at every step it compares an intra-region coherence measure to an inter-region similarity measure:
 		
-			\begin{equation*}
-			\text{Int}(C) = \max\limits_{e \in \text{MST}(C,E)}  \omega(e)
-			\end{equation*}
-			is the intra-region coherence value, given by the maximum edge weight of the region's MST.
-			
-			\par
-			\begin{equation*}
-			\text{Dif}(C1,C2) = \min\limits_{v_i \in C1, v_j \in C2, (v_i,v_j) \in E} \omega(v_i,v_j)
-			\end{equation*}
-			denotes the intra-region similarity measure, given by the minimum edge weight connecting any two nodes between them.
-			
-			\par Finally,
-			\begin{equation*}
-			\text{D}(C1,C2) = \left\{
-			\begin{array}{l l}
-			\textit{true} & \quad \text{if} \quad \text{Dif}(C1,C2) > \text{MInt}(C1,C2)\\
-			\textit{false} & \quad \text{otherwise}
-			\end{array} \right.
-			\end{equation*}
-			determines if two regions should be merged, based on the relation of their intra-region coherence and inter-region similarity measures.
-			
-			\par Once all edges have been considered, the final graph partition represents the segmentation (merging) result
+		\begin{equation*}
+		\text{Int}(C) = \max\limits_{e \in \text{MST}(C,E)}  \omega(e)
+		\end{equation*}
+		is the intra-region coherence value, given by the maximum edge weight of the region's MST.
+		
+		\par
+		\begin{equation*}
+		\text{Dif}(C1,C2) = \min\limits_{v_i \in C1, v_j \in C2, (v_i,v_j) \in E} \omega(v_i,v_j)
+		\end{equation*}
+		denotes the intra-region similarity measure, given by the minimum edge weight connecting any two nodes between them.
+		
+		\par Finally,
+		\begin{equation*}
+		\text{D}(C1,C2) = \left\{
+		\begin{array}{l l}
+		\textit{true} & \quad \text{if} \quad \text{Dif}(C1,C2) > \text{MInt}(C1,C2)\\
+		\textit{false} & \quad \text{otherwise}
+		\end{array} \right.
+		\end{equation*}
+		determines if two regions should be merged, based on the relation of their intra-region coherence and inter-region similarity measures.
+		
+		\par Once all edges have been considered, the final graph partition represents the segmentation (merging) result
 		
 		\item \textbf{A Delauney triangulation} is computed once the final region map has been established, taking each region's centroid to become a node in the new graph, as well as the (non-overlapping, as the algorithm is producing a tessellation of the region map) connections between those centroids to be their respective edges. The edge weight is computed from the difference in average intensity value of two adjacent regions.
 
@@ -120,14 +120,52 @@ As described in earlier chapters of this thesis, there are countless application
 \section{Anonymity: SaNGreeA}
 \label{sect:aoa_anonymization}
 
+	SaNGreeA stands for \textit{Social network greedy clustering} and was introduced by \cite{campan2009data}. In addition to 'clustering' nodes of a graph according to the minimum general information loss (GIL) incurred as described in Section~\ref{sect:graph_sn_anon}, this algorithm also considers the structural information loss (SIL) by assigning a node to a certain cluster. The SIL quantifies the probability of error when trying to reconstruct the structure of the initial graph from its anonymized version.
+	
+	The SIL is composed of two different components: 1) the intra-cluster structural loss, signifying the error probability in trying to reconstruct the original edge distribution within an equivalence class (= anonymized cluster), and 2) the inter-cluster structural loss which represents the error probability in trying to reconstruct the original configuration of edges between two equivalence classes.
+	
+	In implementing and demonstrating this algorithm, I recreated the paper's original experiment:
+
 	\begin{enumerate}
-		\item \textbf{Process input data into suitable structure}
-		\item \textbf{Enhance structure with graph information (random)}
-		\item \textbf{Anonymize via SaNGreeA}
-		\item \textbf{prepare individual cost function via iML}
-		\item \textbf{Anonymize via SaNGreeA modified}
-		\item \textbf{Compare results}
+		\item \textbf{Process input data into suitable structure.} The adults dataset was selected and all but six columns deleted - only Age, Workclass, Country of origin, Gender, Race and Marital status remained (a sample containing the first 19 rows can be seen in Figure~\ref{fig:adult_input_data_sample}). Furthermore, in order to obtain repeatable results, the first 300 'pure' rows (no missing or mis-formatted values) in the dataset were chosen as input set.
+		
+		\item \textbf{Enhance structure with graph information (random edges).} Using GraphiniusJS's capability of randomly adding edges to nodes, a connected graph was created out of the assortment of nodes (using between 1 and 10 outgoing edges per node).
+		
+		\item \textbf{Compute GIL \& NGIL.} The general information loss with respect to a cluster is given by the following formula (repeating from the original paper):
+		\begin{equation*}
+		\text{GIL}(cl) = \abs{cl} \cdot (\sum_{j=1}^{s} \frac{size(gen(cl)[N_j])}{size(min_{x \epsilon N} (X[N_j]), max_{x \epsilon N} (X[N_j]))} + \sum_{j=1}^{t} \frac{height(\Lambda(gen(cl)[C_j]))}{height(H_{C_j})})
+		\end{equation*}
+		where:\\
+		- $\abs{cl}$ denotes the cluster cl's cardinality; \\
+		- $size([i1,i2])$ is the size of the interval $[i1,i2]$, i.e., $(i2-i1)$; \\
+		- $\Lambda(w), w \epsilon H_{C_j}$ is the subhierarchy of $H_{C_j}$ rooted in $w$; \\
+		- $height(H_{C_j})$ denotes the height of the tree hierarchy $H_{C_j}$; \\
+		
+		The total generalization information loss is then given by:
+		\begin{equation*}
+			\text{GIL}(G,S) = \sum_{j=1}^{v} \text{GIL}(cl_j)
+		\end{equation*}
+		And the normalized generalization information loss by:
+		\begin{equation*}
+		\text{NGIL}(G,S) = \frac{\text{GIL}(G,S)}{n \cdot (s+t)}
+		\end{equation*}
+		
+		\item \textbf{Compute SIL \& NSIL.} For the exact mathematical definitions of SIL \& NSIL the reader is kindly referred to the original paper. Because the structural information loss cannot be computed exactly before the final construction of clusters, the exact computations were replaced by the following distance measures: \\
+		Distance between two nodes:
+		\begin{equation*}
+		\text{dist}(X^i, X^j) = \frac{\abs{\{l|l=1..n \wedge l \ne i,j;b_l^i \ne b_l^j}}{n-2}
+		\end{equation*}
+		
+		Distance between a node and a cluster:
+		\begin{equation*}
+		\text{dist}(X, cl) = \frac{\sum_{X^j \epsilon cl} \text{dist}(X, X^j) }{\abs{cl}}
+		\end{equation*}
 	\end{enumerate}
+	
+	The algorithm starts with initializing a first cluster by simply adding a randomly chosen node to it. Then, for every new node encountered, the weighted sum of the above two information loss metrics will yield a certain overall information loss value if the node was added to that cluster - the node with the minimal cost is then chosen as the candidate and expands the cluster. This is repeated until the first cluster reaches a certain requirement (e.g. size == k-factor) upon which another random node is chosen to constitute a next cluster. This procedure is repeated until all nodes have been assigned (if a cluster of size < k-factor remains, its member nodes are dispersed amongst the others). 
+	
+	Since the algorithm does not take ALL possible node combinations into account, but simply start with a node and compares all the candidates in a loop, the algorithm runs in quadratic time w.r.t. the input size in number of nodes. This worked well within milliseconds for an input problem size of a few hundred nodes. An example output of the implemented algorithm can be found in Appendix~\ref{App:AppendixA}. \\
+	
 	
 	\begin{figure}[ht]
 		\begin{center}
