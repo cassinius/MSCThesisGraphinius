@@ -1,19 +1,49 @@
 \chapter{The business case for Graphinius}
 \label{ch:business_case}
 
+An exciting new software project would only be half exciting if there was not the promise of economic success as well. In the case of an online platform, we are already somewhat limited in our options here. Basically, there are three business models that companies building on large quantities of individual users (in contrast to highly-specialized pro software or business services) can employ.
 
-\section{Business model}
+\section{Potential business models}
 \label{sect:business_model}
+
+\begin{enumerate}
+	\item \textbf{The Facebook model.} Giving away the platform services completely for free, attracting potentially extremely large audiences, then trying to cash-in on services offered to external businesses - like advertisement or data analysis. The downside of this model is that it only works in areas where potential applications are so generic as to be of interest to many millions, even billions of people. A graph-theoretical research platform does not fall into that category...
+	
+	\item \textbf{The pay-as-you-go model.} Many services, especially in the realm of cloud data centers, embrace this model as it gives them the opportunity to charge for their services in a very fine-grained manner, as in CPU hours or units of data traffic consumed. This model however requires the offering company to have very precise measuring capabilities in place, which makes it attractive for Amazon but rather uninteresting to small startups.
+	
+	\item \textbf{The Premium membership model.} Giving away a base service for free, thereby trying to attract larger audiences, then cashing in on premium-offerings is another way of conducting business. It is suitable especially for smaller companies, as it requires only monthly billings via credit card payment which can be easily and cheaply performed today. In case the Graphinius platform should ever develop into a commercial offering, this model would certainly be the preferred choice.	
+\end{enumerate}
+
+
+\section{Potential business sectors}
+\label{sect:business_sectors}
+
+	Another important consideration in taking a product to the market is some form of potential analysis. Although we are not going to calculate possible user bases here, I want to at least mention some general market segments that might profit from a platform like Graphinius.
 
 	\subsection{education}
 	\label{ssect:education}
 	
+	Graph theory is an integral part of every Computer Science / Software Engineering degree and will extend more and more into Biology, BioMed, Medicine and the Social Sciences in the future. This means that millions of university students will at some point come into contact with graph-theoretical assignments, which on the other hand have to be designed, deployed, collected and assessed by university employees. Graphinius as an online, Web based platform would not only alleviate the hassle for students to setup their own development libraries and environments, but could also function as a central point of assignment submission \& correction / grading. 
+	
 	\subsection{algorithm prototyping}
 	\label{ssect:algo_proto}
 	
+	Many companies have to apply their algorithms to graphs of enormous size (e.g. Facebook's going into the many billions, but biological networks are growing exponentially as well, if only for the progress in detection technology). However, designing new algorithms on a production graph of that magnitude is hardly practical, which means that much smaller test setups are usually used for algorithmic prototyping. Graphinius could offer such an environment either for open source development or as a premium service for closed source projects.
+	
 	\subsection{community research platform}
 	\label{ssect:research}
+	
+	Representing essentially our base case, we already discussed in detail how a Web based approach holds many advantages over closed-source, isolated Machine Learning islands (see Section~\ref{sect:web_benefits}). In addition to this, let us just mention the success and influence Kaggle has gained within the data science community over the previous years. If a platform only concerned with distributing interesting competitions can gain such a widespread reach, how great a potential would a platform hold which promotes not only communication and awareness, but enables code sharing and easy reproduction as well?
 
 
-\section{Potential competitor platforms}
+\section{Remarks on potential competitor platforms}
 \label{sect:potential_competitors}
+
+	There are several cloud based services in the world offering machine learning APIs connected to elaborate computing / data center infrastructures. A recent article \cite{MLaaSTop10} discussed no fewer than a dozen of these, which differ in their service offerings by either providing just computational resources, community aspects (algorithm DB, user experience sharing, communication), predictive services including pre-learned models or by focusing on specialized ML tasks (deep learning applied to videos etc.).
+	
+	While all of those platforms may have their pros and cons, they all rely on \textit{server-side} computation of the actual experiments, which is not surprising given the extensive availability of supporting software in that area (Hadoop, Spark, external backend cloud services like Tensor flow etc.). Graphinius on the other hand uses the server only as an access point to an algorithmic DB delivering snippets of code to the connecting JSVM. This is of great advantage to the delivering company, as it allows for almost effortless scaling, but hold the disadvantage of being dependent on the processing power of the connecting machine (mobile devices?). Experiments have yet to be conducted concerning the feasibility of such a platform; the author will be excited to setup such tests in the future.
+	
+	
+	
+	
+	

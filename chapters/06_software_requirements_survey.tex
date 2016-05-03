@@ -83,7 +83,7 @@ i * 2 for i in [1..10]
 	
 	The greatest obstacle to large-scale web-development in ES5 was the lack of an explicit type system and built-in module system, which would allow an IDE to scan dependent files and constructs and infer a valid type-flow, enabling the development environment to assist the programmer with code completion and type error hints. This was realized by Microsoft when they ported part of their Office suite to the web (Office365), which consumed not only years of manpower but took hundreds of thousands of lines of code before a stable product could be released. As a consequence, they formed a group around their lead C\# / .NET developer Anders Hejlsberg (the former creator of TurboPascal and chief software engineer at Borland until 1996) with the mission to develop a JS meta language incorporating those characteristics for large scale web development in 2012. The result of those efforts is Typescript, which of 2016 is a superset of ES6 with the additional benefits of allowing for the declaration of interfaces, enums, and in-place type annotations (amongst many others features like default and optional function parameters): 
 	
-	\begin{lstlisting}[caption={Typescript sample featuring import of an external module...}, label={fig:TS example}, language=JavaScript]
+	\begin{lstlisting}[caption={Typescript sample featuring import of an external module.}, label={fig:TS example}, language=JavaScript]
 import * as $N from "./Nodes";
 
 export interface IConnectedNodes {

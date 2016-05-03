@@ -1,31 +1,29 @@
-%\chapter{Data Schema}
-%\label{App:AppendixA}
-
-% \lstinputlisting[language=json]{listings/models.js}
 
 \chapter{Anonymization Table}
 \label{App:AppendixA}
 {
 \setstretch{1}
-%\csvreader[
-%longtable=llllll,
-%table head=
-%\toprule\bfseries Age range & \bfseries Workclass & \bfseries Country & \bfseries Gender & \bfseries Race & \bfseries Marital status \\ \midrule\endhead
-%\bottomrule\endfoot,
-%late after line=\\,
-%before reading={\catcode`\#=12},after reading={\catcode`\#=6}
-%]{figures/anonym/adults_300_anon_k10.csv}{1=\age,2=\workclass,3=\country,4=\gender,5=\race,6=\marital}{\age & \workclass & \country & \gender & \race & \marital}
+\csvreader[
+longtable=llllll,
+table head=
+\toprule\bfseries Age range & \bfseries Workclass & \bfseries Country & \bfseries Gender & \bfseries Race & \bfseries Marital status \\ \midrule\endhead
+\bottomrule\endfoot,
+late after line=\\,
+before reading={\catcode`\#=12},after reading={\catcode`\#=6}
+]{figures/anonym/adults_300_anon_k10.csv}{1=\age,2=\workclass,3=\country,4=\gender,5=\race,6=\marital}{\age & \workclass & \country & \gender & \race & \marital}
 }
 
 \chapter{GraphiniusJS API}
 \label{App:AppendixB}
 
+The following section provides the API documentation automatically extracted from the source code utilizing the TypeDoc library.
+
 \begin{landscape}
-	%\includepdf[pages={1-84}, 
-	%nup=1x2,
-	%landscape=true,
-	%width=.90\textwidth,
-	%trim=0 0 30pt 0,
-	%keepaspectratio
-	%]{figures/graphinius_doc.pdf}	
+	\includepdf[pages={1-100}, 
+	nup=1x2,
+	landscape=true,
+	width=.90\textwidth,
+	trim=0 0 30pt 0,
+	keepaspectratio
+	]{figures/graphinius_api.pdf}	
 \end{landscape}

@@ -366,7 +366,7 @@ it('should correctly generate our small example graph out of a JSON file with di
 	
 	The solution to this problem is to \text{mock} the XMLHTTPRequest object used by a browser to send AJAX requests over the internet, which - again in this specific case - replaces the object with a NodeJS request object and simulates the original XMLHTTPRequest API through a delegating wrapper around it. The exact sequence in this example is: 1) requiring the mocking library on line 3, 2) initializing a browser environment (providing the window and document objects) on line 4, 3) injecting browser globals into the Node environment on line 13, 4) requiring filesystem capabilities for local file loading on line 16 as well as loading the file on line 17, 5) initiating the mock on line 20 and finally setting up a fake web server responding to a certain URL on lines 23 through 30. The rest of the procedure (not shown in this exmaple) behaves exactly as an equivalent test inside a browser environment would.
 	
-	\begin{lstlisting}[caption={A mocking setup simulating a Web Server GET response...}, label={fig:mock_service_test}, language=JavaScript]
+	\begin{lstlisting}[caption={A mocking setup simulating a Web Server GET response.}, label={fig:mock_service_test}, language=JavaScript]
 describe('Loading graphs in simulated browser environment', () => {		
 	// Mocking the XHR object
 	var mock = require('xhr-mock');
@@ -423,7 +423,7 @@ describe('Loading graphs in simulated browser environment', () => {
 	
 	Spies are test wrapper objects that observe the original function or method and record any activity regarding it, e.g. how often it was called, which argument values it was called with, which values were returned or if an error was thrown. In the example below, we instantiate a local backup object \textit{original}, then instantiate a spy on line 10, store the original function reference in our backup object on line 12, and replace the original function with our spy on line 14. In calling \$DFS.prepareDFSVisitStandardConfig on line 25, we expect to see the original function invoked in the process, which we check on line 28. The \textit{after} block from lines 18 through 21 then restores the original objects.
 	
-	\begin{lstlisting}[caption={A functional test making use of a spy...}, label={fig:spy_test}, language=JavaScript]
+	\begin{lstlisting}[caption={A functional test making use of a spy.}, label={fig:spy_test}, language=JavaScript]
 describe('testing config preparation functions - ', () => {
 	var prepForDFSVisitSpy,
 	prepForDFSSpy,
