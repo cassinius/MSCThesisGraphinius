@@ -1,0 +1,465 @@
+%Template for Master students of the Holzinger Group, Approved: 02.04.2016 ah
+
+\documentclass[oneside, 12pt]{book}
+
+\usepackage[          % set page and margin sizes
+  a4paper,
+  top=30mm,
+  bottom=30mm,
+  inner=30mm,
+  outer=30mm,
+  % head=10mm,
+  % foot=10mm,
+  % headsep=15mm,
+  % footskip=15mm,
+%  includeheadfoot,
+]{geometry}
+
+% \usepackage[          % set page and margin sizes
+%   a4paper,
+%   top=10mm,
+%   bottom=10mm,
+%   inner=20mm,
+%   outer=20mm,
+%   bindingoffset=10mm,
+%   head=10mm,
+%   foot=10mm,
+%   headsep=15mm,
+%   footskip=15mm,
+%   includeheadfoot,
+% ]{geometry}
+
+\usepackage{times}                   % use PostScript fonts
+\usepackage{relsize}                 % relative font sizes \smaller \larger
+
+%\usepackage[iso-8859-1]{inputenx}    % so can use Umlaut chars  ä, ü
+\usepackage[T1]{fontenc}
+
+% UTF8 instead of UTF8x
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+
+\usepackage{textcomp}                % symbols such as \texttimes and \texteuro
+
+\usepackage{titlesec}								 % fontsize and section style
+
+\usepackage{amssymb} %maths
+\usepackage{amsmath} %maths
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+\usepackage{csvsimple,longtable,booktabs}
+
+\usepackage[
+  position=bottom,
+  margin=1cm,
+  font=small,
+  labelfont={bf,sf},
+  format=hang,
+  indention=0mm,
+]{caption,subfig}
+
+\captionsetup[subfigure]{
+  margin=0pt,
+  parskip=0pt,
+  hangindent=0pt,
+  indention=0pt,
+  singlelinecheck=true,
+}
+
+% fancyhdr to make nice headers and footers
+% and deal with long names
+
+\usepackage{fancyhdr}         % headers and footers
+\pagestyle{fancy}             % must call to set defaults before redefining
+
+\renewcommand{\chaptermark}[1]{%
+  \markboth{\thechapter.\ #1}{}
+}
+\renewcommand{\sectionmark}[1]{%
+  \markright{\thesection.\ #1}
+}
+\renewcommand{\headrulewidth}{0mm}
+\renewcommand{\footrulewidth}{0mm}
+\newcommand{\headlook}{\sffamily}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[LO]{
+  \parbox[t]{0.8\textwidth}{\headlook\nouppercase{\rightmark}}
+}
+\fancyhead[RE]{
+  \parbox[t]{0.8\textwidth}{\raggedleft\headlook\nouppercase{\leftmark}}
+}
+
+
+\fancypagestyle{plain}{%   redefine plain style, but does not work
+  \fancyhf{}    % clear all header and footer fields
+  \fancyfoot[C]{\headlook\thepage} % except the center
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+
+\usepackage{tabularx}                 % for better tables
+
+\usepackage{listings}                 % for listings of source code
+
+% Include pdfs in landscape mode
+\usepackage{pdflscape}
+\usepackage[final]{pdfpages}
+
+
+
+\usepackage[austrian,english]{babel}  % load babel *before* natbib or jurabib
+\addto{\captionsenglish}{%
+	\renewcommand{\bibname}{References}
+	\renewcommand\contentsname{Table of Contents}
+}
+
+%\usepackage[round, authoryear]{natbib}
+%\bibpunct{(}{)}{;}{a}{,}{,}
+
+%% BIBLIOGRAPH RELEVANT PACKAGES
+\usepackage[style=authoryear,backend=bibtex,natbib=true,dashed=false]{biblatex}
+\usepackage[plainpages=false, pdfpagelabels]{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+	colorlinks,
+	linkcolor={blue!50!black},
+	citecolor={blue!50!black},
+	urlcolor={blue!80!black}
+}
+\usepackage{color}
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\lstdefinelanguage{JavaScript}{
+	keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+	keywordstyle=\color{blue}\bfseries,
+	ndkeywords={class, export, boolean, throw, implements, import, this},
+	ndkeywordstyle=\color{darkgray}\bfseries,
+	identifierstyle=\color{black},
+	sensitive=false,
+	comment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	commentstyle=\color{purple}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	morestring=[b]',
+	morestring=[b]"
+}
+
+\lstset{
+	language=JavaScript,
+	backgroundcolor=\color{lightgray},
+	extendedchars=true,
+	basicstyle=\footnotesize\ttfamily,
+	showstringspaces=false,
+	showspaces=false,
+	numbers=left,
+	numberstyle=\footnotesize,
+	numbersep=9pt,
+	tabsize=2,
+	breaklines=true,
+	showtabs=false,
+	captionpos=b
+}
+
+
+\definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{editorOcher}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
+\definecolor{editorGreen}{rgb}{0, 0.5, 0} % #007C00 -> rgb(0, 124, 0)
+\lstdefinelanguage{HTML5}{
+	language=html,
+	sensitive=true, 
+	alsoletter={<>=-},
+	otherkeywords={
+		% HTML tags
+		<html>, <head>, <title>, </title>, <meta, />, </head>, <body>,
+		<canvas, \/canvas>, <script>, </script>, </body>, </html>, <!, html>, <style>, </style>, ><
+	},  
+	ndkeywords={
+		% General
+		=,
+		% HTML attributes
+		charset=, id=, width=, height=,
+		% CSS properties
+		border:, transform:, -moz-transform:, transition-duration:, transition-property:, transition-timing-function:
+	},  
+	morecomment=[s]{<!--}{-->},
+	tag=[s]
+}
+
+\lstset{%
+	% Basic design
+	backgroundcolor=\color{editorGray},
+	basicstyle={\small\ttfamily},   
+	frame=l,
+	% Line numbers
+	xleftmargin={0.75cm},
+	numbers=left,
+	stepnumber=1,
+	firstnumber=1,
+	numberfirstline=true,
+	% Code design   
+	keywordstyle=\color{blue}\bfseries,
+	commentstyle=\color{darkgray}\ttfamily,
+	ndkeywordstyle=\color{editorGreen}\bfseries,
+	stringstyle=\color{editorOcher},
+	% Code
+	language=HTML5,
+	alsolanguage=JavaScript,
+	alsodigit={.:;},
+	tabsize=2,
+	showtabs=false,
+	showspaces=false,
+	showstringspaces=false,
+	extendedchars=true,
+	breaklines=true,        
+	% Support for German umlauts
+	literate=%
+	{Ö}{{\"O}}1
+	{Ä}{{\"A}}1
+	{Ü}{{\"U}}1
+	{ß}{{\ss}}1
+	{ü}{{\"u}}1
+	{ä}{{\"a}}1
+	{ö}{{\"o}}1
+}
+
+\lstdefinelanguage{CSS}{
+	morekeywords={accelerator,azimuth,background,background-attachment,
+		background-color,background-image,background-position,
+		background-position-x,background-position-y,background-repeat,
+		behavior,border,border-bottom,border-bottom-color,
+		border-bottom-style,border-bottom-width,border-collapse,
+		border-color,border-left,border-left-color,border-left-style,
+		border-left-width,border-right,border-right-color,
+		border-right-style,border-right-width,border-spacing,
+		border-style,border-top,border-top-color,border-top-style,
+		border-top-width,border-width,bottom,caption-side,clear,
+		clip,color,content,counter-increment,counter-reset,cue,
+		cue-after,cue-before,cursor,direction,display,elevation,
+		empty-cells,filter,float,font,font-family,font-size,
+		font-size-adjust,font-stretch,font-style,font-variant,
+		font-weight,height,ime-mode,include-source,
+		layer-background-color,layer-background-image,layout-flow,
+		layout-grid,layout-grid-char,layout-grid-char-spacing,
+		layout-grid-line,layout-grid-mode,layout-grid-type,left,
+		letter-spacing,line-break,line-height,list-style,
+		list-style-image,list-style-position,list-style-type,margin,
+		margin-bottom,margin-left,margin-right,margin-top,
+		marker-offset,marks,max-height,max-width,min-height,
+		min-width,-moz-binding,-moz-border-radius,
+		-moz-border-radius-topleft,-moz-border-radius-topright,
+		-moz-border-radius-bottomright,-moz-border-radius-bottomleft,
+		-moz-border-top-colors,-moz-border-right-colors,
+		-moz-border-bottom-colors,-moz-border-left-colors,-moz-opacity,
+		-moz-outline,-moz-outline-color,-moz-outline-style,
+		-moz-outline-width,-moz-user-focus,-moz-user-input,
+		-moz-user-modify,-moz-user-select,orphans,outline,
+		outline-color,outline-style,outline-width,overflow,
+		overflow-X,overflow-Y,padding,padding-bottom,padding-left,
+		padding-right,padding-top,page,page-break-after,
+		page-break-before,page-break-inside,pause,pause-after,
+		pause-before,pitch,pitch-range,play-during,position,quotes,
+		-replace,richness,right,ruby-align,ruby-overhang,
+		ruby-position,-set-link-source,size,speak,speak-header,
+		speak-numeral,speak-punctuation,speech-rate,stress,
+		scrollbar-arrow-color,scrollbar-base-color,
+		scrollbar-dark-shadow-color,scrollbar-face-color,
+		scrollbar-highlight-color,scrollbar-shadow-color,
+		scrollbar-3d-light-color,scrollbar-track-color,table-layout,
+		text-align,text-align-last,text-decoration,text-indent,
+		text-justify,text-overflow,text-shadow,text-transform,
+		text-autospace,text-kashida-space,text-underline-position,top,
+		unicode-bidi,-use-link-source,vertical-align,visibility,
+		voice-family,volume,white-space,widows,width,word-break,
+		word-spacing,word-wrap,writing-mode,z-index,zoom},
+	morestring=[s]{:}{;},
+	sensitive=false, 
+	morecomment=[l]{//}, 
+	morecomment=[s]{/*}{*/}, 
+	morestring=[b]"
+}
+
+
+\usepackage{url}
+\usepackage{doi}
+\addbibresource{thesis-references.bib}
+
+\renewcommand{\baselinestretch}{1.50}\normalsize
+
+\usepackage{latexsym}
+
+\usepackage{color}
+\definecolor{darkgreen}{rgb}{0,0.2,0}
+\definecolor{darkblue}{rgb}{0,0,0.2}
+\definecolor{darkred}{rgb}{0.2,0,0}
+\definecolor{lightgrey}{rgb}{0.8,0.8,0.8}
+
+\usepackage{setspace}
+\setstretch{1,4} % CHG was 1,3
+
+\usepackage{ifpdf}
+\usepackage{glossary}
+% add to your build script! makeindex.exe thesis.glo -s thesis.ist -o thesis.gls
+
+\usepackage{algorithm}
+\usepackage{algorithmic}
+% \newcommand{\theHalgorithm}{\arabic{algorithm}} % fix "undefined control sequence" error when using hyperref and referencing an algorithm
+\algsetup{
+  linenosize=\small,
+  linenodelimiter=,
+}
+
+\newcommand{\halfh}{9.5cm}        % height of figures for 2 per page
+\newcommand{\thirdh}{6cm}         % height of figures for 3 per page
+
+
+\setlength{\parskip}{3pt plus 1pt minus 0pt}  % vert. space before a paragraph
+
+
+% \tolerance is set by LaTeX to 200
+% \sloppy sets \tolerance = 9999
+% which allows LaTeX more tolerance in adding word spacing
+
+% \sloppy
+ %\fussy
+ %\tolerance = 1000
+
+
+\setcounter{tocdepth}{3}        % lowest section level entered in ToC
+\setcounter{secnumdepth}{3}     % lowest section level still numbered
+
+\begin{document}
+
+\titleformat{\chapter}[hang]
+{\fontsize{16pt}{18pt}\bfseries}{\thechapter.}{18pt}{}
+\titlespacing*{\chapter} {0pt}{20pt}{20pt} % abstand links, oben, unten
+
+\lstset{               % set parameters for listings
+  language=,
+  basicstyle=\small\ttfamily,
+  tabsize=4,
+  % frame=shadowbox,
+  frame=lines,
+  %frame=tb,
+  xleftmargin=15pt,
+  framexleftmargin=20pt,
+  %xrightmargin=2mm,
+  float=tbp,
+  rulesepcolor=\color{lightgrey},
+  numbers=left,
+  numberstyle=\small,
+  numbersep=5pt,
+  breaklines=true,
+  breakautoindent=true,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false,
+  keywordstyle=\bfseries,
+  identifierstyle=,
+  commentstyle=\itshape\color{lightgrey},
+  stringstyle=\itshape,
+  captionpos=b,
+  extendedchars=true,
+  mathescape=false,
+  abovecaptionskip=\abovecaptionskip,
+  belowcaptionskip=\belowcaptionskip,
+  aboveskip=\floatsep,
+}
+\lstloadlanguages{
+ C,
+ C++,
+ XML,
+ HTML,
+}
+
+%------------------------------------------------------
+\frontmatter
+\normalsize
+\pagestyle{empty}            % for title pages
+
+
+\include{chapters/00_title}       % Title Pages, Abstracts, Keywords, Pledge, %Abbreviations
+
+
+%------------------------------------------------------
+
+\tableofcontents
+\newpage
+%------------------------------------------------------
+
+\mainmatter
+
+\pagestyle{headings}         % for main pages
+\pagestyle{fancy}            % for main pages
+\pagenumbering{arabic}       % for main pages
+\setcounter{page}{17} % adjust this number if introduction becomes shorter or longer
+
+
+
+\include{chapters/01_motivation_introduction}
+
+\include{chapters/02_theory_applications}
+
+\include{chapters/04_business_case}
+
+\include{chapters/05_graphinius_platform}
+
+\include{chapters/06_software_requirements_survey}
+
+\include{chapters/07_implementation}
+
+\include{chapters/08_implementation_use_cases}
+
+\include{chapters/09_results}
+
+\include{chapters/10_open_problems_future_work}
+
+\include{chapters/11_conclusion}
+
+
+\appendix
+% \noappendicestocpagenum
+% \addappheadtotoc
+
+
+\setstretch{1.3}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Listings}
+\lstlistoflistings
+
+%\cleardoublepage
+%\phantomsection
+%\addcontentsline{toc}{chapter}{List of Tables}
+%\listoftables
+
+% \cleardoublepage
+% \phantomsection
+% \addcontentsline{toc}{chapter}{Glossary}
+% \printglossary
+
+% \cleardoublepage
+% \include{thesis-09-abbrev}      % Abbreviations
+\include{chapters/13_bibliography}
+
+% Appendices should be last...
+\include{chapters/12_appendices}
+
+\cleardoublepage
+\phantomsection
+
+
+\end{document}
+
