@@ -110,7 +110,10 @@
 \usepackage{pdflscape}
 \usepackage[final]{pdfpages}
 
-
+% Prevent rotaten of landscape pdf inclusion to landscape
+\makeatletter
+\renewcommand\PLS@Rotate[1]{}
+\makeatother
 
 \usepackage[austrian,english]{babel}  % load babel *before* natbib or jurabib
 \addto{\captionsenglish}{%

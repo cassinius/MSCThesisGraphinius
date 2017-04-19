@@ -180,7 +180,7 @@ if ( callbacks.init_bfs ) {
 		
 		An \textbf{edge array} containing objects specifying a \textit{to} node, a \textit{direction} specifier as well as some \textit{weight}; direction and weight are optional; a \textbf{coordinates} array containing the \textit{x}, \textit{y}, and \textit{z} coordinates of a node; the \textit{z} coordinate is optional; a \textbf{feature vector} containing a hashmap of arbitrary length containing objects of arbitrary type including nested structures. The feature vector is solely used by applications building on GraphiniusJS and ignored by the standard suite of algorithms as described in the previous section. A sample of a valid graph in the Graphinius JSON file format is depicted in Figure~\ref{fig:json_input_graph}.
 		
-		\begin{figure}[ht]
+		\begin{figure}[H]
 			\centering
 			\hspace*{-1.5cm}
 			\includegraphics[width=1.2\textwidth]{figures/search_graph_json}
@@ -198,16 +198,16 @@ if ( callbacks.init_bfs ) {
 	
 	In order to guarantee smooth behavior as well as separation of concerns in the software, placing this functionality directly in either the GraphiniusJS or GraphiniusVIS libraries would violate sound architectural principles. Therefor, the author proposes (but has not implemented yet) the following general module:
 	
-	\begin{landscape}
-		\begin{figure}[ht]
+	%\begin{landscape}
+		\begin{figure}[H]
 			\label{fig_history_workflow}
 			\centering
-			\vspace{-2.0cm}
-			%	\hspace*{0cm}
-			\includegraphics[width=1.6\textwidth]{figures/History_Workflow_pdf}
+			\vspace{-.3cm}
+			\hspace*{-1.0cm}
+			\includegraphics[angle=90,width=1.1\textwidth]{figures/History_Workflow_pdf}
 			\caption{Graphinius JS <-> VIS communication via Op-Log}
 		\end{figure}
-	\end{landscape}
+	%\end{landscape}
 
 	\subsection{Timeline}
 	\label{ssect:timeline}
@@ -274,15 +274,17 @@ if ( callbacks.init_bfs ) {
 	The following diagram summarizes some demo interactions / control flows contained in our base implementation.
 	
 	%\begin{landscape}
-		\begin{figure}[ht]
-			% \centering
-			\hspace*{-1.3cm}
-			\includegraphics[width=1.2\textwidth]{figures/VIS_Control_Flow}
+		\begin{figure}[H]
+			\centering
+			\vspace{1.3cm}
+			\hspace*{-0.8cm}
+			\includegraphics[angle=0,width=1.1\textwidth]{figures/VIS_Control_Flow}
 			\caption{Graphinius VIS control flow}
 			\label{fig_vis_control_flow}
 		\end{figure}
 	%\end{landscape}
 
+\newpage
 
 \section{Dependent Libraries}
 \label{sect:dep_libraries}
